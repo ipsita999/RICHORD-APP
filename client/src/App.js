@@ -1,11 +1,12 @@
 import React from 'react';
-import './App.css';
-import './Client.jsx'
+// import Client from './Client.jsx'
+import Home from './screens/Home.jsx'
 
 function App() {
   return (
     <>
-      <Client />
+      {/* <Client /> */}
+      <Home/>
     </>
   );
 }
