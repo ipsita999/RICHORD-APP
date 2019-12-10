@@ -5,6 +5,7 @@ import Home from '../screens/Home'
 import SignIn from '../screens/SignIn'
 import SignOut from '../screens/SignOut'
 import SignUp from '../screens/SignUp'
+import Tracks from '../screens/Tracks'
 // import ChangePassword from '../screens/ChangePassword'
 // import Item from '../screens/Item'
 // import Items from '../screens/Items'
@@ -15,7 +16,7 @@ import AuthenticatedRoute from './AuthenticatedRoute'
 const Routes = ({ user, setUser, clearUser
   // , addItem, getItems 
 }) => (
-  
+
   <Switch>
     <Route
       exact
@@ -38,6 +39,7 @@ const Routes = ({ user, setUser, clearUser
       path="/sign-out"
       render={props => <SignOut {...props} clearUser={clearUser} user={user} />}
     />
+    <Route exact path="/tracks" render={Tracks}/>
     {/* <AuthenticatedRoute
       exact
       path="/change-password"
