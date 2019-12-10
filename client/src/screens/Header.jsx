@@ -5,6 +5,7 @@ import Navbar from '../components/shared/Navbar.jsx'
 const authenticatedLinks = (
   <div className="nav-links">
     {/* <NavLink to="/change-password">Change Password</NavLink> */}
+    <NavLink to="/my-tracks">My Tracks</NavLink>
     <NavLink to="/sign-out">Sign Out</NavLink>
   </div>
 )
@@ -19,6 +20,7 @@ const unauthenticatedLinks = (
 const alwaysLinks = (
   <div className="nav-links">
     <NavLink to="/">Home</NavLink>
+    <NavLink to="tracks">Public Tracks</NavLink>
   </div>
 )
 
