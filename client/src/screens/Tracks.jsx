@@ -11,7 +11,7 @@ export default class Tracks extends Component {
 
     componentDidMount() {
         this.fetchTracks()
-        // console.log(this.props)
+
     }
 
     fetchTracks = async () => {
@@ -35,7 +35,7 @@ export default class Tracks extends Component {
          
             return this.state.tracks.map((track) => (
                 <div key={track.id} className='trackPreview' 
-                // onClick={() => history.push(`${path}/track/${track.id}`)}
+                onClick={() => history.push(`${path}/track/${track.id}`)}
                  >
                     <h2>{track.title}</h2>
                     <img className='previewPic' src="" />
