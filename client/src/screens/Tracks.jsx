@@ -1,9 +1,9 @@
-import React from 'react'
-import { api } from '../services/ApiConfig'
+import React, { Component } from 'react'
+import { getTracks } from '../services/calls'
 
-export default class Tracks extends React.Component {
-    constructor() {
-        super()
+export default class Tracks extends Component {
+    constructor(props) {
+        super(props)
         this.state = {
             tracks: [],
         }
@@ -11,13 +11,14 @@ export default class Tracks extends React.Component {
 
     componentDidMount() {
         this.fetchTracks()
+        // console.log(this.props)
     }
 
     fetchTracks = async () => {
         try {
-            const tracks = await api.get('/tracks')
-            console.log(tracks)
-            this.ListeningStateChangedEvent({ tracks: tracks.data })
+            const tracks = await getTracks()
+            console.log(tracks.tracks)
+            this.setState({ tracks: tracks.tracks })
         } catch (error) {
             console.error(error)
         }
@@ -28,9 +29,14 @@ export default class Tracks extends React.Component {
             match: { path },
             history,
         } = this.props
-        if (this.state.tracks.length) {
+        // console.log(path)
+
+        if (this.state.tracks) {
+         
             return this.state.tracks.map((track) => (
-                <div key={track.id} className='trackPreview' onClick={() => history.push(`${path}/track/${track.id}`)} >
+                <div key={track.id} className='trackPreview' 
+                // onClick={() => history.push(`${path}/track/${track.id}`)}
+                 >
                     <h2>{track.title}</h2>
                     <img className='previewPic' src="" />
                 </div>

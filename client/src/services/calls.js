@@ -44,3 +44,20 @@ import api from './apiConfig'
 //     throw error
 //   }
 // }
+
+export const getTracks = async () => {
+  try {
+      const resp = await api.get('/tracks')
+      return resp.data
+  } catch (error) {
+      throw (error)
+  }
+}
+// export const getItems = async () => {
+//   try {
+//     const resp = await api.get('/items')
+//     return resp.data.items
+//   } catch (error) {
+//     throw error
+//   }
+// }

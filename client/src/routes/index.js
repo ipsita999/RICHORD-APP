@@ -39,7 +39,7 @@ const Routes = ({ user, setUser, clearUser
       path="/sign-out"
       render={props => <SignOut {...props} clearUser={clearUser} user={user} />}
     />
-    <Route exact path="/tracks" render={Tracks}/>
+    <Route exact path="/tracks" render={props => <Tracks {...props} />}/>
     {/* <AuthenticatedRoute
       exact
       path="/change-password"
