@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Track.associate = function(models) {
     Track.belongsTo(models.User, {
-      foreignKey: 'user_Id',
+      foreignKey: 'user_id',
       onDelete: 'CASCADE'
     }),
     Track.hasMany(models.Note, {
