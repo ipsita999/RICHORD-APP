@@ -9,6 +9,10 @@ function Home() {
             <div className="learnButton">
                 v
             </div>
+            <div className="learnBox">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti nemo molestiae eos eligendi fugit quisquam soluta fuga facilis animi, aliquam iusto quis sapiente quod, assumenda odit amet impedit reprehenderit cupiditate.</p>
+                <h2>View Tracks</h2>
+            </div>
         </div>
     );
 }
