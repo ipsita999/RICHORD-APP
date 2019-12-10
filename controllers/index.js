@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const { User } = require('../models')
+const { User, Track } = require('../models')
 
 const SALT_ROUNDS = 11
 const TOKEN_KEY = 'areallylonggoodkey'
@@ -98,6 +98,15 @@ const getAllUsers = async (req, res) => {
 	}
 }
 
+const getAllTracks = async (req, res) => {
+	try {
+		const tracks = await Track.findAll()
+		return res.status(200).json({ tracks })
+	} catch (error) {
+		return res.status(500).send(error.message)
+	}
+}
+
 // const getItemById = async (req, res) => {
 // 	try {
 // 		const { id } = req.params
@@ -151,7 +160,8 @@ module.exports = {
 	signIn,
 	// changePassword,
 	// createItem,
-	getAllUsers
+	getAllUsers,
+	getAllTracks
 	// getItemById,
 	// updateItem,
 	// deleteItem
