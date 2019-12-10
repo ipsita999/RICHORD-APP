@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Home.css';
+import { NavLink } from 'react-router-dom'
 
 function Home() {
     return (
@@ -11,7 +12,8 @@ function Home() {
             </div>
             <div className="learnBox">
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti nemo molestiae eos eligendi fugit quisquam soluta fuga facilis animi, aliquam iusto quis sapiente quod, assumenda odit amet impedit reprehenderit cupiditate.</p>
-                <h2>View Tracks</h2>
+                <NavLink to='/tracks'>View Tracks</NavLink>
+                {/* remove NavLink later */}
             </div>
         </div>
     );
