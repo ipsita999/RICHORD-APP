@@ -1,0 +1,17 @@
+
+.nav {
+    background: pink;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.brand {
+    padding-left: 50px;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    padding-right: 50px;
+}

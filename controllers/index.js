@@ -8,7 +8,7 @@ const TOKEN_KEY = 'areallylonggoodkey'
 const signUp = async (req, res) => {
 
   try {
-	  console.log(req.body)
+      console.log(req.body)
 	  const { username, email, password } = req.body
 	  const password_digest = await bcrypt.hash(password, SALT_ROUNDS)
 	  const user = await User.create({
@@ -21,7 +21,6 @@ const signUp = async (req, res) => {
 		  username: user.username,
 		  email: user.email
 	  }
-
 	  const token = jwt.sign(payload, TOKEN_KEY)
 	  return res.status(201).json({ user, token })
   } catch (error) {
@@ -41,8 +40,7 @@ const signIn = async (req, res) => {
 		  where: {
 			  username
 		  }
-	  })
-	  console.log(user)
+      })
 	  if (await bcrypt.compare(password, user.dataValues.password_digest)) {
 		  const payload = {
 			  id: user.id,
@@ -51,7 +49,6 @@ const signIn = async (req, res) => {
 		  }
 
 		  const token = jwt.sign(payload, TOKEN_KEY)
-		  //what is user here          \/
 		  return res.status(201).json({ user, token })
 	  } else {
 		  res.status(401).send('Invalid Credentials')
