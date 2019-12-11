@@ -14,7 +14,7 @@ router.get('/users/:id/tracks', controllers.getUserTracks)
 
 // router.get('/items/:id', controllers.getItemById)
 
-// router.post('/items', restrict, controllers.createItem)
+router.post('/tracks', controllers.createTrack)
 
 // router.put('/items/:id', restrict, controllers.updateItem)
 
