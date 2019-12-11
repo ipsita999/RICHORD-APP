@@ -3,8 +3,10 @@ import Axios from 'axios'
 // const JwtToken = localStorage.getItem('token') || null
 
 const getToken = () => localStorage.getItem('token') 
-const clearToken = () => localStorage.clear()
-const setToken = token => localStorage.setItem('token', token)
+
+// const clearToken = () => localStorage.clear()
+// const setToken = token => localStorage.setItem('token', token)
+
 const JwtToken = getToken()
 
 // const BaseUrl =
