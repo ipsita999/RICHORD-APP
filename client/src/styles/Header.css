@@ -1,17 +1,69 @@
 
 .nav {
-    background: pink;
-    display: flex;
     justify-content: space-between;
-    width: 100vw;
+    width: 100%;
 }
-
-.brand {
-    padding-left: 50px;
+.navbar {
+    justify-content: space-between;
+    background: pink;
+    width: 100vw;
+    height: 60px;
 }
 
 .nav-links {
-    display: flex;
-    flex-direction: row;
-    padding-right: 50px;
+    width: 40%;
+    min-width: 260px;
+    max-width: 350px;
+    justify-content: space-around;
+
 }
+
+.nav-links.authed {
+    width: 30%;
+    min-width: 220px;
+    max-width: 300px;
+    justify-content: space-evenly;
+}
+
+.brand-link {
+    justify-content: center;
+    width: 30%;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+.account-links {
+    justify-content: space-between;
+    min-width: 115px;
+}
+
+.navlink-text {
+    width: max-content;
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+}
+
+.dropdown-text {
+    margin-bottom: 8px;
+}
+
+.dropdown-container:first-child {
+    margin-top: 8px;
+}
+
+.dropdown-container:hover .dropdown-menu {
+    display: block;
+}
+
+@keyframes underline {
+    from {border: 5px solid black;}
+    to {border: 5px solid black;}
+}
+

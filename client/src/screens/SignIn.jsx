@@ -38,6 +38,8 @@ class SignIn extends Component {
           password: ''
         })
       })
+
+      console.log(this.props.user)
   }
 
   renderError = () => {
