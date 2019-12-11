@@ -1,17 +1,25 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Track = sequelize.define('Track', {
-    user_id: DataTypes.INTEGER,
-    title: DataTypes.STRING
+    title: DataTypes.STRING,
+    0: DataTypes.ARRAY(DataTypes.STRING),
+    100:DataTypes.ARRAY(DataTypes.STRING),
+    200:DataTypes.ARRAY(DataTypes.STRING),
+    300:DataTypes.ARRAY(DataTypes.STRING),
+    400:DataTypes.ARRAY(DataTypes.STRING),
+    500:DataTypes.ARRAY(DataTypes.STRING),
+    600:DataTypes.ARRAY(DataTypes.STRING),
+    700:DataTypes.ARRAY(DataTypes.STRING),
+    800:DataTypes.ARRAY(DataTypes.STRING),
+    900:DataTypes.ARRAY(DataTypes.STRING),
+    1000:DataTypes.ARRAY(DataTypes.STRING)
   }, {});
   Track.associate = function(models) {
     Track.belongsTo(models.User, {
-      foreignKey: 'user_Id',
+      foreignKey: 'user_id',
       onDelete: 'CASCADE'
-    }),
-    Track.hasMany(models.Note, {
-      foreignKey: 'track_id'
     })
+    
   };
   return Track;
 };
