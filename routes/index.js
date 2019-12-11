@@ -12,7 +12,7 @@ router.get('/users', controllers.getAllUsers)
 router.get('/tracks', controllers.getAllTracks)
 // router.get('/items/:id', controllers.getItemById)
 
-// router.post('/items', restrict, controllers.createItem)
+router.post('/tracks', controllers.createTrack)
 
 // router.put('/items/:id', restrict, controllers.updateItem)
 

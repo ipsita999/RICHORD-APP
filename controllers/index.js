@@ -96,12 +96,18 @@ const getAllUsers = async (req, res) => {
 }
 
 const getAllTracks = async (req, res) => {
+	console.log("inside controller")
 	try {
 		const tracks = await Track.findAll()
-		return res.status(200).json({ tracks })
+		return res.status(200).json({tracks })
 	} catch (error) {
 		return res.status(500).send(error.message)
 	}
+}
+
+const createTrack = async (req, res) => {
+	const newTrack = await Track.create(req.body)
+	return res.send(newTrack)
 }
 
 // const getItemById = async (req, res) => {
@@ -158,8 +164,9 @@ module.exports = {
 	// changePassword,
 	// createItem,
 	getAllUsers,
-	getAllTracks
+	getAllTracks,
 	// getItemById,
 	// updateItem,
 	// deleteItem
+	createTrack
 }
