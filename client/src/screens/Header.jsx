@@ -44,7 +44,7 @@ const Header = ({ user }) => (
   <Navbar>
     <div className="nav flex-row">
       {alwaysLinks}
-      {user && <span className="navbar-text">Welcome, {user.username}</span>}
+      {user && <span className="navbar-text greeting">Logged in as: {user.username}</span>}
 
         {user ? authenticatedLinks : unauthenticatedLinks}
 

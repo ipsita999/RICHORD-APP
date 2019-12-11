@@ -62,8 +62,8 @@
     display: block;
 }
 
-@keyframes underline {
-    from {border: 5px solid black;}
-    to {border: 5px solid black;}
+@media (max-width:450px) {
+    .greeting {
+        display: none;
+    }
 }
-
