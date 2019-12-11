@@ -18,6 +18,13 @@
 
 }
 
+.nav-links.authed {
+    width: 30%;
+    min-width: 220px;
+    max-width: 300px;
+    justify-content: space-evenly;
+}
+
 .brand-link {
     justify-content: center;
     width: 30%;

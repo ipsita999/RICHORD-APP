@@ -5,7 +5,7 @@ import '../styles/Flex.css'
 import '../styles/Header.css'
 
 const authenticatedLinks = (
-  <React.Fragment>
+  <div className="nav-links flex-row authed">
     {/* <NavLink to="/change-password">Change Password</NavLink> */}
 
     <div className='dropdown-container'>
@@ -14,22 +14,22 @@ const authenticatedLinks = (
         <div className='flex-col'>
           <NavLink to="tracks" className='navlink-text dropdown-text'>Public Tracks</NavLink>
           <NavLink to="/my-tracks" className='navlink-text dropdown-text'>My Tracks</NavLink>
-        </div>  
+        </div>
       </div>
     </div>
-    
+
     <NavLink to="/sign-out" className='navlink-text'>Sign Out</NavLink>
-  </React.Fragment>
+  </div>
 )
 
 const unauthenticatedLinks = (
-  <React.Fragment>
+  <div className="nav-links flex-row">
     <NavLink to="tracks" className='navlink-text'>Public Tracks</NavLink>
     <div className='account-links flex-row'>
       <NavLink to="/sign-in" className='navlink-text'>Log In</NavLink>
       <NavLink to="/sign-up" className='navlink-text'>Sign Up</NavLink>
     </div>
-  </React.Fragment>
+  </div>
 )
 
 const alwaysLinks = (
@@ -45,9 +45,9 @@ const Header = ({ user }) => (
     <div className="nav flex-row">
       {alwaysLinks}
       {user && <span className="navbar-text">Welcome, {user.username}</span>}
-      <div className="nav-links flex-row">
+
         {user ? authenticatedLinks : unauthenticatedLinks}
-      </div>
+
     </div>
   </Navbar>
 )
