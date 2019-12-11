@@ -12,7 +12,7 @@ const authenticatedLinks = (
       <h3 className='navlink-text dropdown-text'>Tracks</h3>
       <div className='dropdown-menu'>
         <div className='flex-col'>
-          <NavLink to="tracks" className='navlink-text dropdown-text'>Public Tracks</NavLink>
+          <NavLink to="/tracks" className='navlink-text dropdown-text'>Public Tracks</NavLink>
           <NavLink to="/my-tracks" className='navlink-text dropdown-text'>My Tracks</NavLink>
         </div>
       </div>
@@ -24,7 +24,7 @@ const authenticatedLinks = (
 
 const unauthenticatedLinks = (
   <div className="nav-links flex-row">
-    <NavLink to="tracks" className='navlink-text'>Public Tracks</NavLink>
+    <NavLink to="/tracks" className='navlink-text'>Public Tracks</NavLink>
     <div className='account-links flex-row'>
       <NavLink to="/sign-in" className='navlink-text'>Log In</NavLink>
       <NavLink to="/sign-up" className='navlink-text'>Sign Up</NavLink>
