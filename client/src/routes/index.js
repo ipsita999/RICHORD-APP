@@ -6,6 +6,7 @@ import SignIn from '../screens/SignIn'
 import SignOut from '../screens/SignOut'
 import SignUp from '../screens/SignUp'
 import Tracks from '../screens/Tracks'
+import MyTracks from '../screens/MyTracks'
 // import ChangePassword from '../screens/ChangePassword'
 // import Item from '../screens/Item'
 // import Items from '../screens/Items'
@@ -39,7 +40,16 @@ const Routes = ({ user, setUser, clearUser
       path="/sign-out"
       render={props => <SignOut {...props} clearUser={clearUser} user={user} />}
     />
-    <Route exact path="/tracks" render={props => <Tracks {...props} />}/>
+    <Route exact 
+    path="/tracks" 
+    render={props => <Tracks {...props} />}
+    />
+    <AuthenticatedRoute
+      exact
+      path="/my-tracks"
+      user={user}
+      render={props => <MyTracks {...props} user={user} /> }
+    >{console.log(user)}</AuthenticatedRoute>
     {/* <AuthenticatedRoute
       exact
       path="/change-password"

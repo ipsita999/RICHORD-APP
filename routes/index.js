@@ -10,6 +10,8 @@ router.post('/sign-in', controllers.signIn)
 
 router.get('/users', controllers.getAllUsers)
 router.get('/tracks', controllers.getAllTracks)
+router.get('/users/:id/tracks', controllers.getUserTracks)
+
 // router.get('/items/:id', controllers.getItemById)
 
 // router.post('/items', restrict, controllers.createItem)

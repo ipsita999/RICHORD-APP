@@ -32,6 +32,17 @@ export const signOut = async user => {
   }
 }
 
+export const getUserTracks = async (user) => {
+
+  try{
+    console.log(user)
+    const resp = await api.get(`/users/${user.id}/tracks`)
+    return resp.data
+  } catch (error) {
+    throw error
+  }
+}
+
 // export const changePassword = async (newPassword, user) => {
 
 //   try {

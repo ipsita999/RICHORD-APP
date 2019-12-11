@@ -1,36 +1,53 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import Navbar from '../components/shared/Navbar.jsx'
+import '../styles/Flex.css'
+import '../styles/Header.css'
 
 const authenticatedLinks = (
-  <div className="nav-links">
+  <React.Fragment>
     {/* <NavLink to="/change-password">Change Password</NavLink> */}
-    <NavLink to="/my-tracks">My Tracks</NavLink>
-    <NavLink to="/sign-out">Sign Out</NavLink>
-  </div>
+
+    <div className='dropdown-container'>
+      <h3 className='navlink-text dropdown-text'>Tracks</h3>
+      <div className='dropdown-menu'>
+        <div className='flex-col'>
+          <NavLink to="tracks" className='navlink-text dropdown-text'>Public Tracks</NavLink>
+          <NavLink to="/my-tracks" className='navlink-text dropdown-text'>My Tracks</NavLink>
+        </div>  
+      </div>
+    </div>
+    
+    <NavLink to="/sign-out" className='navlink-text'>Sign Out</NavLink>
+  </React.Fragment>
 )
 
 const unauthenticatedLinks = (
-  <div className="nav-links">
-    <NavLink to="/sign-up">Sign Up</NavLink>
-    <NavLink to="/sign-in">Sign In</NavLink>
-  </div>
+  <React.Fragment>
+    <NavLink to="tracks" className='navlink-text'>Public Tracks</NavLink>
+    <div className='account-links flex-row'>
+      <NavLink to="/sign-in" className='navlink-text'>Log In</NavLink>
+      <NavLink to="/sign-up" className='navlink-text'>Sign Up</NavLink>
+    </div>
+  </React.Fragment>
 )
 
 const alwaysLinks = (
-  <div className="nav-links">
-    <NavLink to="/">Home</NavLink>
-    <NavLink to="tracks">Public Tracks</NavLink>
+  <div className="brand-link flex-row">
+    <NavLink to="/">
+      <h3>RICHORD</h3>
+    </NavLink>
   </div>
 )
 
 const Header = ({ user }) => (
   <Navbar>
-    <h3 className="brand">RICHORD</h3>
-    <div className="nav">
-      {user && <span className="navbar-text">Welcome, {user.username}</span>}
+    <div className="nav flex-row">
       {alwaysLinks}
-      {user ? authenticatedLinks : unauthenticatedLinks}
+      {user && <span className="navbar-text">Welcome, {user.username}</span>}
+      <div className="nav-links flex-row">
+        {user ? authenticatedLinks : unauthenticatedLinks}
+      </div>
     </div>
   </Navbar>
 )
