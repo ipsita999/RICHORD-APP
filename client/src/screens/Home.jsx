@@ -13,7 +13,6 @@ function Home() {
             <div className="learnBox">
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti nemo molestiae eos eligendi fugit quisquam soluta fuga facilis animi, aliquam iusto quis sapiente quod, assumenda odit amet impedit reprehenderit cupiditate.</p>
                 <NavLink to='/tracks'>View Tracks</NavLink>
-                {/* remove NavLink later */}
             </div>
         </div>
     );
