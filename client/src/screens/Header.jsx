@@ -27,13 +27,11 @@ class Header extends React.Component {
   authenticatedLinks = () => (
     <div className="nav-links flex-row authed">
       {/* <NavLink to="/change-password">Change Password</NavLink> */}
-      <div className='dropdown-container'>
-        <h3 className='navlink-text dropdown-text'>Tracks</h3>
+      <div className='dropdown-container flex-row'>
+        <h3 className='navlink-text tracks flex-row'>Tracks</h3>
         <div className='dropdown-menu'>
-          <div className='flex-col'>
             <NavLink to="/tracks" className='navlink-text dropdown-text'>Public Tracks</NavLink>
             <NavLink to="/my-tracks" className='navlink-text dropdown-text'>My Tracks</NavLink>
-          </div>
         </div>
       </div>
       <NavLink to="/sign-out" className='navlink-text'>Sign Out</NavLink>
@@ -43,9 +41,9 @@ class Header extends React.Component {
 
   unauthenticatedLinks = (props, setUser, login) => (
     <div className="nav-links flex-row">
-      <NavLink to="/tracks" className='navlink-text'>Public Tracks</NavLink>
-      <div className='dropdown-container'>
-        <h3 onClick={this.toggleLoginAnimation} style={{cursor: 'pointer'}} className='navlink-text dropdown-text'>Log in</h3>
+      <NavLink to="/tracks" className='navlink-text flex-row'>Public Tracks</NavLink>
+      <div className='dropdown-container flex-row'>
+        <h3 onClick={this.toggleLoginAnimation} style={{cursor: 'pointer'}} className='navlink-text'>Log in</h3>
         <div id={`${this.state.animation_id}`} className='dropdown-login flex-col'>
           {login ? <SignIn {...props} toggleLogin={this.toggleLogin} setUser={setUser} /> : <SignUp {...props} setUser={setUser} toggleLogin={this.toggleLogin} />}
         </div>

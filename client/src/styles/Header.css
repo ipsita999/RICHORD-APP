@@ -2,16 +2,15 @@
 .nav {
     justify-content: space-between;
     width: 100%;
+    height: 100%;
     font-family: 'Abril Fatface', cursive;
     color: white;
 }
 
 .navbar {
     justify-content: space-between;
-
     background: pink;
     width: 100%;
-
     height: 60px;
 }
 
@@ -20,7 +19,7 @@
     min-width: 260px;
     max-width: 350px;
     justify-content: space-around;
-
+    height: 100%;
 }
 
 .nav-links.authed {
@@ -49,24 +48,29 @@
 .navlink-text {
     width: max-content;
     color: white;
+    align-items: center;
 }
 
 .dropdown-container {
     position: relative;
+    height: 100%
 }
 
 .dropdown-menu {
     position: absolute;
-    top: 38px;
-    right: -50px;
+    display: none;
+    padding: 5px 25px 10px 10px;
+    background-color: palevioletred;
 }
 
 .dropdown-text {
-
+    margin: 10px 0;
 }
 
 .dropdown-container:hover .dropdown-menu {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    top: 60px;
 }
 
 @media (max-width:450px) {
@@ -90,19 +94,28 @@
 
 .login-children {
     margin: 10px 0;
+    width: 70%;
 }
 
 .dropdown-login {
     background-color: palevioletred;
     position: absolute;
-    top: 38px;
-
     width: 250px;
     padding: 10px;
+    top: 60px;
 }
 
 .login-submit {
-    margin: 5px 20px 5px 0;
+    margin: 10px 35px;
+    /* display: block; */
+}
+
+.danger {
+    text-align: center;
+    margin-bottom: 12px;
+    text-shadow: rgba(0, 0, 0, .5);
+    color: red;
+    font-weight: bold;
 }
 
 .login-toggle {

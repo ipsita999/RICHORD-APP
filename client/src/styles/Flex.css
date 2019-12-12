@@ -7,6 +7,9 @@
     flex-direction: column;
     justify-content: center;
 }
+.flex-end {
+    justify-content: flex-end;
+}
 .wrap {
     flex-wrap: wrap;
 }
