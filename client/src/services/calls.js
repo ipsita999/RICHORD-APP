@@ -9,14 +9,15 @@ import api from './apiConfig'
 //   }
 // }
 
-// export const getItemById = async id => {
-//   try {
-//     const resp = await api.get(`/items/${id}`)
-//     return resp.data.item
-//   } catch (error) {
-//     throw error
-//   }
-// }
+export const getTrackById = async id => {
+  try {
+    const resp = await api.get(`/tracks/track/${id}`)
+    return resp.data
+  } catch (error) {
+    console.log('error getting track')
+    throw error
+  }
+}
 
 // export const createItem = async item => {
 //   try {
