@@ -1,14 +1,3 @@
-
-.nav {
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-    font-family: 'Abril Fatface', cursive;
-    color: white;
-    position: fixed;
-    z-index: 100;
-}
-
 .navbar {
     justify-content: space-between;
     background: #bf5f82;
@@ -16,6 +5,14 @@
     position: fixed;
     height: 60px;
     z-index: 100;
+}
+
+.nav {
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    font-family: 'Abril Fatface', cursive;
+    color: white;
 }
 
 .nav-links {
