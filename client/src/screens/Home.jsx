@@ -6,7 +6,8 @@ class Home extends Component {
     constructor() {
         super()
         this.state = {
-            display: 'block'
+            display: 'none',
+            title: 'block'
         }
     }
 
@@ -15,9 +16,9 @@ showLearn = () => {
     console.log('button was clicked')
         if ( this.state.display === 'none') {
             console.log(this.state)
-            this.setState({ display: 'block' });
+            this.setState({ display: 'block', title: 'none' });
           } else if ( this.state.display === 'block' ) {
-            this.setState({ display: 'none' })
+            this.setState({ display: 'none', title: 'block' })
             console.log(this.state);
           }
 }
