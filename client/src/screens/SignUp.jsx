@@ -25,12 +25,11 @@ class SignUp extends Component {
   onSignUp = event => {
     event.preventDefault()
 
-    const { history, setUser } = this.props
+    const { setUser } = this.props
 
     signUp(this.state)
       .then(() => signInUser(this.state))
       .then(res => setUser(res.user))
-      .then(() => history.push('/'))
       .catch(error => {
         console.error(error)
         this.setState({
@@ -47,24 +46,26 @@ class SignUp extends Component {
     const toggleForm = this.state.isError ? 'danger' : ''
     if (this.state.isError) {
       return (
-        <button type="submit" className={toggleForm}>
-          {this.state.errorMsg}
-        </button>
+        <>
+          <button type="submit">Sign In</button>
+          <p classname={toggleForm}>{this.state.errorMsg}</p>
+        </>
       )
     } else {
-      return <button type="submit">Sign In</button>
+      return <button className='login-submit'>Sign In</button>
     }
   }
+
 
   render() {
     const { email, username, password, passwordConfirmation } = this.state
 
     return (
-      <div className="row">
-        <div className="form-container">
-          <h3>Sign Up</h3>
-          <form onSubmit={this.onSignUp}>
-            <label>Username</label>
+      <>
+        <h3 className='login-prompt'>Sign Up</h3>
+        <form onSubmit={this.onSignUp}>
+          <div className='input-container flex-col'>
+            <p className='input-prompt'>Username</p>
             <input
               required
               type="text"
@@ -72,8 +73,11 @@ class SignUp extends Component {
               value={username}
               placeholder="Enter username"
               onChange={this.handleChange}
+              className='login-children'
             />
-            <label>Email address</label>
+          </div>
+          <div className='input-container flex-col'>
+            <p className='input-prompt'>Email address</p>
             <input
               required
               type="email"
@@ -81,8 +85,11 @@ class SignUp extends Component {
               value={email}
               placeholder="Enter email"
               onChange={this.handleChange}
+              className='login-children'
             />
-            <label>Password</label>
+          </div>
+          <div className='input-container flex-col'>
+            <p className='input-prompt'>Password</p>
             <input
               required
               name="password"
@@ -90,8 +97,11 @@ class SignUp extends Component {
               type="password"
               placeholder="Password"
               onChange={this.handleChange}
+              className='login-children'
             />
-            <label>Password Confirmation</label>
+          </div>
+          <div className='input-container flex-col'>
+            <p className='input-prompt'>Password Confirmation</p>
             <input
               required
               name="passwordConfirmation"
@@ -99,11 +109,18 @@ class SignUp extends Component {
               type="password"
               placeholder="Confirm Password"
               onChange={this.handleChange}
+              className='login-children'
             />
-            {this.renderError()}
-          </form>
+          </div>
+        </form>
+        <div className='buttons-container flex-col'>
+          {this.renderError()}
+          <div className='toggle-container flex-col'>
+            <p>Already registered?</p>
+            <button className='login-toggle' onClick={this.props.toggleLogin}>Login here</button>
+          </div>
         </div>
-      </div>
+      </>
     )
   }
 }

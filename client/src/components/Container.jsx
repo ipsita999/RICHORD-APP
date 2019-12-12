@@ -35,7 +35,7 @@ export default class Container extends Component {
     const { user } = this.state
     return (
       <>
-        <Header user={user} />
+        <Header user={user} {...this.props} setUser={this.setUser}/>
         <main className="container">
           <Routes
             // getItems={this.fetchItems}

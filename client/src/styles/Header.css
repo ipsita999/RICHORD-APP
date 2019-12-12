@@ -6,7 +6,7 @@
 .navbar {
     justify-content: space-between;
     background: pink;
-    width: 100vw;
+    width: 100%;
     height: 60px;
 }
 
@@ -46,16 +46,14 @@
 }
 
 .dropdown-menu {
-    display: none;
     position: absolute;
+    top: 38px;
+    right: -56px;
+    width: 250px;
 }
 
 .dropdown-text {
-    margin-bottom: 8px;
-}
 
-.dropdown-container:first-child {
-    margin-top: 8px;
 }
 
 .dropdown-container:hover .dropdown-menu {
@@ -66,4 +64,69 @@
     .greeting {
         display: none;
     }
+}
+
+.login-prompt{
+    margin: 8px 0;
+    text-align: center;
+}
+
+.input-container {
+
+}
+
+.input-prompt {
+
+}
+
+.login-children {
+    margin: 10px 0;
+}
+
+.dropdown-login {
+    background-color: palevioletred;
+    position: absolute;
+    top: 38px;
+    right: -56px;
+    width: 250px;
+    padding: 10px;
+}
+
+.login-submit {
+    width:22%;
+    margin: 5px 5px 5px 0;
+}
+
+.login-toggle {
+    width: 50%;
+    margin: 5px 0;
+}
+
+.buttons-container {
+    align-items: flex-end;
+}
+
+.toggle-container {
+    align-items: center;
+    width: 100%
+}
+
+@keyframes login-show {
+    from {transform:translateX(0);opacity:.5;}
+    to {transform:translateX(10);opacity:1;}
+}
+@keyframes login-hide {
+    from {transform:translateX(10);opacity:1;}
+    to {transform:translateX(0);opacity:.5;}
+}
+
+#login-active {
+    animation-name: login-show;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+}
+#login-not-active{
+    animation: login-hide;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
 }
