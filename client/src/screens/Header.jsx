@@ -69,7 +69,7 @@ class Header extends React.Component {
         <div className="nav flex-row">
           {this.alwaysLinks()}
           {user && <span className="navbar-text greeting">Logged in as: {user.username}</span>}
-          {user ? this.authenticatedLinks : this.unauthenticatedLinks(this.props, setUser, this.state.login)}
+          {user ? this.authenticatedLinks() : this.unauthenticatedLinks(this.props, setUser, this.state.login)}
         </div>
       </Navbar>
       </React.Fragment>
