@@ -49,7 +49,7 @@ const Routes = ({ user, setUser, clearUser
       path="/my-tracks"
       user={user}
       render={props => <MyTracks {...props} user={user} /> }
-    >{console.log(user)}</AuthenticatedRoute>
+    />
     {/* <AuthenticatedRoute
       exact
       path="/change-password"
