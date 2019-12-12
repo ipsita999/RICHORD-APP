@@ -39,19 +39,20 @@ class SignIn extends Component {
         })
       })
 
-      console.log(this.props.user)
+    console.log(this.props.user)
   }
 
   renderError = () => {
-    const toggleForm = this.state.isError ? 'danger' : ''
+    const toggleForm = this.state.isError ? 'danger' : 'none'
     if (this.state.isError) {
       return (
-        <button type="submit" className={toggleForm}>
-          {this.state.errorMsg}
-        </button>
+        <>
+          <button type="submit">Sign In</button>
+          <p classname={toggleForm}>{this.state.errorMsg}</p>
+        </>
       )
     } else {
-      return <button type="submit">Sign In</button>
+      return <button className='login-submit'>Sign In</button>
     }
   }
 
@@ -59,11 +60,11 @@ class SignIn extends Component {
     const { username, password } = this.state
 
     return (
-      <div className="row">
-        <div className="form-container">
-          <h3>Sign In</h3>
-          <form onSubmit={this.onSignIn}>
-            <label>Username</label>
+      <>
+        <h3 className='login-prompt'>Sign In</h3>
+        <form onSubmit={this.onSignIn}>
+          <div className='input-container flex-col'>
+            <p className='input-prompt'>Username</p>
             <input
               required
               type="text"
@@ -71,8 +72,11 @@ class SignIn extends Component {
               value={username}
               placeholder="Enter Username"
               onChange={this.handleChange}
+              className='login-children'
             />
-            <label>Password</label>
+          </div>
+          <div className='input-container flex-col'>
+            <p className='input-prompt'>Password</p>
             <input
               required
               name="password"
@@ -80,11 +84,18 @@ class SignIn extends Component {
               type="password"
               placeholder="Password"
               onChange={this.handleChange}
+              className='login-children'
             />
-            {this.renderError()}
-          </form>
+          </div>
+        </form>
+        <div className='buttons-container flex-col'>
+          {this.renderError()}
+          <div className='toggle-container flex-col'>
+            <p>Already have an account?</p>
+            <button className='login-toggle' onClick={this.props.toggleLogin}>Register here</button>
+          </div>
         </div>
-      </div>
+      </>
     )
   }
 }

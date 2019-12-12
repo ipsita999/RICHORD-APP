@@ -2,11 +2,16 @@
 .nav {
     justify-content: space-between;
     width: 100%;
+    font-family: 'Abril Fatface', cursive;
+    color: white;
 }
+
 .navbar {
     justify-content: space-between;
+
     background: pink;
-    width: 100vw;
+    width: 100%;
+
     height: 60px;
 }
 
@@ -32,6 +37,10 @@
     max-width: 200px;
 }
 
+.brand-link h3 {
+    color: white;
+}
+
 .account-links {
     justify-content: space-between;
     min-width: 115px;
@@ -39,6 +48,7 @@
 
 .navlink-text {
     width: max-content;
+    color: white;
 }
 
 .dropdown-container {
@@ -46,24 +56,93 @@
 }
 
 .dropdown-menu {
-    display: none;
     position: absolute;
+    top: 38px;
+    right: -56px;
+    width: 250px;
 }
 
 .dropdown-text {
-    margin-bottom: 8px;
-}
 
-.dropdown-container:first-child {
-    margin-top: 8px;
 }
 
 .dropdown-container:hover .dropdown-menu {
     display: block;
 }
 
-@keyframes underline {
-    from {border: 5px solid black;}
-    to {border: 5px solid black;}
+@media (max-width:450px) {
+    .greeting {
+        display: none;
+    }
 }
 
+.login-prompt{
+    margin: 8px 0;
+    text-align: center;
+}
+
+.input-container {
+
+}
+
+.input-prompt {
+
+}
+
+.login-children {
+    margin: 10px 0;
+}
+
+.dropdown-login {
+    background-color: palevioletred;
+    position: absolute;
+    top: 38px;
+
+    width: 250px;
+    padding: 10px;
+}
+
+.login-submit {
+    margin: 5px 20px 5px 0;
+}
+
+.login-toggle {
+    width: 45%;
+    margin: 5px 0;
+}
+
+.buttons-container {
+    align-items: flex-end;
+}
+
+.toggle-container {
+    align-items: center;
+    width: 100%
+}
+
+
+@keyframes login-hide {
+    from {right: -56px; opacity:1}
+    to {right: -380px; opacity:0.3}
+}
+@keyframes login-show {
+    from {right: -380px; opacity:0.3}
+    to {right: -56px; opacity: 1}
+}
+
+#login-start {
+    display: none
+}
+
+#login-active {
+    animation-name: login-show;
+    animation-timing-function: cubic-bezier(0, 1, 0.6, 1.1);
+    animation-duration: .5s;
+    right: -56px;
+}
+#login-not-active{
+    animation: login-hide;
+    animation-timing-function: ease;
+    animation-duration: .5s;
+    right: -380px;
+}
