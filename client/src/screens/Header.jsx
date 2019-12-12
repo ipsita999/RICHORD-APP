@@ -12,7 +12,7 @@ class Header extends React.Component {
     super(props)
     this.state = {
       login: true,
-      animation_id: 'login-not-active'
+      animation_id: 'login-start'
     }
   }
 
@@ -21,7 +21,7 @@ class Header extends React.Component {
   }
 
   toggleLoginAnimation = () => {
-    this.state.animation_id === 'login-not-active' ? this.setState({ animation_id: 'login-active'}) : this.setState({ animation_id: 'login-active'})
+    this.state.animation_id === 'login-active' ? this.setState({ animation_id: 'login-not-active'}) : this.setState({ animation_id: 'login-active'})
   }
 
   authenticatedLinks = () => (
@@ -36,7 +36,6 @@ class Header extends React.Component {
           </div>
         </div>
       </div>
-
       <NavLink to="/sign-out" className='navlink-text'>Sign Out</NavLink>
     </div>
 
@@ -46,7 +45,7 @@ class Header extends React.Component {
     <div className="nav-links flex-row">
       <NavLink to="/tracks" className='navlink-text'>Public Tracks</NavLink>
       <div className='dropdown-container'>
-        <h3 onClick={this.toggleLoginAnimation} className='navlink-text dropdown-text'>Log in</h3>
+        <h3 onClick={this.toggleLoginAnimation} style={{cursor: 'pointer'}} className='navlink-text dropdown-text'>Log in</h3>
         <div id={`${this.state.animation_id}`} className='dropdown-login flex-col'>
           {login ? <SignIn {...props} toggleLogin={this.toggleLogin} setUser={setUser} /> : <SignUp {...props} setUser={setUser} toggleLogin={this.toggleLogin} />}
         </div>

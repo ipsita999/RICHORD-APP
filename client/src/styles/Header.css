@@ -87,18 +87,17 @@
     background-color: palevioletred;
     position: absolute;
     top: 38px;
-    right: -56px;
+
     width: 250px;
     padding: 10px;
 }
 
 .login-submit {
-    width:22%;
-    margin: 5px 5px 5px 0;
+    margin: 5px 20px 5px 0;
 }
 
 .login-toggle {
-    width: 50%;
+    width: 45%;
     margin: 5px 0;
 }
 
@@ -111,22 +110,29 @@
     width: 100%
 }
 
-@keyframes login-show {
-    from {transform:translateX(0);opacity:.5;}
-    to {transform:translateX(10);opacity:1;}
-}
+
 @keyframes login-hide {
-    from {transform:translateX(10);opacity:1;}
-    to {transform:translateX(0);opacity:.5;}
+    from {right: -56px; opacity:1}
+    to {right: -380px; opacity:0.3}
+}
+@keyframes login-show {
+    from {right: -380px; opacity:0.3}
+    to {right: -56px; opacity: 1}
+}
+
+#login-start {
+    display: none
 }
 
 #login-active {
     animation-name: login-show;
-    animation-timing-function: ease-in;
-    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0, 1, 0.6, 1.1);
+    animation-duration: .5s;
+    right: -56px;
 }
 #login-not-active{
     animation: login-hide;
-    animation-timing-function: ease-in;
-    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-duration: .5s;
+    right: -380px;
 }
