@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import { getTrackById } from '../services/calls'
 
 const sounds = {
-    P: require('./sounds/beat1.wav'),
-    G: require('./sounds/beat2.wav'),
-    D: require('./sounds/beat3.wav')
+    A: require('./sounds/piano-a.wav'),
+    B: require('./sounds/piano-b.wav'),
+    C: require('./sounds/piano-c.wav'),
+    D: require('./sounds/piano-d.wav'),
+    E: require('./sounds/piano-e.wav'),
+    F: require('./sounds/piano-f.wav'),
+    G: require('./sounds/piano-g.wav'),
 }
 
 class Track extends Component {
@@ -27,7 +31,7 @@ class Track extends Component {
 
     fetchTrack = async () => {
         try {
-            const track = await getTrackById(1)
+            const track = await getTrackById(this.props.match.params.id)
             console.log(track.track)
             this.setState({ track })
 
@@ -53,7 +57,7 @@ class Track extends Component {
         const timeline = this.state.track.track;
         let i = 0;
         let myVar = setInterval(()=>{
-            if (i > 1000) {
+            if (i > 2000) {
                 clearInterval(myVar)
                 console.log('SONG IS DONE')
             }
@@ -61,7 +65,7 @@ class Track extends Component {
                 
                 for (let k = 0; k < timeline[i].length; k++) {
                     console.log('playing sound file at MS:', i)
-                    debugger
+                    
                     this.playSound(timeline[i][k]);
                 }
             }
@@ -70,7 +74,7 @@ class Track extends Component {
     }
 
     playSound = (sound) => {
-        debugger
+        
         let audio = new Audio()
         audio.src = sounds[sound]
         audio.play()
