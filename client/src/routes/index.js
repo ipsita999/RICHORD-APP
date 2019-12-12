@@ -8,6 +8,7 @@ import SignUp from '../screens/SignUp'
 import Tracks from '../screens/Tracks'
 import MyTracks from '../screens/MyTracks'
 import Track from '../screens/Track'
+import CreateTrack from '../screens/CreateTrack'
 // import ChangePassword from '../screens/ChangePassword'
 // import Item from '../screens/Item'
 // import Items from '../screens/Items'
@@ -55,6 +56,12 @@ const Routes = ({ user, setUser, clearUser
       path="/my-tracks"
       user={user}
       render={props => <MyTracks {...props} user={user} /> }
+    />
+    <AuthenticatedRoute
+      exact
+      path="/create-tracks"
+      user={user}
+      render={props => <CreateTrack {...props} user={user} /> }
     />
     {/* <AuthenticatedRoute
       exact

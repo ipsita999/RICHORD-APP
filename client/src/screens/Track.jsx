@@ -67,6 +67,10 @@ class Track extends Component {
                     console.log('playing sound file at MS:', i)
                     
                     this.playSound(timeline[i][k]);
+                    // togglePlay() {
+                    //     this.setState({ 'play': !this.state.play }, () => {
+                    //         this.state.play ? globalAudio.play(this.name) : globalAudio.pause(this.name);
+                    //     });
                 }
             }
             i = i + 1;

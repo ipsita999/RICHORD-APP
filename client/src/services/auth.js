@@ -43,6 +43,20 @@ export const getUserTracks = async (user) => {
   }
 }
 
+export const AddTrack = async track => {
+  try {
+    const resp = await api.post('/tracks', track)
+    return resp
+  } catch (error) {
+    throw error
+  }
+}
+// export const addTrack = async (track) => {
+//   try {
+//     const resp = await api.get()
+//   }
+// }
+
 // export const changePassword = async (newPassword, user) => {
 
 //   try {

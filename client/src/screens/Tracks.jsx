@@ -25,6 +25,15 @@ export default class Tracks extends Component {
         }
     }
 
+    // checkNewTrack = async () => {
+    //     const check = await getTracks()
+    //     if (check.tracks !== this.state.tracks) {
+    //         this.setState({
+    //             tracks: check.tracks
+    //         })
+    //     }
+    // }
+
     renderTracks = () => {
         const {
             match: { path },
