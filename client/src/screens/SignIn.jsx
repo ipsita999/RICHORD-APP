@@ -38,8 +38,6 @@ class SignIn extends Component {
           password: ''
         })
       })
-
-    console.log(this.props.user)
   }
 
   renderError = () => {
@@ -63,33 +61,31 @@ class SignIn extends Component {
       <>
         <h3 className='login-prompt'>Sign In</h3>
         <form onSubmit={this.onSignIn}>
-          <div className='input-container flex-col'>
-            <p className='input-prompt'>Username</p>
-            <input
-              required
-              type="text"
-              name="username"
-              value={username}
-              placeholder="Enter Username"
-              onChange={this.handleChange}
-              className='login-children'
-            />
-          </div>
-          <div className='input-container flex-col'>
-            <p className='input-prompt'>Password</p>
-            <input
-              required
-              name="password"
-              value={password}
-              type="password"
-              placeholder="Password"
-              onChange={this.handleChange}
-              className='login-children'
-            />
-          </div>
+
+          <p className='input-prompt'>Username</p>
+          <input
+            required
+            type="text"
+            name="username"
+            value={username}
+            placeholder="Enter Username"
+            onChange={this.handleChange}
+            className='login-children'
+          />
+
+          <p className='input-prompt'>Password</p>
+          <input
+            required
+            name="password"
+            value={password}
+            type="password"
+            placeholder="Password"
+            onChange={this.handleChange}
+            className='login-children'
+          />
+          {this.renderError()}
         </form>
         <div className='buttons-container flex-col'>
-          {this.renderError()}
           <div className='toggle-container flex-col'>
             <p>Already have an account?</p>
             <button className='login-toggle' onClick={this.props.toggleLogin}>Register here</button>

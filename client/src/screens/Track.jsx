@@ -14,7 +14,7 @@ class Track extends Component {
         this.state = {
             track: null,
             play: false,
-            timeline: {}
+            
 
         }
     }
@@ -36,16 +36,18 @@ class Track extends Component {
         }
     }
 
-
-    playSound = (sound) => {
-        debugger
-        let audio = new Audio()
-        audio.src = sounds[sound]
-        audio.play()
-
-        console.log('playing sound file:', sounds[sound]);
+    playTracks = () => {
+        this.timer();
     }
- 
+
+    timer = () => {
+        this.start();
+
+        setTimeout(() => {
+            clearInterval(this.start);
+        })
+    }
+
     start=()=> {
         
         const timeline = this.state.track.track;
@@ -56,6 +58,7 @@ class Track extends Component {
                 console.log('SONG IS DONE')
             }
             if (timeline[i]) {
+                
                 for (let k = 0; k < timeline[i].length; k++) {
                     console.log('playing sound file at MS:', i)
                     debugger
@@ -66,17 +69,16 @@ class Track extends Component {
         }, 1);
     }
 
-    timer = () => {
-        this.start();
-
-        setTimeout(() => {
-            clearInterval(this.start);
-        })
-    }
-     playTracks = () => {
+    playSound = (sound) => {
         debugger
-        this.timer();
+        let audio = new Audio()
+        audio.src = sounds[sound]
+        audio.play()
+
+        console.log('playing sound file:', sounds[sound]);
     }
+ 
+    
 
     render() {
         return (

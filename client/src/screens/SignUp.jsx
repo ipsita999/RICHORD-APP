@@ -64,7 +64,7 @@ class SignUp extends Component {
       <>
         <h3 className='login-prompt'>Sign Up</h3>
         <form onSubmit={this.onSignUp}>
-          <div className='input-container flex-col'>
+
             <p className='input-prompt'>Username</p>
             <input
               required
@@ -75,8 +75,6 @@ class SignUp extends Component {
               onChange={this.handleChange}
               className='login-children'
             />
-          </div>
-          <div className='input-container flex-col'>
             <p className='input-prompt'>Email address</p>
             <input
               required
@@ -87,8 +85,6 @@ class SignUp extends Component {
               onChange={this.handleChange}
               className='login-children'
             />
-          </div>
-          <div className='input-container flex-col'>
             <p className='input-prompt'>Password</p>
             <input
               required
@@ -99,8 +95,6 @@ class SignUp extends Component {
               onChange={this.handleChange}
               className='login-children'
             />
-          </div>
-          <div className='input-container flex-col'>
             <p className='input-prompt'>Password Confirmation</p>
             <input
               required
@@ -111,10 +105,9 @@ class SignUp extends Component {
               onChange={this.handleChange}
               className='login-children'
             />
-          </div>
+          {this.renderError()}
         </form>
         <div className='buttons-container flex-col'>
-          {this.renderError()}
           <div className='toggle-container flex-col'>
             <p>Already registered?</p>
             <button className='login-toggle' onClick={this.props.toggleLogin}>Login here</button>
