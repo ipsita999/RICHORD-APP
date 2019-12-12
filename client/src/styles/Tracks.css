@@ -1,0 +1,42 @@
+.trackListing {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.listing h1 {
+    font-size: 30px;
+    padding: 20px;
+    font-family: 'Abril Fatface', cursive;
+    color: white;
+    width: 12vw;
+    margin: 10px;
+    background-color:#cb9ca1;
+}
+
+.trackListing h2 {
+    font-size: 20px;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.trackPreview {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    padding: 20px;
+}
+
+.trackPreview h2 {
+    position: absolute;
+    width: 80%;
+    top: 30px;
+    background-color: #ffcdd2;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+.previewPic {
+    display: absolute;
+}

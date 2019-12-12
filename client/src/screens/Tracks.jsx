@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getTracks } from '../services/calls'
+import '../styles/Tracks.css'
 
 export default class Tracks extends Component {
     constructor(props) {
@@ -47,6 +48,8 @@ export default class Tracks extends Component {
     render() {
         return (
             <div className="listing">
+                <h1>All Tracks
+                    </h1>
                 <div className="trackListing">
                     {this.renderTracks()}
                 </div>

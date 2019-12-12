@@ -2,11 +2,16 @@
 .nav {
     justify-content: space-between;
     width: 100%;
+    font-family: 'Abril Fatface', cursive;
+    color: white;
 }
+
 .navbar {
     justify-content: space-between;
+
     background: pink;
     width: 100%;
+
     height: 60px;
 }
 
@@ -32,6 +37,10 @@
     max-width: 200px;
 }
 
+.brand-link h3 {
+    color: white;
+}
+
 .account-links {
     justify-content: space-between;
     min-width: 115px;
@@ -39,6 +48,7 @@
 
 .navlink-text {
     width: max-content;
+    color: white;
 }
 
 .dropdown-container {

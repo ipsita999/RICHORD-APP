@@ -20,6 +20,39 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
+      0: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+      },
+      100: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+      },
+      200: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+      },
+      300: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+      },
+      400: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+      },
+      500: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+      },
+      600: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+      },
+      700: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+      },
+      800: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+      },
+      900: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+      },
+      1000: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
