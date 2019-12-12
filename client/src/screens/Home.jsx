@@ -7,18 +7,19 @@ class Home extends Component {
         super()
         this.state = {
             display: 'none',
-            title: 'block'
+            title: 'block',
+            animate: 'moveDown'
         }
     }
 
 
 showLearn = () => {
     console.log('button was clicked')
-        if ( this.state.display === 'none') {
+        if ( this.state.animate === 'moveDown') {
             console.log(this.state)
-            this.setState({ display: 'block', title: 'none' });
-          } else if ( this.state.display === 'block' ) {
-            this.setState({ display: 'none', title: 'block' })
+            this.setState({ display: 'block', title: 'none', animate: 'moveUp' });
+          } else if ( this.state.animate === 'moveUp' ) {
+            this.setState({ display: 'block', title: 'block', animate: 'moveDown' })
             console.log(this.state);
           }
 }
@@ -29,11 +30,8 @@ render() {
             <h1>Find your sound...</h1>
             <div className="learn" onClick={() => this.showLearn()}>
                 <h2>Learn More</h2>
-                <div className="learnButton">
-                    v
             </div>
-            </div>
-            <div className="learnBox" style={{display: `${this.state.display}`}}>
+            <div className="learnBox" style={{display: `${this.state.display}`, animationName: `${this.state.animate}`}}>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti nemo molestiae eos eligendi fugit quisquam soluta fuga facilis animi, aliquam iusto quis sapiente quod, assumenda odit amet impedit reprehenderit cupiditate.</p>
                 <NavLink to='/tracks' className="link">View Tracks</NavLink>
             </div>
