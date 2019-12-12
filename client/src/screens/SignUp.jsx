@@ -47,12 +47,12 @@ class SignUp extends Component {
     if (this.state.isError) {
       return (
         <>
-          <button type="submit">Sign In</button>
-          <p classname={toggleForm}>{this.state.errorMsg}</p>
+          <button type="submit">Sign Up</button>
+          <p className={toggleForm}>{this.state.errorMsg}</p>
         </>
       )
     } else {
-      return <button className='login-submit'>Sign In</button>
+      return <div className='flex-row flex-end'><button className='login-submit'>Sign Up</button></div>
     }
   }
 

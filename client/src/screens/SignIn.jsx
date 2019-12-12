@@ -24,11 +24,10 @@ class SignIn extends Component {
   onSignIn = event => {
     event.preventDefault()
 
-    const { history, setUser } = this.props
+    const { setUser } = this.props
 
     signInUser(this.state)
       .then(res => setUser(res.user))
-      .then(() => history.push('/'))
       .catch(error => {
         console.error(error)
         this.setState({
@@ -45,12 +44,14 @@ class SignIn extends Component {
     if (this.state.isError) {
       return (
         <>
+        <div className='flex-row flex-end'>
           <button type="submit">Sign In</button>
-          <p classname={toggleForm}>{this.state.errorMsg}</p>
+        </div>
+        <p className={toggleForm}>{this.state.errorMsg}</p>
         </>
       )
     } else {
-      return <button className='login-submit'>Sign In</button>
+      return <div className='flex-row flex-end'><button className='login-submit'>Sign In</button></div>
     }
   }
 
@@ -87,7 +88,7 @@ class SignIn extends Component {
         </form>
         <div className='buttons-container flex-col'>
           <div className='toggle-container flex-col'>
-            <p>Already have an account?</p>
+            <p>Dont have an account?</p>
             <button className='login-toggle' onClick={this.props.toggleLogin}>Register here</button>
           </div>
         </div>

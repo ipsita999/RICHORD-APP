@@ -105,11 +105,11 @@ const getAllTracks = async (req, res) => {
 	}
 }
 
-
 const createTrack = async (req, res) => {
 	const newTrack = await Track.create(req.body)
 	return res.send(newTrack)
 }
+
 const getUserTracks = async (req, res) => {
     try {
         const { id } = req.params
