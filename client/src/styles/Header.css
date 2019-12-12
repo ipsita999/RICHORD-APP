@@ -4,15 +4,17 @@
     width: 100%;
     font-family: 'Abril Fatface', cursive;
     color: white;
+    position: fixed;
+    z-index: 100;
 }
 
 .navbar {
     justify-content: space-between;
-
-    background: pink;
+    background: #bf5f82;
     width: 100%;
-
+    position: fixed;
     height: 60px;
+    z-index: 100;
 }
 
 .nav-links {
@@ -39,6 +41,7 @@
 
 .brand-link h3 {
     color: white;
+    font-size: 25px;
 }
 
 .account-links {

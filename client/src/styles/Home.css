@@ -57,8 +57,6 @@ body p {
 }
 
 .learnBox {
-    /* display: absolute; */
-    display: none;
     width: 50vw;
     height: 70vh;
     text-align: center;
