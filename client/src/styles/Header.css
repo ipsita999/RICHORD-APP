@@ -1,0 +1,132 @@
+
+.nav {
+    justify-content: space-between;
+    width: 100%;
+}
+.navbar {
+    justify-content: space-between;
+    background: pink;
+    width: 100%;
+    height: 60px;
+}
+
+.nav-links {
+    width: 40%;
+    min-width: 260px;
+    max-width: 350px;
+    justify-content: space-around;
+
+}
+
+.nav-links.authed {
+    width: 30%;
+    min-width: 220px;
+    max-width: 300px;
+    justify-content: space-evenly;
+}
+
+.brand-link {
+    justify-content: center;
+    width: 30%;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+.account-links {
+    justify-content: space-between;
+    min-width: 115px;
+}
+
+.navlink-text {
+    width: max-content;
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 38px;
+    right: -56px;
+    width: 250px;
+}
+
+.dropdown-text {
+
+}
+
+.dropdown-container:hover .dropdown-menu {
+    display: block;
+}
+
+@media (max-width:450px) {
+    .greeting {
+        display: none;
+    }
+}
+
+.login-prompt{
+    margin: 8px 0;
+    text-align: center;
+}
+
+.input-container {
+
+}
+
+.input-prompt {
+
+}
+
+.login-children {
+    margin: 10px 0;
+}
+
+.dropdown-login {
+    background-color: palevioletred;
+    position: absolute;
+    top: 38px;
+    right: -56px;
+    width: 250px;
+    padding: 10px;
+}
+
+.login-submit {
+    width:22%;
+    margin: 5px 5px 5px 0;
+}
+
+.login-toggle {
+    width: 50%;
+    margin: 5px 0;
+}
+
+.buttons-container {
+    align-items: flex-end;
+}
+
+.toggle-container {
+    align-items: center;
+    width: 100%
+}
+
+@keyframes login-show {
+    from {transform:translateX(0);opacity:.5;}
+    to {transform:translateX(10);opacity:1;}
+}
+@keyframes login-hide {
+    from {transform:translateX(10);opacity:1;}
+    to {transform:translateX(0);opacity:.5;}
+}
+
+#login-active {
+    animation-name: login-show;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+}
+#login-not-active{
+    animation: login-hide;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+}
