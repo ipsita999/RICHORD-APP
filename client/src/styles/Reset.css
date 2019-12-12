@@ -50,3 +50,7 @@ a {
 #root {
 	overflow: hidden;
 }
+
+.container {
+	margin-top: 60px;
+}

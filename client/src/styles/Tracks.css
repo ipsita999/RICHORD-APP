@@ -3,7 +3,6 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    margin-top: 25px;
 }
 
 .listing h1 {
@@ -12,9 +11,7 @@
     font-family: 'Abril Fatface', cursive;
     color: white;
     width: 12vw;
-    margin: 10px;
     background-color:#f48fb1;
-    margin-top: 75px;
 }
 
 .trackListing h2 {

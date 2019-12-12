@@ -86,7 +86,7 @@ class Track extends Component {
 
     render() {
         return (
-            this.state.track &&
+            // this.state.track &&
             <>
                 <h1>hello</h1>
                 <button onClick={this.playTracks}> play </button>
