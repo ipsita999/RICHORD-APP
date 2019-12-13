@@ -50,8 +50,11 @@ class EditTrack extends React.Component {
     fetchTrack = async () => {
         try {
             const track = await getTrackById(this.props.match.params.id)
-            // console.log(track.track)
-            // this.setState({ beats: track.track })
+            console.log(this.state.beats)
+            console.log(track)
+            console.log(track.track)
+            console.log(track.track[0])
+            this.setState({ beats: track.track })
 
         } catch (err) {
             console.error(err)
