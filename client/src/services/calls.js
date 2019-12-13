@@ -42,7 +42,7 @@ export const getTrackById = async id => {
 export const getTracks = async () => {
   try {
       const resp = await api.get('/tracks')
-      return resp.data
+      return resp.data.tracks
   } catch (error) {
       throw (error)
   }

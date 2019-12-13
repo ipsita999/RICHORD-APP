@@ -108,11 +108,8 @@ const getAllTracks = async (req, res) => {
 const createTrack = async (req, res) => {
 	try { 
 	const newTrack = await Track.create(req.body)
-
-	return res.status(200).json({
-					track: {
-						newTrack
-					}
+	return res.status(201).json({
+		newTrack
 				})
 	} catch {
 		return res.status(500).send(error.message)

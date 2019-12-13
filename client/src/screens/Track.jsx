@@ -18,8 +18,6 @@ class Track extends Component {
         this.state = {
             track: null,
             play: false,
-            
-
         }
     }
 

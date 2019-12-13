@@ -43,10 +43,10 @@ export const getUserTracks = async (user) => {
   }
 }
 
-export const AddTrack = async track => {
+export const createTrack = async track => {
   try {
     const resp = await api.post('/tracks', track)
-    return resp
+    return resp.data.newTrack
   } catch (error) {
     throw error
   }

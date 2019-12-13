@@ -1,12 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
-import { AddTrack } from '../services/auth.js'
-
-
+import { createTrack } from '../services/auth.js'
 class CreateTrack extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             key: "",
             duration: "-1",
@@ -33,10 +30,10 @@ class CreateTrack extends React.Component {
                 1900: [],
                 2000: []
             },
-            created: false
+            created: false,
+            createdTrack: null
         }
     }
-
 
     handleKeyChange = (event) => {
         this.setState({ key: event.target.value });
@@ -57,19 +54,25 @@ class CreateTrack extends React.Component {
         this.setState({ beats: localBeats }, () => {
             console.log("beats: ", this.state.beats)
         })
-
     }
 
-    handleSubmit = () => {
-        AddTrack(this.state.beats)
-            .then(
+    handleSubmit = async () => {
+        try {
+            const track = await createTrack(this.state.beats)
+            if (track) {
                 this.setState({
-                    created: true
+                    createdTrack: track
                 })
-            )
-            .catch(console.error)
+                this.props.addTrack(this.state.createdTrack)
+                this.setState({
+                    created: true,
+                    createdTrack: null
+                })
+            }
+        } catch (error) {
+            throw error
+        }
     }
-
 
     render() {
 
@@ -79,7 +82,6 @@ class CreateTrack extends React.Component {
 
         return (
             <div>
-
 
                 <div style={{ padding: 10, display: "flex", flexDirection: "row" }} >
 
