@@ -60,10 +60,8 @@ class Track extends Component {
             
             this.setState({ track })
             this.setState({title: this.state.track.track.title})
-            // console.log(this.state)
-
-
-            // console.log(this.state.track.track)
+            console.log(this.state)
+            console.log(this.state.track.track)
 
         } catch (err) {
             console.error(err)
