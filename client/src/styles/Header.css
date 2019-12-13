@@ -1,10 +1,10 @@
 .navbar {
     justify-content: space-between;
-    background: #bf5f82;
+    background: rgb(70, 12, 60);
     width: 100%;
     position: fixed;
     height: 60px;
-    z-index: 100;
+    z-index: 501;
 }
 
 .nav {
@@ -13,6 +13,7 @@
     height: 100%;
     font-family: 'Open Sans Condensed', sans-serif;
     color: white;
+    box-shadow: 1px 1px 5px rgb(94, 93, 92);
 }
 
 .nav-links {
@@ -65,7 +66,7 @@
     position: absolute;
     display: none;
     padding: 5px 25px 10px 10px;
-    background-color: palevioletred;
+    background-color: #c21758c0;
 }
 
 .dropdown-text {
@@ -87,14 +88,11 @@
 .login-prompt{
     margin: 8px 0;
     text-align: center;
+    font-size: 25px;
+    font-weight: bold;
 }
-
-.input-container {
-
-}
-
-.input-prompt {
-
+form p {
+    font-size: 20px;
 }
 
 .login-children {
@@ -103,15 +101,18 @@
 }
 
 .dropdown-login {
-    background-color: palevioletred;
+    background-color: #c21758c0;
     position: absolute;
     width: 250px;
     padding: 10px;
     top: 60px;
+    /* color: #eeda67; */
+    font-size: 23px;
 }
 
 .login-submit {
     margin: 10px 35px;
+    border-radius: 2px;
 }
 
 .danger {
@@ -125,6 +126,7 @@
 .login-toggle {
     width: 45%;
     margin: 5px 0;
+    border-radius: 2px;
 }
 
 .buttons-container {
@@ -135,7 +137,9 @@
     align-items: center;
     width: 100%
 }
-
+.toggle-container p {
+    font-size: 20px;
+}
 
 @keyframes login-hide {
     from {right: -56px; opacity:1}
@@ -161,4 +165,7 @@
     animation-timing-function: ease;
     animation-duration: .5s;
     right: -380px;
+}
+h1 {
+    /* color: rgb(224, 213, 223); */
 }

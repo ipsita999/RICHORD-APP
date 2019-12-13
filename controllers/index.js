@@ -162,21 +162,21 @@ const getTrackById = async (req, res) => {
 // 	}
 // }
 
-// const deleteItem = async (req, res) => {
-// 	try {
-// 		console.log(req)
-// 		const { id } = req.params
-// 		const deleted = await Item.destroy({
-// 			where: { id: id }
-// 		})
-// 		if (deleted) {
-// 			return res.status(202).send('Item deleted')
-// 		}
-// 		throw new Error('Item not found')
-// 	} catch (error) {
-// 		return res.status(500).send(error.message)
-// 	}
-// }
+const deleteTrack = async (req, res) => {
+	try {
+		console.log(req.params)
+		const { id } = req.params
+		const deleted = await Track.destroy({
+			where: { id: id }
+		})
+		if (deleted) {
+			return res.status(202).send('Item deleted')
+		}
+		throw new Error('Item not found')
+	} catch (error) {
+		return res.status(500).send(error.message)
+	}
+}
 
 module.exports = {
 	signUp,
@@ -190,6 +190,6 @@ module.exports = {
 
 	getTrackById,
 	// updateItem,
-	// deleteItem
+	deleteTrack,
 	createTrack
 }

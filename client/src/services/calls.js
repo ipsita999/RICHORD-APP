@@ -19,7 +19,15 @@ export const getTrackById = async id => {
   }
 }
 
-
+export const deleteTrack = async (id) => {
+  try {
+    const resp = await api.delete(`/tracks/track/${id}`)
+    return resp.data
+  } catch (error) {
+    console.log('error getting track')
+    throw error
+  }
+}
 
 // export const updateItem = async (id, item) => {
 //   try {

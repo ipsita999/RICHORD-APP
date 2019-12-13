@@ -15,6 +15,7 @@ router.get('/tracks/track/:id', controllers.getTrackById)
 
 router.get('/users/:id/tracks', restrict, controllers.getUserTracks)
 
+router.delete('/tracks/track/:id', controllers.deleteTrack)
 
 // router.get('/items/:id', controllers.getItemById)
 
