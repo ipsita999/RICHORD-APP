@@ -1,6 +1,6 @@
 .navbar {
     justify-content: space-between;
-    background: #bf5f82;
+    background: rgb(70, 12, 60);
     width: 100%;
     position: fixed;
     height: 60px;
@@ -13,6 +13,7 @@
     height: 100%;
     font-family: 'Open Sans Condensed', sans-serif;
     color: white;
+    box-shadow: 1px 1px 5px rgb(94, 93, 92);
 }
 
 .nav-links {
@@ -65,7 +66,7 @@
     position: absolute;
     display: none;
     padding: 5px 25px 10px 10px;
-    background-color: palevioletred;
+    background-color: #c21758c0;
 }
 
 .dropdown-text {
@@ -100,11 +101,13 @@ form p {
 }
 
 .dropdown-login {
-    background-color: palevioletred;
+    background-color: #c21758c0;
     position: absolute;
     width: 250px;
     padding: 10px;
     top: 60px;
+    /* color: #eeda67; */
+    font-size: 23px;
 }
 
 .login-submit {
@@ -162,4 +165,7 @@ form p {
     animation-timing-function: ease;
     animation-duration: .5s;
     right: -380px;
+}
+h1 {
+    /* color: rgb(224, 213, 223); */
 }

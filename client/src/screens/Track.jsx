@@ -578,11 +578,13 @@ start = () => {
                     <div className="C key" style={{backgroundColor: `${this.state.uColor}`}}></div>
                 </div>
             </div>
+
             <div className="controls">
                 <img src={require("../resources/play.png")} onClick={this.playTrack}/>
                 <img src={require("../resources/pause.png")} onClick={this.pauseTrack}/>
                 <img src={require("../resources/stop.png")} onClick={this.stopTrack}/>
             </div>
+
 
 
             </div>
