@@ -9,6 +9,7 @@ import Tracks from '../screens/Tracks'
 import MyTracks from '../screens/MyTracks'
 import Track from '../screens/Track'
 import CreateTrack from '../screens/CreateTrack'
+import EditTrack from '../screens/EditTrack'
 // import ChangePassword from '../screens/ChangePassword'
 // import Item from '../screens/Item'
 // import Items from '../screens/Items'
@@ -69,6 +70,12 @@ const Routes = ({ user, setUser, clearUser, addTrack, tracks
       path="/create-tracks"
       user={user}
       render={props => <CreateTrack addTrack={addTrack} tracks={tracks} {...props} user={user} /> }
+    />
+    <AuthenticatedRoute
+      exact
+      path="/tracks/:id/edit"
+      user={user}
+      render={props => <EditTrack addTrack={addTrack} tracks={tracks} {...props} user={user} /> }
     />
     {/* <AuthenticatedRoute
       exact
