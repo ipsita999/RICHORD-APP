@@ -3,9 +3,9 @@ RICHORD is a React based website, allowing users to create melodies and develop 
 
 As our first team-oriented project at General Assembly's Software Engineering Immersive (SEI) course, our task was to build a full stack web product, implementing our own backend and database via Sequelize, Express, React and Router.
 
-[RICHORD Website](http://something-recipes.surge.sh/)
+[RICHORD Website](http://surge.sh/)
 
-![RICHORD Demo](somethingrecipes.gif)
+![RICHORD Demo](richord.gif)
 
 ## This Project Uses:
 - React.js
