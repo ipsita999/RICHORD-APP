@@ -1,12 +1,15 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
 import { createTrack } from '../services/auth.js'
+import $ from 'jquery'
+import '../styles/CreateTrack.css'
+
 class CreateTrack extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             key: "",
-            selectedBeat: '0',
+            selectedInterval: '0',
             beats: {
                 0: [],
                 100: [],
@@ -32,6 +35,7 @@ class CreateTrack extends React.Component {
             },
             user_id: this.props.user.id,
             title: 'Untitled Track',
+            indexCheck: 0,
             created: false,
             createdTrack: null
         }
@@ -62,25 +66,47 @@ class CreateTrack extends React.Component {
 
     handleChange = event => {
         this.setState({
-            title: `${event.target.value}`
+            title: `${ event.target.value }`
         })
     }
 
-    handleBeatSelect = event => {
+    handleIntervalSelect = event => {
+        $("div.interval-button-container").find("button").removeClass('selected')
+        event.target.className = 'selected interval-button'
         this.setState({
-            selectedBeat: event.target.value
+            selectedInterval: event.target.value,
+            indexCheck: event.target.key
         })
     }
 
     onClickAdd = (event) => {
-        let beat = parseInt(this.state.selectedBeat)
-        console.log(event.target.value)
+        let interval = parseInt(this.state.selectedInterval)
         let localBeats = { ...this.state.beats }
-        localBeats[beat].push(event.target.value)
-
+        if (localBeats[interval].length < 5) {
+            localBeats[interval].push(event.target.value)
+        } else { 
+            return
+        }
         this.setState({ beats: localBeats }, () => {
             console.log("beats: ", this.state.beats)
         })
+    }
+
+    renderButtons = () => {
+        return (
+            Object.keys(this.state.beats).map((item, index) => {
+                return (
+                    <div key={ index } className='interval-button-container flex-col' style={{ margin: 5 }}>
+                        <button onClick={ this.handleIntervalSelect } className='interval-button' value={`${ item }`}>{item}</button>
+                        {this.state.beats[item].map((key, index) => {
+                            return (
+                                <div className='added-key' key={ index }>{ key }</div>
+                            )
+                        })}
+                    </div>
+                )
+            })
+        )
     }
 
     render() {
@@ -90,73 +116,37 @@ class CreateTrack extends React.Component {
         }
 
         return (
-            <div>
-                <p>Selected Interval: {this.state.selectedBeat}</p>
-                <div style={{ padding: 10, display: "flex", flexDirection: "row" }} >
-                    <p>
-                        Interval:
-                            <button onClick={this.handleBeatSelect} value="0">0</button>
-                            <button onClick={this.handleBeatSelect} value="100">100</button>
-                            <button onClick={this.handleBeatSelect} value="200">200</button>
-                            <button onClick={this.handleBeatSelect} value="300">300</button>
-                            <button onClick={this.handleBeatSelect} value="400">400</button>
-                            <button onClick={this.handleBeatSelect} value="500">500</button>
-                            <button onClick={this.handleBeatSelect} value="600">600</button>
-                            <button onClick={this.handleBeatSelect} value="700">700</button>
-                            <button onClick={this.handleBeatSelect} value="800">800</button>
-                            <button onClick={this.handleBeatSelect} value="900">900</button>
-                            <button onClick={this.handleBeatSelect} value="1000">1000</button>
-                            <button onClick={this.handleBeatSelect} value="1100">1100</button>
-                            <button onClick={this.handleBeatSelect} value="1200">1200</button>
-                            <button onClick={this.handleBeatSelect} value="1300">1300</button>
-                            <button onClick={this.handleBeatSelect} value="1400">1400</button>
-                            <button onClick={this.handleBeatSelect} value="1500">1500</button>
-                            <button onClick={this.handleBeatSelect} value="1600">1600</button>
-                            <button onClick={this.handleBeatSelect} value="1700">1700</button>
-                            <button onClick={this.handleBeatSelect} value="1800">1800</button>
-                            <button onClick={this.handleBeatSelect} value="1900">1900</button>
-                            <button onClick={this.handleBeatSelect} value="2000">2000</button>
-                    </p>
-                    <div style={{ width: 50 }}></div>
-                </div>
-                <p>
-                    Key:
-                        <button onClick={this.onClickAdd} value="A">A</button>
-                        <button onClick={this.onClickAdd} value="B">B</button>
-                        <button onClick={this.onClickAdd} value="C">C</button>
-                        <button onClick={this.onClickAdd} value="D">D</button>
-                        <button onClick={this.onClickAdd} value="E">E</button>
-                        <button onClick={this.onClickAdd} value="F">F</button>
-                        <button onClick={this.onClickAdd} value="G">G</button>
-                </p>
+            <>
+                <p className='create-track-text first'>Selected Interval: {this.state.selectedInterval} </p>
+                <div className='intervals-container flex-row' >
 
-                <div style={{ width: 50 }}></div>
-                <div style={{ margin: 10, display: "flex", flexDirection: "row" }}>
+                        { this.renderButtons() }
 
-                    {Object.keys(this.state.beats).map((item, index) => {
-                        return (
-                            <div key={index} style={{ margin: 5, display: "flex", flexDirection: "column" }}>
-                                <div>{item}</div>
-                                {this.state.beats[item].map((key, index) => {
-                                    return (
-                                        <div key={index}>{key}</div>
-                                    )
-                                })}
-                            </div>
-                        )
-                    })}
                 </div>
-                <form onSubmit={this.handleSubmit}>
+                <div className='keys-container flex-row'>
+                    <p className='create-track-text'>Keys:</p>
+                    <div className='keys flex-row'>
+                        <button className='key-button' onClick={ this.onClickAdd } value="A">A</button>
+                        <button className='key-button' onClick={ this.onClickAdd } value="B">B</button>
+                        <button className='key-button' onClick={ this.onClickAdd } value="C">C</button>
+                        <button className='key-button' onClick={ this.onClickAdd } value="D">D</button>
+                        <button className='key-button' onClick={ this.onClickAdd } value="E">E</button>
+                        <button className='key-button' onClick={ this.onClickAdd } value="F">F</button>
+                        <button className='key-button' onClick={ this.onClickAdd } value="G">G</button>
+                    </div>
+                </div>
+                <form className='create-track-form flex-row' onSubmit={ this.handleSubmit }>
                     <input
                         required
                         type="text"
-                        value={this.state.title}
+                        value={ this.state.title }
                         placeholder="Enter Track Title"
-                        onChange={this.handleChange}
+                        onChange={ this.handleChange }
+                        className='title-input'
                     />
-                    <button type='submit'>Create Track</button>
+                    <button className='create-button' type='submit'>Create Track</button>
                 </form>
-            </div>
+            </>
         )
     }
 }

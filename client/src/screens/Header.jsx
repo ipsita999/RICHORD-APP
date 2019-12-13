@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 import Navbar from '../components/shared/Navbar.jsx'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
-import '../styles/Flex.css'
 import '../styles/Header.css'
 
 

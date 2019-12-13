@@ -25,7 +25,7 @@ export default class Tracks extends Component {
 
         if (this.props.tracks) {
             return this.props.tracks.map((track) => (
-                <div key={track.id} className='trackPreview' 
+                <div key={track.id} className='trackPreview flex-row' 
                 onClick={() => history.push(`${path}/track/${track.id}`)}
                  >
                     <h2>{track.title}</h2>
@@ -40,7 +40,7 @@ export default class Tracks extends Component {
             <div className="listing">
                 <h1>All Tracks
                     </h1>
-                <div className="trackListing">
+                <div className="trackListing flex-row">
                     {this.renderTracks()}
                 </div>
             </div>

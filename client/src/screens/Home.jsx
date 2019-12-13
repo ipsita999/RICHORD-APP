@@ -26,7 +26,7 @@ showLearn = () => {
 
 render() {
     return (
-        <div className="home-container">
+        <div className="home-container flex-col">
             <h1>Find your sound...</h1>
             <div className="learn" onClick={() => this.showLearn()}>
                 <h2>Learn More</h2>

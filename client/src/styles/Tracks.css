@@ -1,16 +1,20 @@
 .trackListing {
-    display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
 }
-
+.listing {
+    margin-top: 60px;
+    padding-top: 20px;
+}
 .listing h1 {
     font-size: 30px;
     padding: 20px;
+    margin: 0 30px;
     font-family: 'Abril Fatface', cursive;
     color: white;
     width: 12vw;
+    min-width: 150px;
     background-color:#f48fb1;
 }
 
@@ -20,7 +24,6 @@
 }
 
 .trackPreview {
-    display: flex;
     position: relative;
     justify-content: center;
     padding: 20px;
