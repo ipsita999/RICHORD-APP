@@ -23,6 +23,7 @@ class Track extends Component {
         }
     }
 
+    audio = new Audio()
 
     componentDidMount() {
         this.fetchTrack()
@@ -110,8 +111,11 @@ class Track extends Component {
         audio.src = sounds[sound]
         audio.play()
 
+
         console.log('playing sound file:', sounds[sound]);
     }
+
+
 
 
     pauseTrack = () => {
@@ -130,6 +134,7 @@ class Track extends Component {
     }
 
     renderTrack = () => {
+
     
         // if(this.state.track){
         // return ( 
@@ -157,10 +162,14 @@ class Track extends Component {
             // this.state.track &&
             <>
                 <h1>hello</h1>
+
+
+
                 <button onClick={this.playTrack}> play </button>
                 <button onClick={this.pauseTrack}> pause </button>
                 <button onClick={this.stopTrack}> stop </button>
         <div>{this.renderTrack()}</div>
+
             </>
         )
     }
