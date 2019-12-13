@@ -4,7 +4,7 @@
     width: 100%;
     position: fixed;
     height: 60px;
-    z-index: 100;
+    z-index: 501;
 }
 
 .nav {
@@ -137,7 +137,6 @@ form p {
 .toggle-container p {
     font-size: 20px;
 }
-
 
 @keyframes login-hide {
     from {right: -56px; opacity:1}

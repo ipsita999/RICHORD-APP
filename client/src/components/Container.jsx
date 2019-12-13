@@ -25,6 +25,14 @@ export default class Container extends Component {
     }
   }
 
+  getTracks = async () => {
+    try {
+      return await getTracks()
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   addTrack = track => this.setState({ tracks: [...this.state.tracks, track] })
 
   setUser = user => this.setState({ user })
@@ -38,7 +46,7 @@ export default class Container extends Component {
         <Header user={user} {...this.props} setUser={this.setUser}/>
         <main className="container">
           <Routes
-            getTracks={this.fetchTracks}
+            getTracks={this.getTracks}
             tracks={this.state.tracks}
             user={user}
             setUser={this.setUser}

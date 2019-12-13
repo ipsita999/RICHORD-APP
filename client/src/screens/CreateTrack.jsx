@@ -35,7 +35,6 @@ class CreateTrack extends React.Component {
             },
             user_id: this.props.user.id,
             title: 'Untitled Track',
-            indexCheck: 0,
             created: false,
             createdTrack: null
         }
@@ -75,7 +74,6 @@ class CreateTrack extends React.Component {
         event.target.className = 'selected interval-button'
         this.setState({
             selectedInterval: event.target.value,
-            indexCheck: event.target.key
         })
     }
 

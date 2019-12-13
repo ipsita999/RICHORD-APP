@@ -30,7 +30,6 @@ export default class MyTracks extends Component {
             match: { path },
             history,
         } = this.props
-        // console.log(path)
 
         if (this.state.tracks.length) {
             return this.state.tracks.map((track) => (

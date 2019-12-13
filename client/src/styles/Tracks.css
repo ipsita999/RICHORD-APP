@@ -24,6 +24,7 @@
 }
 
 .trackPreview {
+    position: relative;
     justify-content: center;
     align-items: flex-start;
     margin: 20px;
@@ -41,4 +42,11 @@
     text-transform: uppercase;
     width: 100%;
     margin-bottom: 400px;
+}
+
+.delete-prompt-button {
+    position: absolute;
+    top:0;
+    right:0;
+    z-index: 500;
 }
