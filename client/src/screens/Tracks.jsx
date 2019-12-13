@@ -29,7 +29,10 @@ export default class Tracks extends Component {
                 onClick={() => history.push(`${path}/track/${track.id}`)}
                  >
                     <h2>{track.title}</h2>
-                    <img className='previewPic' src={require("../resources/music-placeholder.png")} alt='music-icon' />
+
+           
+              
+                    
                 </div>
             ))
         }

@@ -24,20 +24,21 @@
 }
 
 .trackPreview {
-    position: relative;
     justify-content: center;
-    padding: 20px;
+    align-items: flex-start;
+    margin: 20px;
+    height: 325px;
+    max-width: 350px;
+    flex: 1 1 300px;
+    background-image: url(../resources/music-placeholder.png);
+    background-position: center;
+    background-position-y: -30px;
 }
 
 .trackPreview h2 {
-    position: absolute;
-    width: 80%;
-    top: 30px;
     background-color: #bf5f82;
     padding: 20px;
     text-transform: uppercase;
-}
-
-.previewPic {
-    display: absolute;
+    width: 100%;
+    margin-bottom: 400px;
 }
