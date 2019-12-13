@@ -41,11 +41,15 @@ class Track extends Component {
             sColor: 'white',
             tColor: 'white',
             uColor: 'white',
+            pause: false,
+            stop: false
+
         }
     }
 
+    audio = new Audio()
 
-    async componentDidMount() {
+    componentDidMount() {
         this.fetchTrack()
 
     }
@@ -53,28 +57,50 @@ class Track extends Component {
     fetchTrack = async () => {
         try {
             const track = await getTrackById(this.props.match.params.id)
-            console.log(track.track)
+            
             this.setState({ track })
+
             console.log(this.state)
+
+
+            console.log(this.state.track.track)
 
         } catch (err) {
             console.error(err)
         }
     }
 
-    playTracks = () => {
-        this.timer();
+    playTrack = () => {
+        if (this.state.pause === true) {
+            this.setState({
+                pause: false
+            })
+        } else if (this.state.stop === true) {
+            this.setState({
+                stop: false
+            })
+        }
+
+        this.timer()
     }
 
     timer = () => {
+
+        if (this.state.play === true) {
+            return
+        }
+
         this.start();
 
         setTimeout(() => {
             clearInterval(this.start);
         })
+
+
     }
 
     start = () => {
+
 
         const timeline = this.state.track.track;
         let i = 0;
@@ -453,9 +479,39 @@ class Track extends Component {
                     //     this.setState({ 'play': !this.state.play }, () => {
                     //         this.state.play ? globalAudio.play(this.name) : globalAudio.pause(this.name);
                     //     });
-                }
+
+        this.setState({
+            play: true
+        })
+        const timeline = this.state.track.track;
+        let i = 0;
+        let myVar = setInterval(() => {
+            if (this.state.stop) {
+                i = 2001
             }
-            i = i + 1;
+            if (this.state.play === true && this.state.pause === false) {
+                if (i > 2000) {
+                    clearInterval(myVar)
+                    this.setState({
+                        play: false
+                    })
+                    console.log('SONG IS DONE')
+
+                }
+                if (timeline[i]) {
+
+                    for (let k = 0; k < timeline[i].length; k++) {
+                        console.log('playing sound file at MS:', i)
+
+                        this.playSound(timeline[i][k]);
+                        // togglePlay() {
+                        //     this.setState({ 'play': !this.state.play }, () => {
+                        //         this.state.play ? globalAudio.play(this.name) : globalAudio.pause(this.name);
+                        //     });
+                    }
+                }
+                i = i + 1;
+            }
         }, 1);
     }
 
@@ -465,11 +521,32 @@ class Track extends Component {
         audio.src = sounds[sound]
         audio.play()
 
+
         console.log('playing sound file:', sounds[sound]);
     }
 
 
+
+
+
+
+    pauseTrack = () => {
+        if (this.state.play) {
+            this.setState({
+                pause: true
+            })
+        }
+    }
+
+    stopTrack = () => {
+        this.setState({
+            stop: true,
+            pause: false
+        })
+    }
+
     render() {
+        
         return (
             // this.state.track &&
             <>
@@ -501,10 +578,21 @@ class Track extends Component {
             </div>
 
                 <h1>hello</h1>
+
                 <button onClick={this.playTracks}> play </button>
                 <Link to={`/tracks/${this.props.match.params.id}/edit`}>
                     <button>Edit</button>
                 </Link>
+
+
+
+
+                <button onClick={this.playTrack}> play </button>
+                <button onClick={this.pauseTrack}> pause </button>
+                <button onClick={this.stopTrack}> stop </button>
+        <div>{this.renderTrack()}</div>
+
+
             </>
         )
     }

@@ -109,7 +109,7 @@ class CreateTrack extends React.Component {
         return (
             Object.keys(this.state.beats).map((item, index) => {
                 return (
-                    <div key={ index } className='interval-button-container flex-col' style={{ margin: 5 }}>
+                    <div key={ index } className='interval-button-container flex-col'>
                         <button onClick={ this.handleIntervalSelect } className='interval-button' value={`${ item }`}>{item}</button>
                         {this.state.beats[item].map((key, index) => {
                             return (
