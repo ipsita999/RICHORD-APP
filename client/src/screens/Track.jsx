@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getTrackById } from '../services/calls'
+import { Link } from 'react-router-dom'
 
 const sounds = {
     A: require('./sounds/piano-a.wav'),
@@ -50,20 +51,20 @@ class Track extends Component {
         })
     }
 
-    start=()=> {
-        
+    start = () => {
+
         const timeline = this.state.track.track;
         let i = 0;
-        let myVar = setInterval(()=>{
+        let myVar = setInterval(() => {
             if (i > 2000) {
                 clearInterval(myVar)
                 console.log('SONG IS DONE')
             }
             if (timeline[i]) {
-                
+
                 for (let k = 0; k < timeline[i].length; k++) {
                     console.log('playing sound file at MS:', i)
-                    
+
                     this.playSound(timeline[i][k]);
                     // togglePlay() {
                     //     this.setState({ 'play': !this.state.play }, () => {
@@ -76,15 +77,15 @@ class Track extends Component {
     }
 
     playSound = (sound) => {
-        
+
         let audio = new Audio()
         audio.src = sounds[sound]
         audio.play()
 
         console.log('playing sound file:', sounds[sound]);
     }
- 
-    
+
+
 
     render() {
         return (
@@ -92,7 +93,9 @@ class Track extends Component {
             <>
                 <h1>hello</h1>
                 <button onClick={this.playTracks}> play </button>
-
+                <Link to={`/tracks/${this.props.match.params.id}/edit`}>
+                    <button>Edit</button>
+                </Link>
             </>
         )
     }
