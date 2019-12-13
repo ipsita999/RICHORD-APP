@@ -17,7 +17,7 @@ import EditTrack from '../screens/EditTrack'
 // import ItemEdit from '../screens/ItemEdit'
 import AuthenticatedRoute from './AuthenticatedRoute'
 
-const Routes = ({ user, setUser, clearUser, addTrack, tracks 
+const Routes = ({ getTracks, user, setUser, clearUser, addTrack, tracks 
 }) => (
 
   <Switch>
@@ -44,7 +44,7 @@ const Routes = ({ user, setUser, clearUser, addTrack, tracks
     />
     <Route exact 
     path="/tracks" 
-    render={props => <Tracks tracks={tracks} {...props} />}
+    render={props => <Tracks getTracks={getTracks} tracks={tracks} {...props} />}
     />
     <Route 
     exact path="/tracks/track/:id"

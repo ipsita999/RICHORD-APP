@@ -19,6 +19,7 @@ class Track extends Component {
         super()
         this.state = {
             track: null,
+            title: '',
             play: false,
             aColor: 'white',
             bColor: 'white',
@@ -51,7 +52,6 @@ class Track extends Component {
 
     componentDidMount() {
         this.fetchTrack()
-
     }
 
     fetchTrack = async () => {
@@ -59,7 +59,7 @@ class Track extends Component {
             const track = await getTrackById(this.props.match.params.id)
             
             this.setState({ track })
-
+            this.setState({title: this.state.track.track.title})
             // console.log(this.state)
 
 
@@ -138,6 +138,28 @@ start = () => {
                         play: false
                     })
                     console.log('SONG IS DONE')
+                    this.setState({aColor: 'white',
+                bColor: 'white',
+                cColor: 'white',
+                dColor: 'white',
+                eColor: 'white',
+                fColor: 'white',
+                gColor: 'white',
+                hColor: 'white',
+                iColor: 'white',
+                jColor: 'white',
+                kColor: 'white',
+                lColor: 'white',
+                mColor: 'white',
+                nColor: 'white',
+                oColor: 'white',
+                pColor: 'white',
+                qColor: 'white',
+                rColor: 'white',
+                sColor: 'white',
+                tColor: 'white',
+                uColor: 'white'
+            })
 
                 }
                 if (timeline[i]) {
@@ -528,9 +550,10 @@ start = () => {
         
         return (
             // this.state.track &&
-            <>
+            <div className="track">
 
             <div className="sheet">
+            <h1>{`${this.state.title}`}</h1>
                 <div className="interval">
                     <div className="A key" style={{backgroundColor: `${this.state.aColor}`, backgroundImage: `${this.state.aImage}`}}></div>
                     <div className="B key" style={{backgroundColor: `${this.state.bColor}`, backgroundImage: `${this.state.bImage}`}}></div>
@@ -556,17 +579,15 @@ start = () => {
                 </div>
             </div>
 
-                
-
-                
-
-                <button onClick={this.playTrack}> play </button>
-                <button onClick={this.pauseTrack}> pause </button>
-                <button onClick={this.stopTrack}> stop </button>
+            <div className="controls">
+                <img src={require("../resources/play.png")} onClick={this.playTrack}/>
+                <img src={require("../resources/pause.png")} onClick={this.pauseTrack}/>
+                <img src={require("../resources/stop.png")} onClick={this.stopTrack}/>
+            </div>
 
 
 
-            </>
+            </div>
         )
     }
 }
@@ -574,4 +595,3 @@ start = () => {
         
 
 export default Track
-
