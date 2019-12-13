@@ -9,6 +9,7 @@ class EditTrack extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            track: null,
             key: "",
             selectedInterval: '0',
             beats: {
@@ -47,6 +48,18 @@ class EditTrack extends React.Component {
 
     }
 
+    setData = () => {
+        if(this.state.tracks) {
+        Object.keys(this.state.beats).forEach((item, index) => {
+            this.setState(prevState => ({
+                beats: {                 
+                    ...prevState.beats,   
+                    [item]: [...this.state.tracks[item]]       
+            }}))
+    })}
+    console.log(this.state.beats)
+}
+
     fetchTrack = async () => {
         try {
             const track = await getTrackById(this.props.match.params.id)
@@ -54,7 +67,7 @@ class EditTrack extends React.Component {
             console.log(track)
             console.log(track.track)
             console.log(track.track[0])
-            this.setState({ beats: track.track })
+            this.setState({ track: track.track })
 
         } catch (err) {
             console.error(err)
@@ -143,7 +156,7 @@ class EditTrack extends React.Component {
     }
 
     render() {
-
+        this.setData()
         if (this.state.created) {
             return <Redirect to={"/tracks"} />
         }
