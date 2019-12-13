@@ -1,0 +1,81 @@
+.intervals-container {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 10px 15px;
+}
+.interval-button-container {
+    
+    justify-content: flex-start;
+    min-height: 80px;
+}
+
+.added-key {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.keys-container {
+    justify-content: center;
+}
+
+.keys {
+    justify-content: space-evenly;
+    width: 50%;
+    max-width: 300px;
+    margin: 0 10px;
+}
+
+.key-button {
+    display: flex;
+    flex-direction: column;
+    height: 75px;
+    border-radius: 2px;
+    margin: 5px 2px 10px; 
+    padding: 0 5px;  
+    padding-bottom: 10px; 
+    font-size: 15px;
+    font-weight: bold;
+    justify-content: flex-end;
+    align-items: center;
+    width: 25px;
+}
+.interval-button {
+    border-radius: 2px;
+    border: 1.2px solid pink;
+    background-color: pink;
+    font-size: 15px;
+    font-weight: bold;
+}
+.selected {
+    background-color: palevioletred;
+    color: white;
+}
+.create-track-text {
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+.create-track-text.first {
+    width: 50%;
+    text-align: center;
+    margin-top: 70px;
+}
+.create-track-form {
+    justify-content: space-evenly;
+    margin: 0 40px;
+    padding-bottom: 20px;
+}
+.title-input {
+    margin: 10px 0 10px;
+    padding: 2px 10px;
+    width: 25%;
+    font-size: 14px;
+}
+.create-button {
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: pink;
+}

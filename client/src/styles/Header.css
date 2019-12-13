@@ -99,7 +99,7 @@
 
 .login-children {
     margin: 10px 0;
-    width: 70%;
+    width: 80%;
 }
 
 .dropdown-login {
@@ -112,7 +112,6 @@
 
 .login-submit {
     margin: 10px 35px;
-    /* display: block; */
 }
 
 .danger {
