@@ -7,84 +7,56 @@ const TOKEN_KEY = 'areallylonggoodkey'
 
 const signUp = async (req, res) => {
 
-  try {
-      console.log(req.body)
-	  const { username, email, password } = req.body
-	  const password_digest = await bcrypt.hash(password, SALT_ROUNDS)
-	  const user = await User.create({
-		  username,
-		  email,
-		  password_digest
-	  })
-	  const payload = {
-		  id: user.id,
-		  username: user.username,
-		  email: user.email
-	  }
-	  const token = jwt.sign(payload, TOKEN_KEY)
-	  return res.status(201).json({ user, token })
-  } catch (error) {
-	  console.log(
-		  'You made it to the signUp controller, but there was an error'
-	  )
-	  return res.status(400).json({ error: error.message })
-  }
+	try {
+		console.log(req.body)
+		const { username, email, password } = req.body
+		const password_digest = await bcrypt.hash(password, SALT_ROUNDS)
+		const user = await User.create({
+			username,
+			email,
+			password_digest
+		})
+		const payload = {
+			id: user.id,
+			username: user.username,
+			email: user.email
+		}
+		const token = jwt.sign(payload, TOKEN_KEY)
+		return res.status(201).json({ user, token })
+	} catch (error) {
+		console.log(
+			'You made it to the signUp controller, but there was an error'
+		)
+		return res.status(400).json({ error: error.message })
+	}
 }
 
 const signIn = async (req, res) => {
 
-  try {
-	  console.log(req.body)
-	  const { username, password } = req.body
-	  const user = await User.findOne({
-		  where: {
-			  username
-		  }
-      })
-	  if (await bcrypt.compare(password, user.dataValues.password_digest)) {
-		  const payload = {
-			  id: user.id,
-			  username: user.username,
-			  email: user.email
-		  }
+	try {
+		console.log(req.body)
+		const { username, password } = req.body
+		const user = await User.findOne({
+			where: {
+				username
+			}
+		})
+		if (await bcrypt.compare(password, user.dataValues.password_digest)) {
+			const payload = {
+				id: user.id,
+				username: user.username,
+				email: user.email
+			}
 
-		  const token = jwt.sign(payload, TOKEN_KEY)
-		  return res.status(201).json({ user, token })
-	  } else {
-		  res.status(401).send('Invalid Credentials')
-	  } 
-  } catch (error) {
-	  return res.status(500).json({ error: error.message })
-  }
+			const token = jwt.sign(payload, TOKEN_KEY)
+			return res.status(201).json({ user, token })
+		} else {
+			res.status(401).send('Invalid Credentials')
+		}
+	} catch (error) {
+		return res.status(500).json({ error: error.message })
+	}
 }
-
-// const changePassword = async (req, res) => {
-// 	const { user } = res.body
-// 	const { id } = res.locals.user
-// 	const { newPassword } = req.body
-// 	const password_digest = await bcrypt.hash(newPassword, SALT_ROUNDS)
-// 	const findUser = await User.findByPk( id )
-// 	await findUser.update({
-// 		password_digest: password_digest
-// 	})
-// 	res.send(findUser)
-// }
-
-// const createItem = async (req, res) => {
-// 	try {
-// 		console.log('req.body:', req.body)
-// 		const createdItem = await Item.create(req.body)
-
-// 		return res.status(201).json({
-// 			item: {
-// 				createdItem
-// 			}
-// 		})
-// 	} catch (error) {
-// 		console.log(error)
-// 		return res.status(500).json({ error: error.message })
-// 	}
-// }
 
 const getAllUsers = async (req, res) => {
 	try {
@@ -99,31 +71,31 @@ const getAllTracks = async (req, res) => {
 	console.log("inside controller")
 	try {
 		const tracks = await Track.findAll()
-		return res.status(200).json({tracks })
+		return res.status(200).json({ tracks })
 	} catch (error) {
 		return res.status(500).send(error.message)
 	}
 }
 
 const createTrack = async (req, res) => {
-	try { 
-	const newTrack = await Track.create(req.body)
-	return res.status(201).json({
-		newTrack
-				})
+	try {
+		const newTrack = await Track.create(req.body)
+		return res.status(201).json({
+			newTrack
+		})
 	} catch {
 		return res.status(500).send(error.message)
 	}
 }
 
 const getUserTracks = async (req, res) => {
-    try {
-        const { id } = req.params
-        const tracks = await Track.findAll({
+	try {
+		const { id } = req.params
+		const tracks = await Track.findAll({
 			where: { user_id: id }
 		})
-        return res.status(200).json({ tracks })
-    } catch (error) {
+		return res.status(200).json({ tracks })
+	} catch (error) {
 		return res.status(500).send(error.message)
 	}
 
@@ -145,23 +117,6 @@ const getTrackById = async (req, res) => {
 	}
 }
 
-// const updateItem = async (req, res) => {
-// 	try {
-// 		const { id } = req.params
-// 		const { item } = req.body
-// 		const [updated] = await Item.update(item, {
-// 			where: { id: id }
-// 		})
-// 		if (updated) {
-// 			const updatedItem = await Item.findOne({ where: { id: id } })
-// 			return res.status(202).json({ item: updatedItem })
-// 		}
-// 		throw new Error('Item not found')
-// 	} catch (error) {
-// 		return res.status(500).send(error.message)
-// 	}
-// }
-
 const deleteTrack = async (req, res) => {
 	try {
 		console.log(req.params)
@@ -181,15 +136,10 @@ const deleteTrack = async (req, res) => {
 module.exports = {
 	signUp,
 	signIn,
-	// changePassword,
-	// createItem,
 	getAllUsers,
-
-    getAllTracks,
+	getAllTracks,
 	getUserTracks,
-
 	getTrackById,
-	// updateItem,
 	deleteTrack,
 	createTrack
 }

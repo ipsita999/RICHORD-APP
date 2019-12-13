@@ -20,20 +20,19 @@ class Header extends React.Component {
   }
 
   toggleLoginAnimation = () => {
-    this.state.animation_id === 'login-active' ? this.setState({ animation_id: 'login-not-active'}) : this.setState({ animation_id: 'login-active'})
+    this.state.animation_id === 'login-active' ? this.setState({ animation_id: 'login-not-active' }) : this.setState({ animation_id: 'login-active' })
   }
 
   authenticatedLinks = () => (
     <div className="nav-links flex-row authed">
-      {/* <NavLink to="/change-password">Change Password</NavLink> */}
       <div className='dropdown-container flex-row'>
         <h3 className='navlink-text tracks flex-row'>Tracks</h3>
         <div className='dropdown-menu'>
-            <NavLink to="/tracks" className='navlink-text dropdown-text'>Public Tracks</NavLink>
-            <NavLink to="/create-tracks" className='navlink-text dropdown-text'>Create Track</NavLink>
-            <NavLink to="/my-tracks" className='navlink-text dropdown-text'>My Tracks</NavLink>
-    
-            
+          <NavLink to="/tracks" className='navlink-text dropdown-text'>Public Tracks</NavLink>
+          <NavLink to="/create-tracks" className='navlink-text dropdown-text'>Create Track</NavLink>
+          <NavLink to="/my-tracks" className='navlink-text dropdown-text'>My Tracks</NavLink>
+
+
         </div>
       </div>
       <NavLink to="/sign-out" className='navlink-text'>Sign Out</NavLink>
@@ -45,7 +44,7 @@ class Header extends React.Component {
     <div className="nav-links flex-row">
       <NavLink to="/tracks" className='navlink-text flex-row'>Public Tracks</NavLink>
       <div className='dropdown-container flex-row'>
-        <h3 onClick={this.toggleLoginAnimation} style={{cursor: 'pointer'}} className='navlink-text'>Log in</h3>
+        <h3 onClick={this.toggleLoginAnimation} style={{ cursor: 'pointer' }} className='navlink-text'>Log in</h3>
         <div id={`${this.state.animation_id}`} className='dropdown-login flex-col'>
           {login ? <SignIn {...props} toggleLogin={this.toggleLogin} setUser={setUser} /> : <SignUp {...props} setUser={setUser} toggleLogin={this.toggleLogin} />}
         </div>
@@ -65,13 +64,13 @@ class Header extends React.Component {
     const { user, setUser } = this.props
     return (
       <React.Fragment>
-      <Navbar>
-        <div className="nav flex-row">
-          {this.alwaysLinks()}
-          {user && <span className="navbar-text greeting">Logged in as: {user.username}</span>}
-          {user ? this.authenticatedLinks() : this.unauthenticatedLinks(this.props, setUser, this.state.login)}
-        </div>
-      </Navbar>
+        <Navbar>
+          <div className="nav flex-row">
+            {this.alwaysLinks()}
+            {user && <span className="navbar-text greeting">Logged in as: {user.username}</span>}
+            {user ? this.authenticatedLinks() : this.unauthenticatedLinks(this.props, setUser, this.state.login)}
+          </div>
+        </Navbar>
       </React.Fragment>
     )
   }

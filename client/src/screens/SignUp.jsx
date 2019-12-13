@@ -65,46 +65,46 @@ class SignUp extends Component {
         <h3 className='login-prompt'>Sign Up</h3>
         <form onSubmit={this.onSignUp}>
 
-            <p className='input-prompt'>Username</p>
-            <input
-              required
-              type="text"
-              name="username"
-              value={username}
-              placeholder="Enter username"
-              onChange={this.handleChange}
-              className='login-children'
-            />
-            <p className='input-prompt'>Email address</p>
-            <input
-              required
-              type="email"
-              name="email"
-              value={email}
-              placeholder="Enter email"
-              onChange={this.handleChange}
-              className='login-children'
-            />
-            <p className='input-prompt'>Password</p>
-            <input
-              required
-              name="password"
-              value={password}
-              type="password"
-              placeholder="Password"
-              onChange={this.handleChange}
-              className='login-children'
-            />
-            <p className='input-prompt'>Password Confirmation</p>
-            <input
-              required
-              name="passwordConfirmation"
-              value={passwordConfirmation}
-              type="password"
-              placeholder="Confirm Password"
-              onChange={this.handleChange}
-              className='login-children'
-            />
+          <p className='input-prompt'>Username</p>
+          <input
+            required
+            type="text"
+            name="username"
+            value={username}
+            placeholder="Enter username"
+            onChange={this.handleChange}
+            className='login-children'
+          />
+          <p className='input-prompt'>Email address</p>
+          <input
+            required
+            type="email"
+            name="email"
+            value={email}
+            placeholder="Enter email"
+            onChange={this.handleChange}
+            className='login-children'
+          />
+          <p className='input-prompt'>Password</p>
+          <input
+            required
+            name="password"
+            value={password}
+            type="password"
+            placeholder="Password"
+            onChange={this.handleChange}
+            className='login-children'
+          />
+          <p className='input-prompt'>Password Confirmation</p>
+          <input
+            required
+            name="passwordConfirmation"
+            value={passwordConfirmation}
+            type="password"
+            placeholder="Confirm Password"
+            onChange={this.handleChange}
+            className='login-children'
+          />
           {this.renderError()}
         </form>
         <div className='buttons-container flex-col'>

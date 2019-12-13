@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { getTrackById } from '../services/calls'
-// import { Link } from 'react-router-dom'
 import '../styles/Track.css'
 
 const sounds = {
@@ -57,13 +56,9 @@ class Track extends Component {
     fetchTrack = async () => {
         try {
             const track = await getTrackById(this.props.match.params.id)
-            
+
             this.setState({ track })
-            this.setState({title: this.state.track.track.title})
-            // console.log(this.state)
-
-
-            // console.log(this.state.track.track)
+            this.setState({ title: this.state.track.track.title })
 
         } catch (err) {
             console.error(err)
@@ -99,7 +94,7 @@ class Track extends Component {
 
     }
 
-start = () => {
+    start = () => {
         this.setState({
             play: true
         })
@@ -108,28 +103,29 @@ start = () => {
         let myVar = setInterval(() => {
             if (this.state.stop) {
                 i = 2001
-                this.setState({aColor: 'white',
-                bColor: 'white',
-                cColor: 'white',
-                dColor: 'white',
-                eColor: 'white',
-                fColor: 'white',
-                gColor: 'white',
-                hColor: 'white',
-                iColor: 'white',
-                jColor: 'white',
-                kColor: 'white',
-                lColor: 'white',
-                mColor: 'white',
-                nColor: 'white',
-                oColor: 'white',
-                pColor: 'white',
-                qColor: 'white',
-                rColor: 'white',
-                sColor: 'white',
-                tColor: 'white',
-                uColor: 'white'
-            })
+                this.setState({
+                    aColor: 'white',
+                    bColor: 'white',
+                    cColor: 'white',
+                    dColor: 'white',
+                    eColor: 'white',
+                    fColor: 'white',
+                    gColor: 'white',
+                    hColor: 'white',
+                    iColor: 'white',
+                    jColor: 'white',
+                    kColor: 'white',
+                    lColor: 'white',
+                    mColor: 'white',
+                    nColor: 'white',
+                    oColor: 'white',
+                    pColor: 'white',
+                    qColor: 'white',
+                    rColor: 'white',
+                    sColor: 'white',
+                    tColor: 'white',
+                    uColor: 'white'
+                })
             }
             if (this.state.play === true && this.state.pause === false) {
                 if (i > 2000) {
@@ -138,28 +134,29 @@ start = () => {
                         play: false
                     })
                     console.log('SONG IS DONE')
-                    this.setState({aColor: 'white',
-                bColor: 'white',
-                cColor: 'white',
-                dColor: 'white',
-                eColor: 'white',
-                fColor: 'white',
-                gColor: 'white',
-                hColor: 'white',
-                iColor: 'white',
-                jColor: 'white',
-                kColor: 'white',
-                lColor: 'white',
-                mColor: 'white',
-                nColor: 'white',
-                oColor: 'white',
-                pColor: 'white',
-                qColor: 'white',
-                rColor: 'white',
-                sColor: 'white',
-                tColor: 'white',
-                uColor: 'white'
-            })
+                    this.setState({
+                        aColor: 'white',
+                        bColor: 'white',
+                        cColor: 'white',
+                        dColor: 'white',
+                        eColor: 'white',
+                        fColor: 'white',
+                        gColor: 'white',
+                        hColor: 'white',
+                        iColor: 'white',
+                        jColor: 'white',
+                        kColor: 'white',
+                        lColor: 'white',
+                        mColor: 'white',
+                        nColor: 'white',
+                        oColor: 'white',
+                        pColor: 'white',
+                        qColor: 'white',
+                        rColor: 'white',
+                        sColor: 'white',
+                        tColor: 'white',
+                        uColor: 'white'
+                    })
 
                 }
                 if (timeline[i]) {
@@ -170,345 +167,341 @@ start = () => {
                         this.playSound(timeline[i][k]);
                         if (i === 0) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({aColor: 'red'})
+                                this.setState({ aColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({aColor: 'green'})
+                                this.setState({ aColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({aColor: 'pink'})
+                                this.setState({ aColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({aColor: 'yellow'})
+                                this.setState({ aColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({aColor: 'orange'})
+                                this.setState({ aColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({aColor: 'brown'})
+                                this.setState({ aColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({aColor: 'purple'})
-                            } else {this.setState({ aColor: 'blue'}) }
+                                this.setState({ aColor: 'purple' })
+                            } else { this.setState({ aColor: 'blue' }) }
                         } else if (i === 100) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({bColor: 'red'})
+                                this.setState({ bColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({bColor: 'green'})
+                                this.setState({ bColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({bColor: 'pink'})
+                                this.setState({ bColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({bColor: 'yellow'})
+                                this.setState({ bColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({bColor: 'orange'})
+                                this.setState({ bColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({bColor: 'brown'})
+                                this.setState({ bColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({bColor: 'purple'})
-                            }  else {this.setState({ bColor: 'blue'}) }
+                                this.setState({ bColor: 'purple' })
+                            } else { this.setState({ bColor: 'blue' }) }
                         } else if (i === 200) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({cColor: 'red'})
+                                this.setState({ cColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({cColor: 'green'})
+                                this.setState({ cColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({cColor: 'pink'})
+                                this.setState({ cColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({cColor: 'yellow'})
+                                this.setState({ cColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({cColor: 'orange'})
+                                this.setState({ cColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({cColor: 'brown'})
+                                this.setState({ cColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({cColor: 'purple'})
-                            }  else {this.setState({ cColor: 'blue'}) }
+                                this.setState({ cColor: 'purple' })
+                            } else { this.setState({ cColor: 'blue' }) }
                         } else if (i === 300) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({dColor: 'red'})
+                                this.setState({ dColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({dColor: 'green'})
+                                this.setState({ dColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({dColor: 'pink'})
+                                this.setState({ dColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({dColor: 'yellow'})
+                                this.setState({ dColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({dColor: 'orange'})
+                                this.setState({ dColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({dColor: 'brown'})
+                                this.setState({ dColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({dColor: 'purple'})
-                            }  else {this.setState({ dColor: 'blue'}) }
+                                this.setState({ dColor: 'purple' })
+                            } else { this.setState({ dColor: 'blue' }) }
                         } else if (i === 400) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({eColor: 'red'})
+                                this.setState({ eColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({eColor: 'green'})
+                                this.setState({ eColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({eColor: 'pink'})
+                                this.setState({ eColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({eColor: 'yellow'})
+                                this.setState({ eColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({eColor: 'orange'})
+                                this.setState({ eColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({eColor: 'brown'})
+                                this.setState({ eColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({eColor: 'purple'})
-                            }  else {this.setState({ eColor: 'blue'}) }
+                                this.setState({ eColor: 'purple' })
+                            } else { this.setState({ eColor: 'blue' }) }
                         } else if (i === 500) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({fColor: 'red'})
+                                this.setState({ fColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({fColor: 'green'})
+                                this.setState({ fColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({fColor: 'pink'})
+                                this.setState({ fColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({fColor: 'yellow'})
+                                this.setState({ fColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({fColor: 'orange'})
+                                this.setState({ fColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({fColor: 'brown'})
+                                this.setState({ fColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({fColor: 'purple'})
-                            }  else {this.setState({ fColor: 'blue'}) }
+                                this.setState({ fColor: 'purple' })
+                            } else { this.setState({ fColor: 'blue' }) }
                         } else if (i === 600) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({gColor: 'red'})
+                                this.setState({ gColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({gColor: 'green'})
+                                this.setState({ gColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({gColor: 'pink'})
+                                this.setState({ gColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({gColor: 'yellow'})
+                                this.setState({ gColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({gColor: 'orange'})
+                                this.setState({ gColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({gColor: 'brown'})
+                                this.setState({ gColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({gColor: 'purple'})
-                            }  else {this.setState({ gColor: 'blue'}) }
+                                this.setState({ gColor: 'purple' })
+                            } else { this.setState({ gColor: 'blue' }) }
                         } else if (i === 700) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({hColor: 'red'})
+                                this.setState({ hColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({hColor: 'green'})
+                                this.setState({ hColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({hColor: 'pink'})
+                                this.setState({ hColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({hColor: 'yellow'})
+                                this.setState({ hColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({hColor: 'orange'})
+                                this.setState({ hColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({hColor: 'brown'})
+                                this.setState({ hColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({hColor: 'purple'})
-                            }  else {this.setState({ hColor: 'blue'}) }
+                                this.setState({ hColor: 'purple' })
+                            } else { this.setState({ hColor: 'blue' }) }
                         } else if (i === 800) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({iColor: 'red'})
+                                this.setState({ iColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({iColor: 'green'})
+                                this.setState({ iColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({iColor: 'pink'})
+                                this.setState({ iColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({iColor: 'yellow'})
+                                this.setState({ iColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({iColor: 'orange'})
+                                this.setState({ iColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({iColor: 'brown'})
+                                this.setState({ iColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({iColor: 'purple'})
-                            }  else {this.setState({ iColor: 'blue'}) }
+                                this.setState({ iColor: 'purple' })
+                            } else { this.setState({ iColor: 'blue' }) }
                         } else if (i === 900) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({jColor: 'red'})
+                                this.setState({ jColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({jColor: 'green'})
+                                this.setState({ jColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({jColor: 'pink'})
+                                this.setState({ jColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({jColor: 'yellow'})
+                                this.setState({ jColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({jColor: 'orange'})
+                                this.setState({ jColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({jColor: 'brown'})
+                                this.setState({ jColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({jColor: 'purple'})
-                            }  else {this.setState({ jColor: 'blue'}) }
+                                this.setState({ jColor: 'purple' })
+                            } else { this.setState({ jColor: 'blue' }) }
                         } else if (i === 1000) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({kColor: 'red'})
+                                this.setState({ kColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({kColor: 'green'})
+                                this.setState({ kColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({kColor: 'pink'})
+                                this.setState({ kColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({kColor: 'yellow'})
+                                this.setState({ kColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({kColor: 'orange'})
+                                this.setState({ kColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({kColor: 'brown'})
+                                this.setState({ kColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({kColor: 'purple'})
-                            }  else {this.setState({ kColor: 'blue'}) }
+                                this.setState({ kColor: 'purple' })
+                            } else { this.setState({ kColor: 'blue' }) }
                         } else if (i === 1100) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({lColor: 'red'})
+                                this.setState({ lColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({lColor: 'green'})
+                                this.setState({ lColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({lColor: 'pink'})
+                                this.setState({ lColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({lColor: 'yellow'})
+                                this.setState({ lColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({lColor: 'orange'})
+                                this.setState({ lColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({lColor: 'brown'})
+                                this.setState({ lColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({lColor: 'purple'})
-                            }  else {this.setState({ lColor: 'blue'}) }
+                                this.setState({ lColor: 'purple' })
+                            } else { this.setState({ lColor: 'blue' }) }
                         } else if (i === 1200) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({mColor: 'red'})
+                                this.setState({ mColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({mColor: 'green'})
+                                this.setState({ mColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({mColor: 'pink'})
+                                this.setState({ mColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({mColor: 'yellow'})
+                                this.setState({ mColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({mColor: 'orange'})
+                                this.setState({ mColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({mColor: 'brown'})
+                                this.setState({ mColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({mColor: 'purple'})
-                            }  else {this.setState({ mColor: 'blue'}) }
+                                this.setState({ mColor: 'purple' })
+                            } else { this.setState({ mColor: 'blue' }) }
                         } else if (i === 1300) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({nColor: 'red'})
+                                this.setState({ nColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({nColor: 'green'})
+                                this.setState({ nColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({nColor: 'pink'})
+                                this.setState({ nColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({nColor: 'yellow'})
+                                this.setState({ nColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({nColor: 'orange'})
+                                this.setState({ nColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({nColor: 'brown'})
+                                this.setState({ nColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({nColor: 'purple'})
-                            }  else {this.setState({ nColor: 'blue'}) }
+                                this.setState({ nColor: 'purple' })
+                            } else { this.setState({ nColor: 'blue' }) }
                         } else if (i === 1400) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({oColor: 'red'})
+                                this.setState({ oColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({oColor: 'green'})
+                                this.setState({ oColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({oColor: 'pink'})
+                                this.setState({ oColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({oColor: 'yellow'})
+                                this.setState({ oColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({oColor: 'orange'})
+                                this.setState({ oColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({oColor: 'brown'})
+                                this.setState({ oColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({oColor: 'purple'})
-                            }  else {this.setState({ oColor: 'blue'}) }
+                                this.setState({ oColor: 'purple' })
+                            } else { this.setState({ oColor: 'blue' }) }
                         } else if (i === 1500) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({pColor: 'red'})
+                                this.setState({ pColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({pColor: 'green'})
+                                this.setState({ pColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({pColor: 'pink'})
+                                this.setState({ pColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({pColor: 'yellow'})
+                                this.setState({ pColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({pColor: 'orange'})
+                                this.setState({ pColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({pColor: 'brown'})
+                                this.setState({ pColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({pColor: 'purple'})
-                            }  else {this.setState({ pColor: 'blue'}) }
+                                this.setState({ pColor: 'purple' })
+                            } else { this.setState({ pColor: 'blue' }) }
                         } else if (i === 1600) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({qColor: 'red'})
+                                this.setState({ qColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({qColor: 'green'})
+                                this.setState({ qColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({qColor: 'pink'})
+                                this.setState({ qColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({qColor: 'yellow'})
+                                this.setState({ qColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({qColor: 'orange'})
+                                this.setState({ qColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({qColor: 'brown'})
+                                this.setState({ qColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({qColor: 'purple'})
-                            }  else {this.setState({ qColor: 'blue'}) }
+                                this.setState({ qColor: 'purple' })
+                            } else { this.setState({ qColor: 'blue' }) }
                         } else if (i === 1700) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({rColor: 'red'})
+                                this.setState({ rColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({rColor: 'green'})
+                                this.setState({ rColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({rColor: 'pink'})
+                                this.setState({ rColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({rColor: 'yellow'})
+                                this.setState({ rColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({rColor: 'orange'})
+                                this.setState({ rColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({rColor: 'brown'})
+                                this.setState({ rColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({rColor: 'purple'})
-                            }  else {this.setState({ rColor: 'blue'}) }
+                                this.setState({ rColor: 'purple' })
+                            } else { this.setState({ rColor: 'blue' }) }
                         } else if (i === 1800) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({sColor: 'red'})
+                                this.setState({ sColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({sColor: 'green'})
+                                this.setState({ sColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({sColor: 'pink'})
+                                this.setState({ sColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({sColor: 'yellow'})
+                                this.setState({ sColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({sColor: 'orange'})
+                                this.setState({ sColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({sColor: 'brown'})
+                                this.setState({ sColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({sColor: 'purple'})
-                            }  else {this.setState({ sColor: 'blue'}) }
+                                this.setState({ sColor: 'purple' })
+                            } else { this.setState({ sColor: 'blue' }) }
                         } else if (i === 1900) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({tColor: 'red'})
+                                this.setState({ tColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({tColor: 'green'})
+                                this.setState({ tColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({tColor: 'pink'})
+                                this.setState({ tColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({tColor: 'yellow'})
+                                this.setState({ tColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({tColor: 'orange'})
+                                this.setState({ tColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({tColor: 'brown'})
+                                this.setState({ tColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({tColor: 'purple'})
-                            }  else {this.setState({ tColor: 'blue'}) }
+                                this.setState({ tColor: 'purple' })
+                            } else { this.setState({ tColor: 'blue' }) }
                         } else if (i === 2000) {
                             if (timeline[i][k] === 'D') {
-                                this.setState({uColor: 'red'})
+                                this.setState({ uColor: 'red' })
                             } else if (timeline[i][k] === 'A') {
-                                this.setState({uColor: 'green'})
+                                this.setState({ uColor: 'green' })
                             } else if (timeline[i][k] === 'B') {
-                                this.setState({uColor: 'pink'})
+                                this.setState({ uColor: 'pink' })
                             } else if (timeline[i][k] === 'C') {
-                                this.setState({uColor: 'yellow'})
+                                this.setState({ uColor: 'yellow' })
                             } else if (timeline[i][k] === 'E') {
-                                this.setState({uColor: 'orange'})
+                                this.setState({ uColor: 'orange' })
                             } else if (timeline[i][k] === 'F') {
-                                this.setState({uColor: 'brown'})
+                                this.setState({ uColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({uColor: 'purple'})
-                            }  else {this.setState({ uColor: 'blue'}) }
-                        } 
-                        // togglePlay() {
-                        //     this.setState({ 'play': !this.state.play }, () => {
-                        //         this.state.play ? globalAudio.play(this.name) : globalAudio.pause(this.name);
-                        //     });
+                                this.setState({ uColor: 'purple' })
+                            } else { this.setState({ uColor: 'blue' }) }
+                        }
                     }
                 }
                 i = i + 1;
@@ -526,11 +519,6 @@ start = () => {
         console.log('playing sound file:', sounds[sound]);
     }
 
-
-
-
-
-
     pauseTrack = () => {
         if (this.state.play) {
             this.setState({
@@ -547,43 +535,42 @@ start = () => {
     }
 
     render() {
-        
+
         return (
-            // this.state.track &&
             <div className="track">
 
-            <div className="sheet">
-            <h1>{`${this.state.title}`}</h1>
-                <div className="interval">
-                    <div className="A key" style={{backgroundColor: `${this.state.aColor}`, backgroundImage: `${this.state.aImage}`}}></div>
-                    <div className="B key" style={{backgroundColor: `${this.state.bColor}`, backgroundImage: `${this.state.bImage}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.cColor}`}}></div>
-                    <div className="D key" style={{backgroundColor: `${this.state.dColor}`}}></div>
-                    <div className="E key" style={{backgroundColor: `${this.state.eColor}`}}></div>
-                    <div className="F key" style={{backgroundColor: `${this.state.fColor}`}}></div>
-                    <div className="G key" style={{backgroundColor: `${this.state.gColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.hColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.iColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.jColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.kColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.lColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.mColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.nColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.oColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.pColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.qColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.rColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.sColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.tColor}`}}></div>
-                    <div className="C key" style={{backgroundColor: `${this.state.uColor}`}}></div>
+                <div className="sheet">
+                    <h1>{`${this.state.title}`}</h1>
+                    <div className="interval">
+                        <div className="A key" style={{ backgroundColor: `${this.state.aColor}`, backgroundImage: `${this.state.aImage}` }}></div>
+                        <div className="B key" style={{ backgroundColor: `${this.state.bColor}`, backgroundImage: `${this.state.bImage}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.cColor}` }}></div>
+                        <div className="D key" style={{ backgroundColor: `${this.state.dColor}` }}></div>
+                        <div className="E key" style={{ backgroundColor: `${this.state.eColor}` }}></div>
+                        <div className="F key" style={{ backgroundColor: `${this.state.fColor}` }}></div>
+                        <div className="G key" style={{ backgroundColor: `${this.state.gColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.hColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.iColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.jColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.kColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.lColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.mColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.nColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.oColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.pColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.qColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.rColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.sColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.tColor}` }}></div>
+                        <div className="C key" style={{ backgroundColor: `${this.state.uColor}` }}></div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="controls">
-                <img src={require("../resources/play.png")} onClick={this.playTrack}/>
-                <img src={require("../resources/pause.png")} onClick={this.pauseTrack}/>
-                <img src={require("../resources/stop.png")} onClick={this.stopTrack}/>
-            </div>
+                <div className="controls">
+                    <img src={require("../resources/play.png")} onClick={this.playTrack} />
+                    <img src={require("../resources/pause.png")} onClick={this.pauseTrack} />
+                    <img src={require("../resources/stop.png")} onClick={this.stopTrack} />
+                </div>
 
 
 
@@ -591,7 +578,7 @@ start = () => {
         )
     }
 }
-        
-        
+
+
 
 export default Track

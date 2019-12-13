@@ -1,14 +1,5 @@
 import api from './apiConfig'
 
-// export const getItems = async () => {
-//   try {
-//     const resp = await api.get('/items')
-//     return resp.data.items
-//   } catch (error) {
-//     throw error
-//   }
-// }
-
 export const getTrackById = async id => {
   try {
     const resp = await api.get(`/tracks/track/${id}`)
@@ -29,37 +20,11 @@ export const deleteTrack = async (id) => {
   }
 }
 
-// export const updateItem = async (id, item) => {
-//   try {
-//     const resp = await api.put(`/items/${id}`, item)
-//     return resp.data
-//   } catch (error) {
-//     throw error
-//   }
-// }
-
-// export const deleteItem = async id => {
-//   try {
-//     const resp = await api.delete(`/items/${id}`)
-//     return resp.data
-//   } catch (error) {
-//     throw error
-//   }
-// }
-
 export const getTracks = async () => {
   try {
-      const resp = await api.get('/tracks')
-      return resp.data.tracks
+    const resp = await api.get('/tracks')
+    return resp.data.tracks
   } catch (error) {
-      throw (error)
+    throw (error)
   }
 }
-// export const getItems = async () => {
-//   try {
-//     const resp = await api.get('/items')
-//     return resp.data.items
-//   } catch (error) {
-//     throw error
-//   }
-// }

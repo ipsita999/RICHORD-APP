@@ -43,7 +43,7 @@ export default class Container extends Component {
     const { user } = this.state
     return (
       <>
-        <Header user={user} {...this.props} setUser={this.setUser}/>
+        <Header user={user} {...this.props} setUser={this.setUser} />
         <main className="container">
           <Routes
             getTracks={this.getTracks}
