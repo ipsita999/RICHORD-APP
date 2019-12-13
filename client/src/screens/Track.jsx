@@ -556,9 +556,9 @@ start = () => {
                 </div>
             </div>
 
-                <h1>hello</h1>
+                
 
-                <button onClick={this.playTracks}> play </button>
+                
 
                 <button onClick={this.playTrack}> play </button>
                 <button onClick={this.pauseTrack}> pause </button>
