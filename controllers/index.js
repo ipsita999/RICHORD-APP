@@ -105,11 +105,17 @@ const getAllTracks = async (req, res) => {
 	}
 }
 
-
 const createTrack = async (req, res) => {
+	try { 
 	const newTrack = await Track.create(req.body)
-	return res.send(newTrack)
+	return res.status(201).json({
+		newTrack
+				})
+	} catch {
+		return res.status(500).send(error.message)
+	}
 }
+
 const getUserTracks = async (req, res) => {
     try {
         const { id } = req.params
@@ -123,20 +129,21 @@ const getUserTracks = async (req, res) => {
 
 }
 
-// const getItemById = async (req, res) => {
-// 	try {
-// 		const { id } = req.params
-// 		const item = await Item.findOne({
-// 			where: { id: id }
-// 		})
-// 		if (item) {
-// 			return res.status(200).json({ item })
-// 		}
-// 		return res.status(404).send('Item with the specified ID does not exists')
-// 	} catch (error) {
-// 		return res.status(500).send(error.message)
-// 	}
-// }
+
+const getTrackById = async (req, res) => {
+	try {
+		const { id } = req.params
+		const track = await Track.findOne({
+			where: { id: id }
+		})
+		if (track) {
+			return res.status(200).json({ track })
+		}
+		return res.status(404).send('Item with the specified ID does not exists')
+	} catch (error) {
+		return res.status(500).send(error.message)
+	}
+}
 
 // const updateItem = async (req, res) => {
 // 	try {
@@ -179,9 +186,9 @@ module.exports = {
 	getAllUsers,
 
     getAllTracks,
-    getUserTracks,
+	getUserTracks,
 
-	// getItemById,
+	getTrackById,
 	// updateItem,
 	// deleteItem
 	createTrack

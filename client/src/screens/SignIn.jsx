@@ -24,11 +24,10 @@ class SignIn extends Component {
   onSignIn = event => {
     event.preventDefault()
 
-    const { history, setUser } = this.props
+    const { setUser } = this.props
 
     signInUser(this.state)
       .then(res => setUser(res.user))
-      .then(() => history.push('/'))
       .catch(error => {
         console.error(error)
         this.setState({
@@ -38,20 +37,21 @@ class SignIn extends Component {
           password: ''
         })
       })
-
-      console.log(this.props.user)
   }
 
   renderError = () => {
-    const toggleForm = this.state.isError ? 'danger' : ''
+    const toggleForm = this.state.isError ? 'danger' : 'none'
     if (this.state.isError) {
       return (
-        <button type="submit" className={toggleForm}>
-          {this.state.errorMsg}
-        </button>
+        <>
+        <div className='flex-row flex-end'>
+          <button type="submit">Sign In</button>
+        </div>
+        <p className={toggleForm}>{this.state.errorMsg}</p>
+        </>
       )
     } else {
-      return <button type="submit">Sign In</button>
+      return <div className='flex-row flex-end'><button className='login-submit'>Sign In</button></div>
     }
   }
 
@@ -59,32 +59,40 @@ class SignIn extends Component {
     const { username, password } = this.state
 
     return (
-      <div className="row">
-        <div className="form-container">
-          <h3>Sign In</h3>
-          <form onSubmit={this.onSignIn}>
-            <label>Username</label>
-            <input
-              required
-              type="text"
-              name="username"
-              value={username}
-              placeholder="Enter Username"
-              onChange={this.handleChange}
-            />
-            <label>Password</label>
-            <input
-              required
-              name="password"
-              value={password}
-              type="password"
-              placeholder="Password"
-              onChange={this.handleChange}
-            />
-            {this.renderError()}
-          </form>
+      <>
+        <h3 className='login-prompt'>Sign In</h3>
+        <form onSubmit={this.onSignIn}>
+
+          <p className='input-prompt'>Username</p>
+          <input
+            required
+            type="text"
+            name="username"
+            value={username}
+            placeholder="Enter Username"
+            onChange={this.handleChange}
+            className='login-children'
+          />
+
+          <p className='input-prompt'>Password</p>
+          <input
+            required
+            name="password"
+            value={password}
+            type="password"
+            placeholder="Password"
+            onChange={this.handleChange}
+            className='login-children'
+          />
+          {this.renderError()}
+        </form>
+        <div className='buttons-container flex-col'>
+          <div className='toggle-container flex-col'>
+            <p>Dont have an account?</p>
+            <button className='login-toggle' onClick={this.props.toggleLogin}>Register here</button>
+          </div>
         </div>
-      </div>
+      </>
     )
   }
 }

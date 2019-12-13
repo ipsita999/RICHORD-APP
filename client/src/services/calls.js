@@ -9,23 +9,17 @@ import api from './apiConfig'
 //   }
 // }
 
-// export const getItemById = async id => {
-//   try {
-//     const resp = await api.get(`/items/${id}`)
-//     return resp.data.item
-//   } catch (error) {
-//     throw error
-//   }
-// }
+export const getTrackById = async id => {
+  try {
+    const resp = await api.get(`/tracks/track/${id}`)
+    return resp.data
+  } catch (error) {
+    console.log('error getting track')
+    throw error
+  }
+}
 
-// export const createItem = async item => {
-//   try {
-//     const resp = await api.post('/items', item)
-//     return resp
-//   } catch (error) {
-//     throw error
-//   }
-// }
+
 
 // export const updateItem = async (id, item) => {
 //   try {
@@ -48,7 +42,7 @@ import api from './apiConfig'
 export const getTracks = async () => {
   try {
       const resp = await api.get('/tracks')
-      return resp.data
+      return resp.data.tracks
   } catch (error) {
       throw (error)
   }

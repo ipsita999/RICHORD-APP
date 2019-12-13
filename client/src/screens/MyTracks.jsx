@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getUserTracks } from '../services/auth'
+import '../styles/Tracks.css'
 
 export default class MyTracks extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ export default class MyTracks extends Component {
     fetchUserTracks = async () => {
         try {
             const tracks = await getUserTracks(this.props.user)
-            console.log(tracks.tracks)
+            console.log(tracks)
             this.setState({ tracks: tracks.tracks })
         } catch (error) {
             console.error(error)
@@ -31,14 +32,12 @@ export default class MyTracks extends Component {
         } = this.props
         // console.log(path)
 
-        if (this.state.tracks) {
-         
+        if (this.state.tracks.length) {
             return this.state.tracks.map((track) => (
-                <div key={track.id} className='trackPreview' 
+                <div key={track.id} className='trackPreview flex-row' 
                 onClick={() => history.push(`${path}/track/${track.id}`)}
                  >
                     <h2>{track.title}</h2>
-                    <img className='previewPic' src={require("../resources/music-placeholder.png")} />
                 </div>
             ))
         }
@@ -47,7 +46,7 @@ export default class MyTracks extends Component {
     render() {
         return (
             <div className="listing">
-                <div className="trackListing">
+                <div className="trackListing flex-row">
                     {this.renderTracks()}
                 </div>
             </div>

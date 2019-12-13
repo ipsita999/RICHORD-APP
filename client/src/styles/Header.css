@@ -1,13 +1,18 @@
+.navbar {
+    justify-content: space-between;
+    background: #bf5f82;
+    width: 100%;
+    position: fixed;
+    height: 60px;
+    z-index: 100;
+}
 
 .nav {
     justify-content: space-between;
     width: 100%;
-}
-.navbar {
-    justify-content: space-between;
-    background: pink;
-    width: 100vw;
-    height: 60px;
+    height: 100%;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: white;
 }
 
 .nav-links {
@@ -15,7 +20,7 @@
     min-width: 260px;
     max-width: 350px;
     justify-content: space-around;
-
+    height: 100%;
 }
 
 .nav-links.authed {
@@ -32,6 +37,12 @@
     max-width: 200px;
 }
 
+.brand-link h3 {
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 30px;
+}
+
 .account-links {
     justify-content: space-between;
     min-width: 115px;
@@ -39,31 +50,115 @@
 
 .navlink-text {
     width: max-content;
+    color: white;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .dropdown-container {
     position: relative;
+    height: 100%
 }
 
 .dropdown-menu {
-    display: none;
     position: absolute;
+    display: none;
+    padding: 5px 25px 10px 10px;
+    background-color: palevioletred;
 }
 
 .dropdown-text {
-    margin-bottom: 8px;
-}
-
-.dropdown-container:first-child {
-    margin-top: 8px;
+    margin: 10px 0;
 }
 
 .dropdown-container:hover .dropdown-menu {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    top: 60px;
 }
 
 @media (max-width:450px) {
     .greeting {
         display: none;
     }
+}
+
+.login-prompt{
+    margin: 8px 0;
+    text-align: center;
+}
+
+.input-container {
+
+}
+
+.input-prompt {
+
+}
+
+.login-children {
+    margin: 10px 0;
+    width: 80%;
+}
+
+.dropdown-login {
+    background-color: palevioletred;
+    position: absolute;
+    width: 250px;
+    padding: 10px;
+    top: 60px;
+}
+
+.login-submit {
+    margin: 10px 35px;
+}
+
+.danger {
+    text-align: center;
+    margin-bottom: 12px;
+    text-shadow: rgba(0, 0, 0, .5);
+    color: red;
+    font-weight: bold;
+}
+
+.login-toggle {
+    width: 45%;
+    margin: 5px 0;
+}
+
+.buttons-container {
+    align-items: flex-end;
+}
+
+.toggle-container {
+    align-items: center;
+    width: 100%
+}
+
+
+@keyframes login-hide {
+    from {right: -56px; opacity:1}
+    to {right: -380px; opacity:0.3}
+}
+@keyframes login-show {
+    from {right: -380px; opacity:0.3}
+    to {right: -56px; opacity: 1}
+}
+
+#login-start {
+    display: none
+}
+
+#login-active {
+    animation-name: login-show;
+    animation-timing-function: cubic-bezier(0, 1, 0.6, 1.1);
+    animation-duration: .5s;
+    right: -56px;
+}
+#login-not-active{
+    animation: login-hide;
+    animation-timing-function: ease;
+    animation-duration: .5s;
+    right: -380px;
 }

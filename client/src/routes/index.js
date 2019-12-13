@@ -7,6 +7,9 @@ import SignOut from '../screens/SignOut'
 import SignUp from '../screens/SignUp'
 import Tracks from '../screens/Tracks'
 import MyTracks from '../screens/MyTracks'
+import Track from '../screens/Track'
+import CreateTrack from '../screens/CreateTrack'
+import EditTrack from '../screens/EditTrack'
 // import ChangePassword from '../screens/ChangePassword'
 // import Item from '../screens/Item'
 // import Items from '../screens/Items'
@@ -14,8 +17,7 @@ import MyTracks from '../screens/MyTracks'
 // import ItemEdit from '../screens/ItemEdit'
 import AuthenticatedRoute from './AuthenticatedRoute'
 
-const Routes = ({ user, setUser, clearUser
-  // , addItem, getItems 
+const Routes = ({ user, setUser, clearUser, addTrack, tracks 
 }) => (
 
   <Switch>
@@ -42,14 +44,39 @@ const Routes = ({ user, setUser, clearUser
     />
     <Route exact 
     path="/tracks" 
-    render={props => <Tracks {...props} />}
+    render={props => <Tracks tracks={tracks} {...props} />}
+    />
+    <Route 
+    exact path="/tracks/track/:id"
+    render={props => <Track {...props} />}
+    />
+    <Route exact 
+    path="/tracks" 
+    render={props => <Tracks tracks={tracks} {...props} />}
     />
     <AuthenticatedRoute
       exact
       path="/my-tracks"
       user={user}
-      render={props => <MyTracks {...props} user={user} /> }
-    >{console.log(user)}</AuthenticatedRoute>
+      render={props => <MyTracks tracks={tracks} {...props} user={user} /> }
+    />
+    <AuthenticatedRoute 
+    exact path="/my-tracks/track/:id"
+    user={user}
+    render={props => <Track {...props} />}
+    />
+    <AuthenticatedRoute
+      exact
+      path="/create-tracks"
+      user={user}
+      render={props => <CreateTrack addTrack={addTrack} tracks={tracks} {...props} user={user} /> }
+    />
+    <AuthenticatedRoute
+      exact
+      path="/tracks/:id/edit"
+      user={user}
+      render={props => <EditTrack addTrack={addTrack} tracks={tracks} {...props} user={user} /> }
+    />
     {/* <AuthenticatedRoute
       exact
       path="/change-password"
