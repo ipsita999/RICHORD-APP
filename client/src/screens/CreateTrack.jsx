@@ -92,6 +92,19 @@ class CreateTrack extends React.Component {
         })
     }
 
+    onClickClear = (event) => {
+        let interval = parseInt(this.state.selectedInterval)
+        let localBeats = { ...this.state.beats }
+        if (localBeats[interval].length > 0) {
+            localBeats[interval] = [];
+        } else { 
+            return
+        }
+        this.setState({ beats: localBeats }, () => {
+            console.log("beats: ", this.state.beats)
+        })
+    }
+
     renderButtons = () => {
         return (
             Object.keys(this.state.beats).map((item, index) => {
@@ -133,6 +146,7 @@ class CreateTrack extends React.Component {
                         <button className='key-button' onClick={ this.onClickAdd } value="E">E</button>
                         <button className='key-button' onClick={ this.onClickAdd } value="F">F</button>
                         <button className='key-button' onClick={ this.onClickAdd } value="G">G</button>
+                        <button className='key-button clear' onClick={ this.onClickClear } >Clear</button>
                     </div>
                 </div>
                 <form className='create-track-form flex-row' onSubmit={ this.handleSubmit }>
