@@ -50,12 +50,20 @@ const Routes = ({ user, setUser, clearUser, addTrack, tracks
     exact path="/tracks/track/:id"
     render={props => <Track {...props} />}
     />
-    
+    <Route exact 
+    path="/tracks" 
+    render={props => <Tracks tracks={tracks} {...props} />}
+    />
     <AuthenticatedRoute
       exact
       path="/my-tracks"
       user={user}
       render={props => <MyTracks tracks={tracks} {...props} user={user} /> }
+    />
+    <AuthenticatedRoute 
+    exact path="/my-tracks/track/:id"
+    user={user}
+    render={props => <Track {...props} />}
     />
     <AuthenticatedRoute
       exact
