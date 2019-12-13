@@ -91,12 +91,7 @@ class Track extends Component {
 
                     for (let k = 0; k < timeline[i].length; k++) {
                         console.log('playing sound file at MS:', i)
-
                         this.playSound(timeline[i][k]);
-                        // togglePlay() {
-                        //     this.setState({ 'play': !this.state.play }, () => {
-                        //         this.state.play ? globalAudio.play(this.name) : globalAudio.pause(this.name);
-                        //     });
                     }
                 }
                 i = i + 1;
@@ -151,8 +146,12 @@ class Track extends Component {
         // }
     }
 
-    render() {
-        
+    render() { 
+
+        {if(this.state.track) {
+
+            console.log(this.state.track.track['200'])
+        }}
         return (
             // this.state.track &&
             <>
@@ -167,121 +166,3 @@ class Track extends Component {
 }
 
 export default Track
-
-
-// constructor() {
-//     super()
-//     this.state = {
-//         track: null,
-//         play: false,
-//         i: 0
-//     }
-// }
-
-
-// async componentDidMount() {
-//     this.fetchTrack()
-
-// }
-
-// fetchTrack = async () => {
-//     try {
-//         const track = await getTrackById(this.props.match.params.id)
-//         console.log(track.track)
-//         this.setState({ track })
-
-//     } catch (err) {
-//         console.error(err)
-//     }
-// }
-
-// playTrack = () => {
-//     if (this.state.play === true) {
-//         return
-//     }
-//     this.setState({
-//         play: true
-//     })
-//     this.start();
-
-//     setTimeout(() => {
-//         clearInterval(this.start());
-//     })
-// }
-
-// start = () => setInterval(() => {
-//         if (this.state.play === true) {
-//             if (this.state.i > 2000) {
-//                 clearInterval(this.start)
-//                 this.setState({
-//                     play: false,
-//                     i: 0
-//                 })
-//                 console.log('SONG IS DONE')
-//             }
-//             if (this.state.track.track[this.state.i]) {
-
-//                 for (let k = 0; k < this.state.track.track[this.state.i].length; k++) {
-//                     console.log('playing sound file at MS:', this.state.i)
-
-//                     this.playSound(this.state.track.track[this.state.i][k]);
-//                     // togglePlay() {
-//                     //     this.setState({ 'play': !this.state.play }, () => {
-//                     //         this.state.play ? globalAudio.play(this.name) : globalAudio.pause(this.name);
-//                     //     });
-//                 }
-//             }
-//             this.setState(prevState => ({
-//                 i: prevState.i + 1
-//             }))
-//         }
-//     }, 1);
-
-
-// playSound = (sound) => {
-
-//     let audio = new Audio()
-//     audio.src = sounds[sound]
-//     audio.play()
-
-//     console.log('playing sound file:', sounds[sound]);
-// }
-
-
-// pauseTrack = () => {
-//     if (this.state.play) {
-//         this.setState({
-//             play: false
-//         })
-//     } else {
-//         this.setState({
-//             play: true
-//         })
-//     }
-
-// }
-
-// stopTrack = () => {
-//     console.log('trying to stop state')
-//     this.setState({
-//         play: false
-//     })
-//     setTimeout(() => {
-//         clearInterval(this.start());
-//     })
-// }
-
-// render() {
-//     return (
-//         // this.state.track &&
-//         <>
-//             <h1>hello</h1>
-//             <button onClick={this.playTrack}> play </button>
-//             <button onClick={this.pauseTrack}> pause </button>
-//             <button onClick={this.stopTrack}> stop </button>
-//         </>
-//     )
-// }
-// }
-
-// export default Track

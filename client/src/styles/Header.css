@@ -87,14 +87,11 @@
 .login-prompt{
     margin: 8px 0;
     text-align: center;
+    font-size: 25px;
+    font-weight: bold;
 }
-
-.input-container {
-
-}
-
-.input-prompt {
-
+form p {
+    font-size: 20px;
 }
 
 .login-children {
@@ -112,6 +109,7 @@
 
 .login-submit {
     margin: 10px 35px;
+    border-radius: 2px;
 }
 
 .danger {
@@ -125,6 +123,7 @@
 .login-toggle {
     width: 45%;
     margin: 5px 0;
+    border-radius: 2px;
 }
 
 .buttons-container {
@@ -134,6 +133,9 @@
 .toggle-container {
     align-items: center;
     width: 100%
+}
+.toggle-container p {
+    font-size: 20px;
 }
 
 
