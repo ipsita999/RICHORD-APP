@@ -6,7 +6,7 @@ class CreateTrack extends React.Component {
         super(props);
         this.state = {
             key: "",
-            duration: "-1",
+            selectedBeat: '0',
             beats: {
                 0: [],
                 100: [],
@@ -37,37 +37,14 @@ class CreateTrack extends React.Component {
         }
     }
 
-    handleKeyChange = (event) => {
-        this.setState({ key: event.target.value });
-    }
-
-    handleDurationChange = (event) => {
-        this.setState({ duration: event.target.value });
-    }
-
-    onAddClick = () => {
-        let duration = parseInt(this.state.duration);
-        if (duration === -1 || this.state.key === "")
-            return;
-
-        let localBeats = { ...this.state.beats };
-        localBeats[duration].push(this.state.key);
-
-        this.setState({ beats: localBeats }, () => {
-            console.log("beats: ", this.state.beats)
-        })
-    }
-
     handleSubmit = async (event) => {
         event.preventDefault()
-        const packagedState = {
-            ...this.state.beats, 
-            title: this.state.title,
-            user_id: this.state.user_id
-        }
-        console.log(packagedState)
         try {
-            const track = await createTrack(packagedState)
+            const track = await createTrack({
+                ...this.state.beats,
+                title: this.state.title,
+                user_id: this.state.user_id
+            })
             if (track) {
                 this.setState({
                     createdTrack: track
@@ -87,7 +64,24 @@ class CreateTrack extends React.Component {
         this.setState({
             title: `${event.target.value}`
         })
-      }
+    }
+
+    handleBeatSelect = event => {
+        this.setState({
+            selectedBeat: event.target.value
+        })
+    }
+
+    onClickAdd = (event) => {
+        let beat = parseInt(this.state.selectedBeat)
+        console.log(event.target.value)
+        let localBeats = { ...this.state.beats }
+        localBeats[beat].push(event.target.value)
+
+        this.setState({ beats: localBeats }, () => {
+            console.log("beats: ", this.state.beats)
+        })
+    }
 
     render() {
 
@@ -97,63 +91,51 @@ class CreateTrack extends React.Component {
 
         return (
             <div>
-
+                <p>Selected Interval: {this.state.selectedBeat}</p>
                 <div style={{ padding: 10, display: "flex", flexDirection: "row" }} >
-
                     <p>
-                        Interval: <select onChange={this.handleDurationChange}>
-                            <option value="none">choose</option>
-                            <option value="0">0</option>
-                            <option value="100">100</option>
-                            <option value="200">200</option>
-                            <option value="300">300</option>
-                            <option value="400">400</option>
-                            <option value="500">500</option>
-                            <option value="600">600</option>
-                            <option value="700">700</option>
-                            <option value="800">800</option>
-                            <option value="900">900</option>
-                            <option value="1000">1000</option>
-                            <option value="1100">1100</option>
-                            <option value="1200">1200</option>
-                            <option value="1300">1300</option>
-                            <option value="1400">1400</option>
-                            <option value="1500">1500</option>
-                            <option value="1600">1600</option>
-                            <option value="1700">1700</option>
-                            <option value="1800">1800</option>
-                            <option value="1900">1900</option>
-                            <option value="2000">2000</option>
-                        </select>
+                        Interval:
+                            <button onClick={this.handleBeatSelect} value="0">0</button>
+                            <button onClick={this.handleBeatSelect} value="100">100</button>
+                            <button onClick={this.handleBeatSelect} value="200">200</button>
+                            <button onClick={this.handleBeatSelect} value="300">300</button>
+                            <button onClick={this.handleBeatSelect} value="400">400</button>
+                            <button onClick={this.handleBeatSelect} value="500">500</button>
+                            <button onClick={this.handleBeatSelect} value="600">600</button>
+                            <button onClick={this.handleBeatSelect} value="700">700</button>
+                            <button onClick={this.handleBeatSelect} value="800">800</button>
+                            <button onClick={this.handleBeatSelect} value="900">900</button>
+                            <button onClick={this.handleBeatSelect} value="1000">1000</button>
+                            <button onClick={this.handleBeatSelect} value="1100">1100</button>
+                            <button onClick={this.handleBeatSelect} value="1200">1200</button>
+                            <button onClick={this.handleBeatSelect} value="1300">1300</button>
+                            <button onClick={this.handleBeatSelect} value="1400">1400</button>
+                            <button onClick={this.handleBeatSelect} value="1500">1500</button>
+                            <button onClick={this.handleBeatSelect} value="1600">1600</button>
+                            <button onClick={this.handleBeatSelect} value="1700">1700</button>
+                            <button onClick={this.handleBeatSelect} value="1800">1800</button>
+                            <button onClick={this.handleBeatSelect} value="1900">1900</button>
+                            <button onClick={this.handleBeatSelect} value="2000">2000</button>
                     </p>
-
                     <div style={{ width: 50 }}></div>
-                    <p>
-                        Key: <select name="key" onChange={this.handleKeyChange}>
-                            <option value="none">choose</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                            <option value="F">F</option>
-                            <option value="G">G</option>
-                        </select>
-                    </p>
-
-                    <div style={{ width: 50 }}></div>
-
-                    <button onClick={this.onAddClick}>Add</button>
-
-
-
                 </div>
+                <p>
+                    Key:
+                        <button onClick={this.onClickAdd} value="A">A</button>
+                        <button onClick={this.onClickAdd} value="B">B</button>
+                        <button onClick={this.onClickAdd} value="C">C</button>
+                        <button onClick={this.onClickAdd} value="D">D</button>
+                        <button onClick={this.onClickAdd} value="E">E</button>
+                        <button onClick={this.onClickAdd} value="F">F</button>
+                        <button onClick={this.onClickAdd} value="G">G</button>
+                </p>
+
+                <div style={{ width: 50 }}></div>
                 <div style={{ margin: 10, display: "flex", flexDirection: "row" }}>
 
-
-                    {Object.keys(this.state.beats).map((item) => {
+                    {Object.keys(this.state.beats).map((item, index) => {
                         return (
-                            <div style={{ margin: 5, display: "flex", flexDirection: "column" }}>
+                            <div key={index} style={{ margin: 5, display: "flex", flexDirection: "column" }}>
                                 <div>{item}</div>
                                 {this.state.beats[item].map((key, index) => {
                                     return (
@@ -161,22 +143,22 @@ class CreateTrack extends React.Component {
                                     )
                                 })}
                             </div>
-                        );
+                        )
                     })}
                 </div>
                 <form onSubmit={this.handleSubmit}>
-                <input
-                    required
-                    type="text"
-                    value={this.state.title}
-                    placeholder="Enter Track Title"
-                    onChange={this.handleChange}
-                />
-                <button type='submit'>Create Track</button>
+                    <input
+                        required
+                        type="text"
+                        value={this.state.title}
+                        placeholder="Enter Track Title"
+                        onChange={this.handleChange}
+                    />
+                    <button type='submit'>Create Track</button>
                 </form>
             </div>
-        );
+        )
     }
 }
 
-export default CreateTrack;
+export default CreateTrack
