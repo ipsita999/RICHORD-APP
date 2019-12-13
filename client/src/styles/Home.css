@@ -3,7 +3,7 @@ body p {
 }
 
 .home-container {
-    background-image: url('../resources/piano-photo-50.png');
+    background-image:linear-gradient(rgba(0, 0, 0, 0.30),rgba(0,0,0,0.30)), url('../resources/piano-photo-50.png');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -32,10 +32,10 @@ body p {
 
 .learnButton {
     font-family: Arial;
-    font-size: 25px;
+    font-size: 30px;
 }
 
-.learnBox {
+/* .learnBox {
     width: 50vw;
     height: 70vh;
     text-align: center;
@@ -47,13 +47,14 @@ body p {
     animation-name: moveUp;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-}
+} */
+
 
 .learnBox .link {
     font-family: 'Abril Fatface', cursive;
 }
 
-@keyframes moveUp {
+/* @keyframes moveUp {
     0% {margin-top: 60vh; margin-bottom: -60vh; opacity: 0;}
     100% {margin-top: -30vh; margin-bottom: 30vh}
 }
@@ -61,7 +62,7 @@ body p {
 @keyframes moveDown {
     0% {margin-top: -30vh; margin-bottom: 30vh}
     100% {margin-top: 60vh; margin-bottom: -60vh; opacity: 0;}
-}
+} */
 
 @keyframes shake {
     0% {transform: rotate(0deg)}
@@ -69,4 +70,10 @@ body p {
     50% {transform: rotate(0deg)}
     75% {transform: rotate(-1deg)}
     100% {transform: rotate(0deg)}
+}
+
+h2{
+    font-size: 30px;
+    /* color: rgb(214, 213, 218); */
+    
 }

@@ -26,17 +26,21 @@ showLearn = () => {
 
 render() {
     return (
+        
         <div className="home-container flex-col">
             <h1>Find your sound...</h1>
-            <div className="learn" onClick={() => this.showLearn()}>
-                <h2>Learn More</h2>
+            {/* <div className="learn" onClick={() => this.showLearn()}>
+                <h2>Learn More</h2>    
             </div>
-            <div className="learnBox" style={{display: `${this.state.display}`, animationName: `${this.state.animate}`}}>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti nemo molestiae eos eligendi fugit quisquam soluta fuga facilis animi, aliquam iusto quis sapiente quod, assumenda odit amet impedit reprehenderit cupiditate.</p>
-                <NavLink to='/tracks' className="link">View Tracks</NavLink>
+            <div className="arrowButton">
+                    <img src="https://img.icons8.com/carbon-copy/2x/down.png"></img>
             </div>
+           */}
+            
         </div>
+        
     );
+    
 }
 }
 
