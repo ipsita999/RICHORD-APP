@@ -1,29 +1,20 @@
 import React, { Component } from 'react'
-import { getTracks } from '../services/calls'
 import '../styles/Tracks.css'
 
 export default class Tracks extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            tracks: [],
         }
     }
-
-    componentDidMount() {
-        this.fetchTracks()
-
-    }
-
-    fetchTracks = async () => {
-        try {
-            const tracks = await getTracks()
-            console.log(tracks.tracks)
-            this.setState({ tracks: tracks.tracks })
-        } catch (error) {
-            console.error(error)
-        }
-    }
+    // checkNewTrack = async () => {
+    //     const check = await getTracks()
+    //     if (check.tracks !== this.state.tracks) {
+    //         this.setState({
+    //             tracks: check.tracks
+    //         })
+    //     }
+    // }
 
     renderTracks = () => {
         const {
@@ -32,9 +23,8 @@ export default class Tracks extends Component {
         } = this.props
         // console.log(path)
 
-        if (this.state.tracks) {
-         
-            return this.state.tracks.map((track) => (
+        if (this.props.tracks) {
+            return this.props.tracks.map((track) => (
                 <div key={track.id} className='trackPreview' 
                 onClick={() => history.push(`${path}/track/${track.id}`)}
                  >

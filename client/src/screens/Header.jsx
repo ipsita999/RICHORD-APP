@@ -31,7 +31,10 @@ class Header extends React.Component {
         <h3 className='navlink-text tracks flex-row'>Tracks</h3>
         <div className='dropdown-menu'>
             <NavLink to="/tracks" className='navlink-text dropdown-text'>Public Tracks</NavLink>
+            <NavLink to="/create-tracks" className='navlink-text dropdown-text'>Create Track</NavLink>
             <NavLink to="/my-tracks" className='navlink-text dropdown-text'>My Tracks</NavLink>
+    
+            
         </div>
       </div>
       <NavLink to="/sign-out" className='navlink-text'>Sign Out</NavLink>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { getItems } from '../services/items'
+import { getTracks } from '../services/calls'
 import Routes from '../routes'
 import Header from '../screens/Header'
 
@@ -8,24 +8,25 @@ export default class Container extends Component {
     super(props)
     this.state = {
       user: null,
-      items: []
+      tracks: null
     }
   }
 
-//   async componentDidMount() {
-//     this.fetchItems()
-//   }
+  async componentDidMount() {
+    this.fetchTracks()
+  }
 
-//   fetchItems = async () => {
-//     try {
-//       const items = await getItems()
-//       this.setState({ items })
-//     } catch (err) {
-//       console.error(err)
-//     }
-//   }
+  fetchTracks = async () => {
+    try {
+      const tracks = await getTracks()
+      this.setState({ tracks })
+      console.log(tracks)
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
-//   addItem = item => this.setState({ items: [...this.state.items, item] })
+  addTrack = track => this.setState({ tracks: [...this.state.tracks, track] })
 
   setUser = user => this.setState({ user })
 
@@ -38,11 +39,11 @@ export default class Container extends Component {
         <Header user={user} {...this.props} setUser={this.setUser}/>
         <main className="container">
           <Routes
-            // getItems={this.fetchItems}
-            // items={items}
+            getTracks={this.fetchTracks}
+            tracks={this.state.tracks}
             user={user}
             setUser={this.setUser}
-            // addItem={this.addItem}
+            addTrack={this.addTrack}
             clearUser={this.clearUser}
           />
         </main>

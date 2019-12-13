@@ -17,8 +17,8 @@ export default class MyTracks extends Component {
     fetchUserTracks = async () => {
         try {
             const tracks = await getUserTracks(this.props.user)
-            console.log(tracks.tracks)
-            this.setState({ tracks: tracks.tracks })
+            console.log(tracks)
+            this.setState({ tracks: tracks })
         } catch (error) {
             console.error(error)
         }
@@ -31,8 +31,7 @@ export default class MyTracks extends Component {
         } = this.props
         // console.log(path)
 
-        if (this.state.tracks) {
-         
+        if (this.state.tracks.length) {
             return this.state.tracks.map((track) => (
                 <div key={track.id} className='trackPreview' 
                 onClick={() => history.push(`${path}/track/${track.id}`)}

@@ -19,14 +19,7 @@ export const getTrackById = async id => {
   }
 }
 
-// export const createItem = async item => {
-//   try {
-//     const resp = await api.post('/items', item)
-//     return resp
-//   } catch (error) {
-//     throw error
-//   }
-// }
+
 
 // export const updateItem = async (id, item) => {
 //   try {
@@ -49,7 +42,7 @@ export const getTrackById = async id => {
 export const getTracks = async () => {
   try {
       const resp = await api.get('/tracks')
-      return resp.data
+      return resp.data.tracks
   } catch (error) {
       throw (error)
   }
