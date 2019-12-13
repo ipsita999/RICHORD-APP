@@ -1,0 +1,35 @@
+.track {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.interval {
+    display: flex;
+    margin: 30px;
+}
+
+.key {
+    border: 2px solid black;
+    width: 4vw;
+    height: 105px;
+    background-size: cover;
+}
+
+.sheet h1 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+}
+
+.controls img {
+    width: 50px;
+    margin: 20px;
+}

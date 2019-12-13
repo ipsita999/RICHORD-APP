@@ -2,12 +2,14 @@ import React from 'react';
 import { Redirect } from 'react-router-dom'
 import { createTrack } from '../services/auth.js'
 import $ from 'jquery'
-import '../styles/CreateTrack.css'
+import '../styles/EditTrack.css'
+import { getTrackById } from '../services/calls'
 
-class CreateTrack extends React.Component {
+class EditTrack extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            track: null,
             key: "",
             selectedInterval: '0',
             beats: {
@@ -35,8 +37,40 @@ class CreateTrack extends React.Component {
             },
             user_id: this.props.user.id,
             title: 'Untitled Track',
+            indexCheck: 0,
             created: false,
             createdTrack: null
+        }
+    }
+
+    async componentDidMount() {
+        this.fetchTrack()
+
+    }
+
+    setData = () => {
+        if(this.state.tracks) {
+        Object.keys(this.state.beats).forEach((item, index) => {
+            this.setState(prevState => ({
+                beats: {                 
+                    ...prevState.beats,   
+                    [item]: [...this.state.tracks[item]]       
+            }}))
+    })}
+    console.log(this.state.beats)
+}
+
+    fetchTrack = async () => {
+        try {
+            const track = await getTrackById(this.props.match.params.id)
+            console.log(this.state.beats)
+            console.log(track)
+            console.log(track.track)
+            console.log(track.track[0])
+            this.setState({ track: track.track })
+
+        } catch (err) {
+            console.error(err)
         }
     }
 
@@ -74,6 +108,7 @@ class CreateTrack extends React.Component {
         event.target.className = 'selected interval-button'
         this.setState({
             selectedInterval: event.target.value,
+            indexCheck: event.target.key
         })
     }
 
@@ -107,7 +142,7 @@ class CreateTrack extends React.Component {
         return (
             Object.keys(this.state.beats).map((item, index) => {
                 return (
-                    <div key={ index } className='interval-button-container flex-col'>
+                    <div key={ index } className='interval-button-container flex-col' style={{ margin: 5 }}>
                         <button onClick={ this.handleIntervalSelect } className='interval-button' value={`${ item }`}>{item}</button>
                         {this.state.beats[item].map((key, index) => {
                             return (
@@ -121,7 +156,7 @@ class CreateTrack extends React.Component {
     }
 
     render() {
-
+        this.setData()
         if (this.state.created) {
             return <Redirect to={"/tracks"} />
         }
@@ -163,4 +198,4 @@ class CreateTrack extends React.Component {
     }
 }
 
-export default CreateTrack
+export default EditTrack
