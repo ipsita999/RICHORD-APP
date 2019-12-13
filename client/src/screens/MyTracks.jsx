@@ -18,7 +18,7 @@ export default class MyTracks extends Component {
         try {
             const tracks = await getUserTracks(this.props.user)
             console.log(tracks)
-            this.setState({ tracks: tracks })
+            this.setState({ tracks: tracks.tracks })
         } catch (error) {
             console.error(error)
         }

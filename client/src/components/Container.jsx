@@ -20,7 +20,6 @@ export default class Container extends Component {
     try {
       const tracks = await getTracks()
       this.setState({ tracks })
-      console.log(tracks)
     } catch (err) {
       console.error(err)
     }
