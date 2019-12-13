@@ -30,6 +30,8 @@ class CreateTrack extends React.Component {
                 1900: [],
                 2000: []
             },
+            user_id: this.props.user.id,
+            title: 'Untitled Track',
             created: false,
             createdTrack: null
         }
@@ -56,9 +58,16 @@ class CreateTrack extends React.Component {
         })
     }
 
-    handleSubmit = async () => {
+    handleSubmit = async (event) => {
+        event.preventDefault()
+        const packagedState = {
+            ...this.state.beats, 
+            title: this.state.title,
+            user_id: this.state.user_id
+        }
+        console.log(packagedState)
         try {
-            const track = await createTrack(this.state.beats)
+            const track = await createTrack(packagedState)
             if (track) {
                 this.setState({
                     createdTrack: track
@@ -70,9 +79,15 @@ class CreateTrack extends React.Component {
                 })
             }
         } catch (error) {
-            throw error
+            console.log(error)
         }
     }
+
+    handleChange = event => {
+        this.setState({
+            title: `${event.target.value}`
+        })
+      }
 
     render() {
 
@@ -149,8 +164,16 @@ class CreateTrack extends React.Component {
                         );
                     })}
                 </div>
-                <button onClick={this.handleSubmit}> Create Track</button>
-
+                <form onSubmit={this.handleSubmit}>
+                <input
+                    required
+                    type="text"
+                    value={this.state.title}
+                    placeholder="Enter Track Title"
+                    onChange={this.handleChange}
+                />
+                <button type='submit'>Create Track</button>
+                </form>
             </div>
         );
     }
