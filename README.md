@@ -19,7 +19,7 @@ As our first team-oriented project at General Assembly's Software Engineering Im
 
 ## Progress
 - [x] Show Different Keys During Play
-- [ ] Add Delete Track Function
+- [x] Add Delete Track Function
 - [ ] Add Update Track Function
 - [ ] Add Note Names During Play
 
