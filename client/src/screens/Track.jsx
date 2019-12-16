@@ -539,7 +539,6 @@ class Track extends Component {
 
         return (
             <div className="track">
-
                 <div className="sheet">
                     <h1>{`${this.state.title}`}</h1>
                     <div className="interval">
@@ -566,18 +565,14 @@ class Track extends Component {
                         <div className="C key" style={{ backgroundColor: `${this.state.uColor}` }}></div>
                     </div>
                 </div>
-
                 <div className="controls">
                     <img src={require("../resources/play.png")} onClick={this.playTrack} />
                     <img src={require("../resources/pause.png")} onClick={this.pauseTrack} />
                     <img src={require("../resources/stop.png")} onClick={this.stopTrack} />
                 </div>
                 <Link to={`/tracks/${this.props.match.params.id}/edit`}>
-          <button>Edit</button>
-        </Link>
-
-
-
+                    <button>Edit</button>
+                </Link>
             </div>
         )
     }

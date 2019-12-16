@@ -45,17 +45,17 @@ export const getUserTracks = async (user) => {
 
 export const createTrack = async track => {
   try {
-    const resp = await api.post('/tracks/', track.match.params.id)
+    const resp = await api.post('/tracks/', track)
     return resp.data.newTrack
   } catch (error) {
     throw error
   }
 }
 
-export const editTrack = async track => {
+export const editTrack = async (track, id) => {
   try {
-    const resp = await api.put(`/tracks/track/${track.id}`)
-    return resp.data.newTrack
+    const resp = await api.put(`/tracks/${id}`, track)
+    return resp.data
   } catch (error) {
     throw error
   }

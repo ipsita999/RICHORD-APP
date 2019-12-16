@@ -8,6 +8,7 @@ class CreateTrack extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            track: null,
             key: "",
             selectedInterval: '0',
             beats: {
@@ -90,7 +91,7 @@ class CreateTrack extends React.Component {
         })
     }
 
-    onClickClear = (event) => {
+    onClickClear = () => {
         let interval = parseInt(this.state.selectedInterval)
         let localBeats = { ...this.state.beats }
         if (localBeats[interval].length > 0) {
@@ -156,7 +157,7 @@ class CreateTrack extends React.Component {
                         onChange={this.handleChange}
                         className='title-input'
                     />
-                    <button className='create-button' type='submit'>Create Track</button>
+                    <button className='create-button' type='submit'>Save Track</button>
                 </form>
             </>
         )

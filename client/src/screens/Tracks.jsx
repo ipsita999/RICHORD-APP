@@ -15,7 +15,6 @@ export default class Tracks extends Component {
 
     checkNewTrack = async () => {
         const check = await this.props.getTracks()
-        console.log(check)
         if (check && this.state.tracks) {
             if (check.length !== this.state.tracks.length) {
                 this.setState({
@@ -104,7 +103,7 @@ export default class Tracks extends Component {
     }
 
     render() {
-        { this.checkNewTrack() }
+        this.checkNewTrack()
         return (
             <div className="listing">
                 <h1>All Tracks

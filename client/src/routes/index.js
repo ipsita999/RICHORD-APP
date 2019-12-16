@@ -62,13 +62,13 @@ const Routes = ({ getTracks, user, setUser, clearUser, addTrack, tracks
         exact
         path="/create-tracks"
         user={user}
-        render={props => <CreateTrack addTrack={addTrack} tracks={tracks} {...props} user={user} />}
+        render={props => <CreateTrack addTrack={addTrack} {...props} user={user} />}
       />
       <AuthenticatedRoute
         exact
         path="/tracks/:id/edit"
         user={user}
-        render={props => <EditTrack addTrack={addTrack} tracks={tracks} {...props} user={user} />}
+        render={props => <EditTrack {...props} user={user} />}
       />
     </Switch>
   )

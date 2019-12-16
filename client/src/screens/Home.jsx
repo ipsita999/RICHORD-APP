@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../styles/Home.css';
-import { NavLink } from 'react-router-dom'
 
 class Home extends Component {
     constructor() {
@@ -36,10 +35,8 @@ class Home extends Component {
                     <img src="https://img.icons8.com/carbon-copy/2x/down.png"></img>
             </div>
            */}
-
             </div>
-
-        );
+        )
 
     }
 }
