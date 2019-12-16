@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
-import { createTrack } from '../services/auth.js'
+import { editTrack } from '../services/auth.js'
 import $ from 'jquery'
 import '../styles/EditTrack.css'
 import { getTrackById } from '../services/calls'
@@ -66,8 +66,9 @@ class EditTrack extends React.Component {
             console.log(this.state.beats)
             console.log(track)
             console.log(track.track)
-            console.log(track.track[0])
-            this.setState({ track: track.track })
+            console.log(track.track.user_id)
+            console.log(track.track.title)
+            this.setState({ track: track.track, title: track.track.title, user_id: track.track.user_id })
 
         } catch (err) {
             console.error(err)
@@ -77,7 +78,7 @@ class EditTrack extends React.Component {
     handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            const track = await createTrack({
+            const track = await editTrack(this.props, {
                 ...this.state.beats,
                 title: this.state.title,
                 user_id: this.state.user_id
@@ -191,7 +192,7 @@ class EditTrack extends React.Component {
                         onChange={ this.handleChange }
                         className='title-input'
                     />
-                    <button className='create-button' type='submit'>Create Track</button>
+                    <button className='create-button' type='submit'>Update Track</button>
                 </form>
             </>
         )

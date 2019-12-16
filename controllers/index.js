@@ -117,6 +117,23 @@ const getTrackById = async (req, res) => {
 	}
 }
 
+const editTrack = async (req, res) => {
+	try {
+		const { id } = req.params
+		const { track } = req.body
+		const [updated] = await Track.update(track, {
+			where: { id: id }
+		})
+		if (updated) {
+			const updatedTrack = await Track.findOne({ where: { id: id } })
+			return res.status(200).json({ track: updatedTrack })
+		}
+		throw new Error('Track not found')
+	} catch (error) {
+		return res.status(500).send(error.message)
+	}
+}
+
 const deleteTrack = async (req, res) => {
 	try {
 		console.log(req.params)
@@ -138,6 +155,7 @@ module.exports = {
 	signIn,
 	getAllUsers,
 	getAllTracks,
+	editTrack,
 	getUserTracks,
 	getTrackById,
 	deleteTrack,

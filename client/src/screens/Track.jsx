@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { getTrackById } from '../services/calls'
 import '../styles/Track.css'
+import { Link } from 'react-router-dom'
 
 const sounds = {
     A: require('./sounds/piano-a.wav'),
@@ -571,6 +572,9 @@ class Track extends Component {
                     <img src={require("../resources/pause.png")} onClick={this.pauseTrack} />
                     <img src={require("../resources/stop.png")} onClick={this.stopTrack} />
                 </div>
+                <Link to={`/tracks/${this.props.match.params.id}/edit`}>
+          <button>Edit</button>
+        </Link>
 
 
 
