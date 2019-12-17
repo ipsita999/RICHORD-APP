@@ -1,11 +1,11 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
-import { editTrack } from '../services/auth.js'
 import $ from 'jquery'
-import '../styles/EditTrack.css'
-import { getTrackById } from '../services/calls'
+import '../styles/CreateTrack.css'
+import { getTrackById } from '../services/calls.js'
+import { editTrack } from '../services/auth.js'
 
-class EditTrack extends React.Component {
+class CreateTrack extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,39 +37,42 @@ class EditTrack extends React.Component {
             },
             user_id: this.props.user.id,
             title: 'Untitled Track',
-            indexCheck: 0,
             created: false,
             createdTrack: null
         }
     }
 
     async componentDidMount() {
-        this.fetchTrack()
+        if (this.props.match.path === "/tracks/:id/edit") {
+            this.fetchTrack()
+        }
 
     }
 
     setData = () => {
-        if(this.state.tracks) {
-        Object.keys(this.state.beats).forEach((item, index) => {
-            this.setState(prevState => ({
-                beats: {                 
-                    ...prevState.beats,   
-                    [item]: [...this.state.tracks[item]]       
-            }}))
-    })}
-    console.log(this.state.beats)
-}
+        if (this.state.track) {
+            Object.keys(this.state.beats).forEach((item, index) => {
+                if (this.state.track[item]) {
+                    console.log(this.state.track[item])
+                    this.setState(prevState => ({
+                        beats: {
+                            ...prevState.beats,
+                            [item]: [...this.state.track[item]]
+                        }
+                    }))
+                }
+            })
+        }
+    }
 
     fetchTrack = async () => {
         try {
             const track = await getTrackById(this.props.match.params.id)
-            console.log(this.state.beats)
-            console.log(track)
-            console.log(track.track)
-            console.log(track.track.user_id)
-            console.log(track.track.title)
-            this.setState({ track: track.track, title: track.track.title, user_id: track.track.user_id })
-
+            this.setState({
+                track: track.track,
+                title: track.track.title,
+            })
+            this.setData()
         } catch (err) {
             console.error(err)
         }
@@ -78,16 +81,12 @@ class EditTrack extends React.Component {
     handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            const track = await editTrack(this.props, {
+            const track = await editTrack({
                 ...this.state.beats,
                 title: this.state.title,
                 user_id: this.state.user_id
-            })
+            }, this.state.track.id)
             if (track) {
-                this.setState({
-                    createdTrack: track
-                })
-                this.props.addTrack(this.state.createdTrack)
                 this.setState({
                     created: true,
                     createdTrack: null
@@ -100,7 +99,7 @@ class EditTrack extends React.Component {
 
     handleChange = event => {
         this.setState({
-            title: `${ event.target.value }`
+            title: `${event.target.value}`
         })
     }
 
@@ -109,7 +108,6 @@ class EditTrack extends React.Component {
         event.target.className = 'selected interval-button'
         this.setState({
             selectedInterval: event.target.value,
-            indexCheck: event.target.key
         })
     }
 
@@ -118,7 +116,7 @@ class EditTrack extends React.Component {
         let localBeats = { ...this.state.beats }
         if (localBeats[interval].length < 5) {
             localBeats[interval].push(event.target.value)
-        } else { 
+        } else {
             return
         }
         this.setState({ beats: localBeats }, () => {
@@ -126,12 +124,12 @@ class EditTrack extends React.Component {
         })
     }
 
-    onClickClear = (event) => {
+    onClickClear = () => {
         let interval = parseInt(this.state.selectedInterval)
         let localBeats = { ...this.state.beats }
         if (localBeats[interval].length > 0) {
             localBeats[interval] = [];
-        } else { 
+        } else {
             return
         }
         this.setState({ beats: localBeats }, () => {
@@ -143,11 +141,11 @@ class EditTrack extends React.Component {
         return (
             Object.keys(this.state.beats).map((item, index) => {
                 return (
-                    <div key={ index } className='interval-button-container flex-col' style={{ margin: 5 }}>
-                        <button onClick={ this.handleIntervalSelect } className='interval-button' value={`${ item }`}>{item}</button>
+                    <div key={index} className='interval-button-container flex-col'>
+                        <button onClick={this.handleIntervalSelect} className='interval-button' value={`${item}`}>{item}</button>
                         {this.state.beats[item].map((key, index) => {
                             return (
-                                <div className='added-key' key={ index }>{ key }</div>
+                                <div className='added-key' key={index}>{key}</div>
                             )
                         })}
                     </div>
@@ -157,7 +155,7 @@ class EditTrack extends React.Component {
     }
 
     render() {
-        this.setData()
+
         if (this.state.created) {
             return <Redirect to={"/tracks"} />
         }
@@ -167,36 +165,36 @@ class EditTrack extends React.Component {
                 <p className='create-track-text first'>Selected Interval: {this.state.selectedInterval} </p>
                 <div className='intervals-container flex-row' >
 
-                        { this.renderButtons() }
+                    {this.renderButtons()}
 
                 </div>
                 <div className='keys-container flex-row'>
                     <p className='create-track-text'>Keys:</p>
                     <div className='keys flex-row'>
-                        <button className='key-button' onClick={ this.onClickAdd } value="A">A</button>
-                        <button className='key-button' onClick={ this.onClickAdd } value="B">B</button>
-                        <button className='key-button' onClick={ this.onClickAdd } value="C">C</button>
-                        <button className='key-button' onClick={ this.onClickAdd } value="D">D</button>
-                        <button className='key-button' onClick={ this.onClickAdd } value="E">E</button>
-                        <button className='key-button' onClick={ this.onClickAdd } value="F">F</button>
-                        <button className='key-button' onClick={ this.onClickAdd } value="G">G</button>
-                        <button className='key-button clear' onClick={ this.onClickClear } >Clear</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="A">A</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="B">B</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="C">C</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="D">D</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="E">E</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="F">F</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="G">G</button>
+                        <button className='key-button clear' onClick={this.onClickClear} >Clear</button>
                     </div>
                 </div>
-                <form className='create-track-form flex-row' onSubmit={ this.handleSubmit }>
+                <form className='create-track-form flex-row' onSubmit={this.handleSubmit}>
                     <input
                         required
                         type="text"
-                        value={ this.state.title }
+                        value={this.state.title}
                         placeholder="Enter Track Title"
-                        onChange={ this.handleChange }
+                        onChange={this.handleChange}
                         className='title-input'
                     />
-                    <button className='create-button' type='submit'>Update Track</button>
+                    <button className='create-button' type='submit'>Save Track</button>
                 </form>
             </>
         )
     }
 }
 
-export default EditTrack
+export default CreateTrack

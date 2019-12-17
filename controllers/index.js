@@ -120,13 +120,14 @@ const getTrackById = async (req, res) => {
 const editTrack = async (req, res) => {
 	try {
 		const { id } = req.params
-		const { track } = req.body
-		const [updated] = await Track.update(track, {
+		const track = req.body
+		const updated = await Track.update(track, {
 			where: { id: id }
 		})
+
 		if (updated) {
 			const updatedTrack = await Track.findOne({ where: { id: id } })
-			return res.status(200).json({ track: updatedTrack })
+			return res.status(202).json({ track: updatedTrack })
 		}
 		throw new Error('Track not found')
 	} catch (error) {
