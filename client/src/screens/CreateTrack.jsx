@@ -8,6 +8,7 @@ class CreateTrack extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            track: null,
             key: "",
             selectedInterval: '0',
             beats: {
@@ -65,7 +66,7 @@ class CreateTrack extends React.Component {
 
     handleChange = event => {
         this.setState({
-            title: `${ event.target.value }`
+            title: `${event.target.value}`
         })
     }
 
@@ -82,7 +83,7 @@ class CreateTrack extends React.Component {
         let localBeats = { ...this.state.beats }
         if (localBeats[interval].length < 5) {
             localBeats[interval].push(event.target.value)
-        } else { 
+        } else {
             return
         }
         this.setState({ beats: localBeats }, () => {
@@ -90,12 +91,12 @@ class CreateTrack extends React.Component {
         })
     }
 
-    onClickClear = (event) => {
+    onClickClear = () => {
         let interval = parseInt(this.state.selectedInterval)
         let localBeats = { ...this.state.beats }
         if (localBeats[interval].length > 0) {
             localBeats[interval] = [];
-        } else { 
+        } else {
             return
         }
         this.setState({ beats: localBeats }, () => {
@@ -107,11 +108,11 @@ class CreateTrack extends React.Component {
         return (
             Object.keys(this.state.beats).map((item, index) => {
                 return (
-                    <div key={ index } className='interval-button-container flex-col'>
-                        <button onClick={ this.handleIntervalSelect } className='interval-button' value={`${ item }`}>{item}</button>
+                    <div key={index} className='interval-button-container flex-col'>
+                        <button onClick={this.handleIntervalSelect} className='interval-button' value={`${item}`}>{item}</button>
                         {this.state.beats[item].map((key, index) => {
                             return (
-                                <div className='added-key' key={ index }>{ key }</div>
+                                <div className='added-key' key={index}>{key}</div>
                             )
                         })}
                     </div>
@@ -131,32 +132,32 @@ class CreateTrack extends React.Component {
                 <p className='create-track-text first'>Selected Interval: {this.state.selectedInterval} </p>
                 <div className='intervals-container flex-row' >
 
-                        { this.renderButtons() }
+                    {this.renderButtons()}
 
                 </div>
                 <div className='keys-container flex-row'>
                     <p className='create-track-text'>Keys:</p>
                     <div className='keys flex-row'>
-                        <button className='key-button' onClick={ this.onClickAdd } value="A">A</button>
-                        <button className='key-button' onClick={ this.onClickAdd } value="B">B</button>
-                        <button className='key-button' onClick={ this.onClickAdd } value="C">C</button>
-                        <button className='key-button' onClick={ this.onClickAdd } value="D">D</button>
-                        <button className='key-button' onClick={ this.onClickAdd } value="E">E</button>
-                        <button className='key-button' onClick={ this.onClickAdd } value="F">F</button>
-                        <button className='key-button' onClick={ this.onClickAdd } value="G">G</button>
-                        <button className='key-button clear' onClick={ this.onClickClear } >Clear</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="A">A</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="B">B</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="C">C</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="D">D</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="E">E</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="F">F</button>
+                        <button className='key-button' onClick={this.onClickAdd} value="G">G</button>
+                        <button className='key-button clear' onClick={this.onClickClear} >Clear</button>
                     </div>
                 </div>
-                <form className='create-track-form flex-row' onSubmit={ this.handleSubmit }>
+                <form className='create-track-form flex-row' onSubmit={this.handleSubmit}>
                     <input
                         required
                         type="text"
-                        value={ this.state.title }
+                        value={this.state.title}
                         placeholder="Enter Track Title"
-                        onChange={ this.handleChange }
+                        onChange={this.handleChange}
                         className='title-input'
                     />
-                    <button className='create-button' type='submit'>Create Track</button>
+                    <button className='create-button' type='submit'>Save Track</button>
                 </form>
             </>
         )

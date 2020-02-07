@@ -107,7 +107,6 @@ form p {
     width: 250px;
     padding: 10px;
     top: 60px;
-    /* color: #eeda67; */
     font-size: 23px;
 }
 
@@ -166,7 +165,4 @@ form p {
     animation-timing-function: ease;
     animation-duration: .5s;
     right: -380px;
-}
-h1 {
-    /* color: rgb(224, 213, 223); */
 }

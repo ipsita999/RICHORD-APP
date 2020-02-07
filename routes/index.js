@@ -17,12 +17,8 @@ router.get('/users/:id/tracks', restrict, controllers.getUserTracks)
 
 router.delete('/tracks/track/:id', controllers.deleteTrack)
 
-// router.get('/items/:id', controllers.getItemById)
-
 router.post('/tracks', restrict, controllers.createTrack)
 
-// router.put('/items/:id', restrict, controllers.updateItem)
-
-// router.delete('/items/:id', restrict, controllers.deleteItem)
+router.put('/tracks/:id', restrict, controllers.editTrack)
 
 module.exports = router

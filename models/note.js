@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     position_id: DataTypes.INTEGER,
     track_id: DataTypes.INTEGER
   }, {});
-  Note.associate = function(models) {
+  Note.associate = function (models) {
     Note.belongsTo(models.Track, {
       foreignKey: 'track_Id',
       onDelete: 'CASCADE'

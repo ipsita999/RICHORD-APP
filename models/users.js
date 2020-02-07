@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     password_digest: DataTypes.STRING
   }, {});
-  User.associate = function(models) {
+  User.associate = function (models) {
     User.hasMany(models.Track, {
       foreignKey: 'user_id'
     })

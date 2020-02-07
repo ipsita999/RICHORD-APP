@@ -35,34 +35,10 @@ body p {
     font-size: 30px;
 }
 
-/* .learnBox {
-    width: 50vw;
-    height: 70vh;
-    text-align: center;
-    background: white;
-    color: black;
-    margin-top: -30vh;
-    margin-bottom: 30vh;
-    padding: 30px;
-    animation-name: moveUp;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-} */
-
 
 .learnBox .link {
     font-family: 'Abril Fatface', cursive;
 }
-
-/* @keyframes moveUp {
-    0% {margin-top: 60vh; margin-bottom: -60vh; opacity: 0;}
-    100% {margin-top: -30vh; margin-bottom: 30vh}
-}
-
-@keyframes moveDown {
-    0% {margin-top: -30vh; margin-bottom: 30vh}
-    100% {margin-top: 60vh; margin-bottom: -60vh; opacity: 0;}
-} */
 
 @keyframes shake {
     0% {transform: rotate(0deg)}
@@ -74,6 +50,4 @@ body p {
 
 h2{
     font-size: 30px;
-    /* color: rgb(214, 213, 218); */
-    
 }

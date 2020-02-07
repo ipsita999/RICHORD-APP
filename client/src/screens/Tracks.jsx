@@ -15,20 +15,19 @@ export default class Tracks extends Component {
 
     checkNewTrack = async () => {
         const check = await this.props.getTracks()
-        console.log(check)
-        if(check && this.state.tracks) {
-        if (check.length !== this.state.tracks.length) {
-            this.setState({
-                tracks: check
-            })
+        if (check && this.state.tracks) {
+            if (check.length !== this.state.tracks.length) {
+                this.setState({
+                    tracks: check
+                })
+            }
         }
     }
-    }
 
-    fetchTracks = async() => {
+    fetchTracks = async () => {
         const tracks = await this.props.getTracks()
         if (tracks) {
-            this.setState ({
+            this.setState({
                 tracks: tracks
             })
         }
@@ -50,12 +49,13 @@ export default class Tracks extends Component {
                     <h2 onClick={() => history.push(`${path}/track/${track.id}`)}>{track.title}</h2>
 
                     {this.renderDeleteMenu(track.id, track.title)}
-              
-                    
+
+
                 </div>
             ))
         }
     }
+
 
 openDeleteMenu = (event) => {
     console.log(event.target.value)
@@ -105,8 +105,9 @@ if (this.state.checkDelete) {
 }
 }
 
+
     render() {
-       { this.checkNewTrack() }
+        this.checkNewTrack()
         return (
             <div className="listing">
                 <h1>All Tracks

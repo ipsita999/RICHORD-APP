@@ -33,9 +33,9 @@ export default class MyTracks extends Component {
 
         if (this.state.tracks.length) {
             return this.state.tracks.map((track) => (
-                <div key={track.id} className='trackPreview flex-row' 
-                onClick={() => history.push(`${path}/track/${track.id}`)}
-                 >
+                <div key={track.id} className='trackPreview flex-row'
+                    onClick={() => history.push(`${path}/track/${track.id}`)}
+                >
                     <h2>{track.title}</h2>
                 </div>
             ))

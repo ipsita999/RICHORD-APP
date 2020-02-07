@@ -26,10 +26,10 @@ const fakeData = [
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-      return queryInterface.bulkInsert('Users', fakeData, {});
+    return queryInterface.bulkInsert('Users', fakeData, {});
   },
 
   down: (queryInterface, Sequelize) => {
-      return queryInterface.bulkDelete('Users', null, {});
+    return queryInterface.bulkDelete('Users', null, {});
   }
 };
