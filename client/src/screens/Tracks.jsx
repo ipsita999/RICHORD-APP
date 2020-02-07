@@ -84,14 +84,7 @@ openDeleteMenu = (event) => {
 
   }
 
-//   checkUpdate = async () => {
-//     let data = await getGameData()
-//     if (data.length !== this.state.gameData.length) {
-//       this.setState({
-//         gameData: data
-//       })
-//     }
-//   }
+
 
 renderDeleteMenu = (id, title) => {
 if(this.state.checkDelete === false) {
@@ -125,3 +118,14 @@ if (this.state.checkDelete) {
         )
     }
 }
+
+
+
+//   checkUpdate = async () => {
+//     let data = await getGameData()
+//     if (data.length !== this.state.gameData.length) {
+//       this.setState({
+//         gameData: data
+//       })
+//     }
+//   }

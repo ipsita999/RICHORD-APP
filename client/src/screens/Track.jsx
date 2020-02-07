@@ -60,10 +60,8 @@ class Track extends Component {
             
             this.setState({ track })
             this.setState({title: this.state.track.track.title})
-            // console.log(this.state)
-
-
-            // console.log(this.state.track.track)
+            console.log(this.state)
+            console.log(this.state.track.track)
 
         } catch (err) {
             console.error(err)
@@ -505,10 +503,7 @@ start = () => {
                                 this.setState({uColor: 'purple'})
                             }  else {this.setState({ uColor: 'blue'}) }
                         } 
-                        // togglePlay() {
-                        //     this.setState({ 'play': !this.state.play }, () => {
-                        //         this.state.play ? globalAudio.play(this.name) : globalAudio.pause(this.name);
-                        //     });
+                     
                     }
                 }
                 i = i + 1;
