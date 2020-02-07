@@ -23,12 +23,15 @@ class Home extends Component {
         }
     }
 
-    render() {
-        return (
 
-            <div className="home-container flex-col">
-                <h1>Find your sound...</h1>
+render() {
+    return (
+        
+        <div className="home-container flex-col">
+            <h1>Find your sound...</h1>
+            <a href= "#"> </a>
                 {/* <div className="learn" onClick={() => this.showLearn()}>
+
                 <h2>Learn More</h2>    
             </div>
             <div className="arrowButton">
@@ -36,7 +39,7 @@ class Home extends Component {
             </div>
            */}
             </div>
-        )
+        );
 
     }
 }

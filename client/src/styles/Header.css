@@ -1,6 +1,7 @@
 .navbar {
     justify-content: space-between;
     background: rgb(70, 12, 60);
+    background: #332E3C;
     width: 100%;
     position: fixed;
     height: 60px;

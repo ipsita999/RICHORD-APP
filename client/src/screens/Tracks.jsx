@@ -56,51 +56,55 @@ export default class Tracks extends Component {
         }
     }
 
-    openDeleteMenu = (event) => {
-        console.log(event.target.value)
-        this.setState({
-            itemToDeleteId: event.target.value,
-            checkDelete: true,
-        })
 
-    }
+openDeleteMenu = (event) => {
+    console.log(event.target.value)
+    this.setState({
+      itemToDeleteId: event.target.value,
+      checkDelete: true,
+    })
+    
+  }
 
-    closeDeleteMenu = () => {
-        this.setState({
-            itemToDeleteId: '',
-            checkDelete: false,
-        })
-    }
+  closeDeleteMenu = () => {
+    this.setState({
+      itemToDeleteId: '',
+      checkDelete: false,
+    })
+  }
 
-    handleDelete = () => {
-        console.log(this.state.itemToDeleteId)
-        deleteTrack(this.state.itemToDeleteId).then(() => {
-            this.setState({
-                itemToDeleteId: '',
-                checkDelete: false
-            })
-        }).catch(error => console.error(error))
+  handleDelete = () => {
+      console.log(this.state.itemToDeleteId)
+    deleteTrack(this.state.itemToDeleteId).then(() => {
+      this.setState({
+        itemToDeleteId: '',
+        checkDelete: false
+      })
+    }).catch(error => console.error(error))
 
-    }
+  }
 
-    renderDeleteMenu = (id, title) => {
-        if (this.state.checkDelete === false) {
-            return <button className='delete-prompt-button' value={id} onClick={this.openDeleteMenu}>x</button>
-        }
-        if (this.state.checkDelete) {
-            return (
-                <div className='delete-menu'>
-                    <h3 className='delete-prompt'>Are you sure you would like to delete {title}?</h3>
-                    <div className='buttons'>
-                        <button className='confirm buttonCheck' onClick={this.handleDelete}>Yes</button>
-                        <button className='reject buttonCheck' onClick={this.closeDeleteMenu}>No</button>
-                    </div>
-                </div>
-            )
-        } else {
-            return
-        }
-    }
+
+
+renderDeleteMenu = (id, title) => {
+if(this.state.checkDelete === false) {
+    return <button className='delete-prompt-button' value={id} onClick={this.openDeleteMenu}>x</button>
+}
+if (this.state.checkDelete) {
+    return (
+        <div className='delete-menu'>
+            <h3 className='delete-prompt'>Are you sure you would like to delete {title}?</h3>
+            <div className='buttons'>
+                <button className='confirm buttonCheck' onClick={this.handleDelete}>Yes</button>
+                <button className='reject buttonCheck' onClick={this.closeDeleteMenu}>No</button>
+            </div>
+        </div>
+    )
+} else {
+    return
+}
+}
+
 
     render() {
         this.checkNewTrack()
@@ -115,3 +119,14 @@ export default class Tracks extends Component {
         )
     }
 }
+
+
+
+//   checkUpdate = async () => {
+//     let data = await getGameData()
+//     if (data.length !== this.state.gameData.length) {
+//       this.setState({
+//         gameData: data
+//       })
+//     }
+//   }

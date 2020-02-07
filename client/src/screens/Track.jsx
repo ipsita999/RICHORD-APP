@@ -58,8 +58,12 @@ class Track extends Component {
         try {
             const track = await getTrackById(this.props.match.params.id)
 
+            
             this.setState({ track })
-            this.setState({ title: this.state.track.track.title })
+            this.setState({title: this.state.track.track.title})
+            console.log(this.state)
+            console.log(this.state.track.track)
+
 
         } catch (err) {
             console.error(err)
@@ -500,9 +504,11 @@ class Track extends Component {
                             } else if (timeline[i][k] === 'F') {
                                 this.setState({ uColor: 'brown' })
                             } else if (timeline[i][k] === 'G') {
-                                this.setState({ uColor: 'purple' })
-                            } else { this.setState({ uColor: 'blue' }) }
-                        }
+
+                                this.setState({uColor: 'purple'})
+                            }  else {this.setState({ uColor: 'blue'}) }
+                        } 
+
                     }
                 }
                 i = i + 1;
