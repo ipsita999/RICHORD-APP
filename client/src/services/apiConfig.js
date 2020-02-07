@@ -25,7 +25,7 @@ const JwtToken = getToken()
 let apiUrl
 
 const apiUrls = {
-  production: 'https://sei-items-api.herokuapp.com/api',
+  production: 'https://git.heroku.com/richord-music-app.git',
   development: 'http://localhost:3000/api'
 }
 

@@ -503,10 +503,7 @@ start = () => {
                                 this.setState({uColor: 'purple'})
                             }  else {this.setState({ uColor: 'blue'}) }
                         } 
-                        // togglePlay() {
-                        //     this.setState({ 'play': !this.state.play }, () => {
-                        //         this.state.play ? globalAudio.play(this.name) : globalAudio.pause(this.name);
-                        //     });
+                     
                     }
                 }
                 i = i + 1;

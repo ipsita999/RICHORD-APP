@@ -29,6 +29,7 @@ render() {
         
         <div className="home-container flex-col">
             <h1>Find your sound...</h1>
+            <a href= "#"> </a>
             {/* <div className="learn" onClick={() => this.showLearn()}>
                 <h2>Learn More</h2>    
             </div>
