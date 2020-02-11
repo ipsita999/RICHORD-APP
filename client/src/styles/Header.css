@@ -86,11 +86,6 @@
     top: 60px;
 }
 
-@media (max-width:450px) {
-    .greeting {
-        display: none;
-    }
-}
 
 .login-prompt{
     margin: 8px 0;
@@ -165,11 +160,47 @@ form p {
     animation-name: login-show;
     animation-timing-function: cubic-bezier(0, 1, 0.6, 1.1);
     animation-duration: .5s;
-    right: -26px;
+    right: -56px;
 }
 #login-not-active{
     animation: login-hide;
     animation-timing-function: ease;
     animation-duration: .5s;
     right: -380px;
+}
+
+
+@media (max-width:450px) {
+    .greeting {
+        display: none;
+    }
+
+    @keyframes login-hide {
+        from {right: -56px; opacity:1}
+        to {right: -380px; opacity:0.3}
+    }
+    @keyframes login-show {
+        from {right: -380px; opacity:0.3}
+        to {right: -26px; opacity: 1}
+    }
+    
+    #login-start {
+        display: none
+    }
+    
+    #login-active {
+        animation-name: login-show;
+        animation-timing-function: cubic-bezier(0, 1, 0.6, 1.1);
+        animation-duration: .5s;
+        right: -26px;
+    }
+    #login-not-active{
+        animation: login-hide;
+        animation-timing-function: ease;
+        animation-duration: .5s;
+        right: -380px;
+    }
+    
+
+
 }
