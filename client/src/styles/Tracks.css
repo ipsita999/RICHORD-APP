@@ -1,3 +1,9 @@
+body{
+    background-color: #332E3C;
+    background-color: rgb(26, 23, 32);
+    color:  #F8F4E3;  
+}
+
 .trackListing {
     flex-wrap: wrap;
     flex-direction: row;
@@ -6,6 +12,9 @@
 .listing {
     margin-top: 60px;
     padding-top: 20px;
+    background-color: #332E3C;
+    background-color: rgb(26, 23, 32);
+    /* height: 92vh; */
 }
 .listing h1 {
     font-size: 30px;
@@ -15,7 +24,7 @@
     color: white;
     width: 12vw;
     min-width: 150px;
-    background-color:#f48fb1;
+    background-color:#d12d48;
 }
 
 .trackListing h2 {
@@ -32,21 +41,60 @@
     max-width: 350px;
     flex: 1 1 300px;
     background-image: url(../resources/music-placeholder.png);
+    background-image: url(https://image.flaticon.com/icons/svg/1683/1683712.svg);
+    
     background-position: center;
     background-position-y: -30px;
 }
 
 .trackPreview h2 {
     background-color: #bf5f82;
+    background-color:rgb(221, 52, 61);
+    background-color: white;
+    /* background-color: #F8F4E3; */
     padding: 20px;
     text-transform: uppercase;
+    color: #F8F4E3;
+    border: 3px solid #F8F4E3;
+    color:rgb(221, 52, 61);
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
     width: 100%;
     margin-bottom: 400px;
 }
+.delete-prompt{
+    background-color:rgb(221, 52, 61);
+    color: #F8F4E3;
+    padding: 3px;
+    text-align: center;
+    z-index: 500;
 
+}
+.buttons {
+    background-color:rgb(221, 52, 61);
+    display: flex;
+    padding-left: 29%;
+    z-index: 500;
+    color: #F8F4E3;
+   
+}
 .delete-prompt-button {
     position: absolute;
     top:0;
     right:0;
     z-index: 500;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bolder;
+    border: red;
+    border-radius: 1px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.buttonCheck{
+    background-color: white;
+    border-radius: 5px;
+    margin: 1%;
+    font-weight: bold;
 }

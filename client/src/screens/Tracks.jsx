@@ -6,10 +6,12 @@ export default class Tracks extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            // tracks: []
             checkDelete: false,
             itemToDeleteName: null,
             itemToDeleteId: null,
-            tracks: null
+            tracks: null,
+            selectedtrackIndex: -1
         }
     }
 
@@ -44,11 +46,20 @@ export default class Tracks extends Component {
         } = this.props
 
         if (this.state.tracks) {
-            return this.state.tracks.map((track) => (
-                <div key={track.id} className='trackPreview flex-row' >
-                    <h2 onClick={() => history.push(`${path}/track/${track.id}`)}>{track.title}</h2>
+            console.log(this.state.tracks)
+            return this.state.tracks.map((track, i) => (
+                <div key={track.id} className='trackPreview flex-row' onClick={() => {
+                    history.push(`${path}/track/${track.id}`)
 
-                    {this.renderDeleteMenu(track.id, track.title)}
+
+                }} >
+                    <h2 onClick={() => {
+                        history.push(`${path}/track/${track.id}`)
+
+
+                    }}>{track.title} </h2>
+
+                    
 
 
                 </div>
@@ -57,57 +68,66 @@ export default class Tracks extends Component {
     }
 
 
-openDeleteMenu = (event) => {
-    console.log(event.target.value)
-    this.setState({
-      itemToDeleteId: event.target.value,
-      checkDelete: true,
-    })
-    
-  }
+    // openDeleteMenu = (event,i) => {
+    //     console.log(event.target.value)
+    //     this.setState({
+    //         selectedtrackIndex:i,
+    //         itemToDeleteId: event.target.value,
+    //         checkDelete: true,
+    //     })
 
-  closeDeleteMenu = () => {
-    this.setState({
-      itemToDeleteId: '',
-      checkDelete: false,
-    })
-  }
+    // }
 
-  handleDelete = () => {
-      console.log(this.state.itemToDeleteId)
-    deleteTrack(this.state.itemToDeleteId).then(() => {
-      this.setState({
-        itemToDeleteId: '',
-        checkDelete: false
-      })
-    }).catch(error => console.error(error))
+    // closeDeleteMenu = () => {
+    //     this.setState({
+    //         itemToDeleteId: '',
+    //         checkDelete: false,
+    //     })
+    // }
 
-  }
+    // handleDelete = () => {
+    //     console.log(this.state.itemToDeleteId)
+    //     deleteTrack(this.state.itemToDeleteId).then(() => {
+    //         this.setState({
+    //             itemToDeleteId: '',
+    //             checkDelete: false
+    //         })
+    //     }).catch(error => console.error(error))
+
+    // }
 
 
 
-renderDeleteMenu = (id, title) => {
-if(this.state.checkDelete === false) {
-    return <button className='delete-prompt-button' value={id} onClick={this.openDeleteMenu}>x</button>
-}
-if (this.state.checkDelete) {
-    return (
-        <div className='delete-menu'>
-            <h3 className='delete-prompt'>Are you sure you would like to delete {title}?</h3>
-            <div className='buttons'>
-                <button className='confirm buttonCheck' onClick={this.handleDelete}>Yes</button>
-                <button className='reject buttonCheck' onClick={this.closeDeleteMenu}>No</button>
-            </div>
-        </div>
-    )
-} else {
-    return
-}
-}
+    // renderDeleteMenu = (id, title, index) => {
+    //     if (this.state.checkDelete === false) {
+    //         return <button className='delete-prompt-button' value={id} onClick={(e) => {
+    //              this.openDeleteMenu(e,index) 
+    //         }
+
+    //         }>x</button>
+    //     }
+        
+    //     if (this.state.checkDelete && this.state.selectedtrackIndex == index) {
+    //         return (
+
+    //             <div className='delete-menu'>
+    //                 <h3 className='delete-prompt'>Are you sure you would like to delete {title}?</h3>
+    //                 <div className='buttons'>
+    //                     <button className='confirm buttonCheck' onClick={this.handleDelete}>Yes</button>
+    //                     <button className='reject buttonCheck' onClick={this.closeDeleteMenu}>No</button>
+    //                 </div>
+    //             </div>
+
+    //         );
+    //     } else {
+    //         return <button className='delete-prompt-button' value={id} onClick={this.openDeleteMenu}>x</button>;
+    //     }
+    // }
 
 
     render() {
-        this.checkNewTrack()
+        // this.checkNewTrack()
+        this.fetchTracks()
         return (
             <div className="listing">
                 <h1>All Tracks

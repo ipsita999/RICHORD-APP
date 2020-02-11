@@ -577,7 +577,7 @@ class Track extends Component {
                     <img src={require("../resources/stop.png")} onClick={this.stopTrack} />
                 </div>
                 <Link to={`/tracks/${this.props.match.params.id}/edit`}>
-                    <button>Edit</button>
+                    <button className = "edit-button">Edit</button>
                 </Link>
             </div>
         )

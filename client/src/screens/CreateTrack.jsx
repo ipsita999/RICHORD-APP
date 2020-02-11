@@ -128,7 +128,8 @@ class CreateTrack extends React.Component {
         }
 
         return (
-            <>
+            <div className= "create-track-page">
+            <div className= "create-track-page">
                 <p className='create-track-text first'>Selected Interval: {this.state.selectedInterval} </p>
                 <div className='intervals-container flex-row' >
 
@@ -159,7 +160,8 @@ class CreateTrack extends React.Component {
                     />
                     <button className='create-button' type='submit'>Save Track</button>
                 </form>
-            </>
+            </div>
+            </div>
         )
     }
 }

@@ -2,6 +2,7 @@
     justify-content: space-between;
     background: rgb(70, 12, 60);
     background: #332E3C;
+    background: white;
     width: 100%;
     position: fixed;
     height: 60px;
@@ -14,7 +15,8 @@
     height: 100%;
     font-family: 'Open Sans Condensed', sans-serif;
     color: white;
-    box-shadow: 1px 1px 5px rgb(94, 93, 92);
+    color:#332E3C;
+    box-shadow: 1px 1px 3px rgb(136, 145, 170);
 }
 
 .nav-links {
@@ -41,6 +43,7 @@
 
 .brand-link h3 {
     color: white;
+    color:#332E3C;
     font-family: 'Abril Fatface', cursive;
     font-size: 30px;
 }
@@ -53,6 +56,7 @@
 .navlink-text {
     width: max-content;
     color: white;
+    color:#332E3C;
     align-items: center;
     font-weight: bold;
     font-size: 20px;
@@ -68,6 +72,7 @@
     display: none;
     padding: 5px 25px 10px 10px;
     background-color: #c21758c0;
+    background-color:  #F8F4E3;
 }
 
 .dropdown-text {
@@ -103,6 +108,7 @@ form p {
 
 .dropdown-login {
     background-color: #c21758c0;
+    background-color:  rgb(248, 244, 227);
     position: absolute;
     width: 250px;
     padding: 10px;

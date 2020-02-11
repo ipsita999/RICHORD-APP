@@ -10,6 +10,7 @@ import Track from '../screens/Track'
 import CreateTrack from '../screens/CreateTrack'
 import EditTrack from '../screens/EditTrack'
 import AuthenticatedRoute from './AuthenticatedRoute'
+import LearnMore from '../screens/LearnMore'
 
 const Routes = ({ getTracks, user, setUser, clearUser, addTrack, tracks
 }) => (
@@ -20,7 +21,9 @@ const Routes = ({ getTracks, user, setUser, clearUser, addTrack, tracks
         path="/"
         render={props =>
           <Home />
+      
         }
+        
       />
       <Route
         path="/sign-in"

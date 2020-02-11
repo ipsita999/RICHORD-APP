@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/Home.css';
+import LearnMore from './LearnMore';
 
 class Home extends Component {
     constructor() {
@@ -26,20 +27,22 @@ class Home extends Component {
 
 render() {
     return (
-        
+        <>
         <div className="home-container flex-col">
-            <h1>Find your sound...</h1>
-            <a href= "#"> </a>
-                {/* <div className="learn" onClick={() => this.showLearn()}>
+            <h1 className ="catchphrase">Find your sound...</h1>
+            {/* <a href= "#"> </a>
+                <div className="learn" onClick={() => this.showLearn()}>
 
                 <h2>Learn More</h2>    
-            </div>
+            </div> */}
             <div className="arrowButton">
-                    <img src="https://img.icons8.com/carbon-copy/2x/down.png"></img>
+                    <img src={require("../resources/icons8-arrow-pointing-down-64.png")}></img>
             </div>
-           */}
+          
             </div>
-        );
+            <LearnMore/>
+           </> 
+        )
 
     }
 }

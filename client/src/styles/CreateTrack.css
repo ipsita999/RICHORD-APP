@@ -1,3 +1,10 @@
+.create-track-page{
+/* background-color: #332E3C;     */
+color:  #F8F4E3;
+height: 92vh;
+padding-top: .2%;
+}
+
 .intervals-container {
     flex-wrap: wrap;
     align-items: flex-start;
@@ -52,12 +59,16 @@
     border-radius: 2px;
     border: 1.2px solid pink;
     background-color: pink;
+    background-color:rgb(221, 52, 61);
+    color:  #F8F4E3;
     font-size: 15px;
     font-weight: bold;
 }
 .selected {
     background-color: palevioletred;
+    background-color:#F8F4E3;
     color: white;
+    color: rgb(221, 52, 61);
 }
 .create-track-text {
     font-size: 25px;
@@ -84,4 +95,6 @@
     font-size: 14px;
     font-weight: bold;
     background-color: pink;
+    background-color:rgb(221, 52, 61);
+    color:  #F8F4E3;
 }

@@ -1,0 +1,55 @@
+.learn-container{
+    height: 100vh;
+    background-color: #F8F4E3;
+    background-color: #332E3C;
+    background-color: rgb(26, 23, 32);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+   
+}
+.blurb{
+    color:  #F8F4E3;   
+    font-size: 275%;
+    font-weight: bold;
+    margin-top: 8%;
+}
+.title{
+    font-size: 510%;
+    font-weight:bolder;
+    margin-top: 2%;
+    color: rgb(221, 52, 61);
+    border-bottom: 3px solid rgb(221, 52, 61);
+    padding-left: 85px;
+    padding-right: 85px;
+    padding-bottom: 25px;
+
+    /* color:  #F8F4E3; */
+    
+   
+}
+
+.steps{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:  #F8F4E3;  
+    font-size: 300%;
+    margin-top: 1%;
+}
+
+.step-pic{
+    width: 50%;
+    padding: 5%;
+}
+
+.step1,
+.step2,
+.step3 { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3%;
+}

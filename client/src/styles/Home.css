@@ -8,13 +8,28 @@ body p {
     background-size: cover;
     height: 100vh;
     align-items: center;
-    color: white;
+    color: whitesmoke;
+    /* color: rgb(221, 52, 61); */
+    text-shadow: 2.5px 1px 1px rgb(221, 52, 61);
+    /* color: #F8F4E3; */
+    background-attachment: fixed;
 }
 
 .home-container h1 {
     font-size: 12vw;
     font-family: 'Great Vibes', cursive;
     font-weight: bold;
+    /* z-index: -5; */
+
+}
+.catchphrase {
+    font-size: 12vw;
+    font-family: 'Great Vibes', cursive;
+    font-weight: bold;
+    background-attachment: fixed;
+    margin-top: 10%;
+    /* position: relative; */
+    /* z-index: 1; */
 }
 
 .learn {
@@ -49,5 +64,10 @@ body p {
 }
 
 h2{
+  
     font-size: 30px;
+}
+
+.arrowButton {
+    margin-top: 15%;
 }

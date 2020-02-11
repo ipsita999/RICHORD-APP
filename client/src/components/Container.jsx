@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { getTracks } from '../services/calls'
+import { getUserTracks } from '../services/auth'
 import Routes from '../routes'
 import Header from '../screens/Header'
+import LearnMore from '../screens/LearnMore'
 
 export default class Container extends Component {
   constructor(props) {
@@ -32,6 +34,13 @@ export default class Container extends Component {
       console.error(err)
     }
   }
+  // getUserTracks = async () => {
+  //   try {
+  //     return await getUserTracks()
+  //   } catch (err) {
+  //     console.error(err)
+  //   }
+  // }
 
   addTrack = track => this.setState({ tracks: [...this.state.tracks, track] })
 
@@ -44,6 +53,7 @@ export default class Container extends Component {
     return (
       <>
         <Header user={user} {...this.props} setUser={this.setUser} />
+       
         <main className="container">
           <Routes
             getTracks={this.getTracks}
@@ -52,8 +62,11 @@ export default class Container extends Component {
             setUser={this.setUser}
             addTrack={this.addTrack}
             clearUser={this.clearUser}
+            // getUserTracks={this.getUserTracks}
           />
+  
         </main>
+    
       </>
     )
   }

@@ -60,3 +60,12 @@ export const editTrack = async (track, id) => {
     throw error
   }
 }
+export const deleteTrack = async (id) => {
+  try {
+    const resp = await api.delete(`/tracks/track/${id}`)
+    return resp.data
+  } catch (error) {
+    console.log('error getting track')
+    throw error
+  }
+}
