@@ -6,7 +6,9 @@ const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
+const use_env_variable = process.env.DATABASE_URL || "postgres://vhpkbgdztmfpdn:527e68384de412574557c3b36497b2e176c9096f1945eb8ede99a9ff899ad3fb@ec2-3-234-109-123.compute-1.amazonaws.com:5432/d2m2cikkfdv18";
 const db = {};
+cnt
 
 let sequelize;
 if (config.use_env_variable) {
