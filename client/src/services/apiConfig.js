@@ -8,7 +8,7 @@ let apiUrl
 
 const apiUrls = {
 
-  production: 'https://git.heroku.com/richord-music-app.git',
+  production: ' https://richord-music-app.herokuapp.com/api',
   development: 'http://localhost:3000/api'
 
 }
