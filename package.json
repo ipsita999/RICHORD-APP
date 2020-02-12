@@ -8,14 +8,17 @@
     "pretest": "cross-env NODE_ENV=test npm run db:reset",
     "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create",
     "start": "node server.js",
-    "dev": "nodemon server.js",
+    "dev": "node server.js",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ipsita999/RICHORD-APP.git"
   },
-  "keywords": [],
+  "keywords": [   
+    "example",
+    "heroku"
+ ],
   "author": "",
   "license": "ISC",
   "bugs": {
