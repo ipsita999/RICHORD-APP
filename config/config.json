@@ -1,18 +1,25 @@
-{
+ {
   "development": {
+    "username": "process.env.PG_USER",
+    "password": "process.env.PG_PASSWORD",
     "database": "richord_development",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "host": "process.env.PG_HOST",
+    "port": "process.env.PG_PORT",
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "test": {
+    "username": "process.env.PG_USER",
+    "password": "process.env.PG_PASSWORD",
     "database": "richord_test",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "host":" process.env.PG_HOST",
+    "port": "process.env.PG_PORT",
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "production": {
     "use_env_variable": "DATABASE_URL",
-    "database": "richord_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "operatorsAliases": false
   }
 }
